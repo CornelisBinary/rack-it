@@ -1,0 +1,17 @@
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\bin\Debug\rack-it.exe.config
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\bin\Debug\rack-it.exe
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\bin\Debug\rack-it.pdb
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\bin\Debug\MySql.Data.dll
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmBase.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.Properties.Resources.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csproj.GenerateResource.cache
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csproj.CoreCompileInputs.cache
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csproj.CopyComplete
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.exe
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.pdb
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.frmScholenOverzicht.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.frmToernooien.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.frmSpelersOverzicht.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.frmTeamsOverzicht.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csprojAssemblyReference.cache
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmHoofdscherm.resources
