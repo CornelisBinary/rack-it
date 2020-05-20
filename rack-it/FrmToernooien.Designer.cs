@@ -34,12 +34,13 @@
             this.toernooienTableAdapter = new rack_it.rack_itDataSetTableAdapters.toernooienTableAdapter();
             this.tableAdapterManager = new rack_it.rack_itDataSetTableAdapters.TableAdapterManager();
             this.toernooienDataGridView = new System.Windows.Forms.DataGridView();
+            this.button7 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Doelgroep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClmToernooien = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toernooienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toernooienDataGridView)).BeginInit();
@@ -62,6 +63,8 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.inschrijvingspelersTableAdapter = null;
+            this.tableAdapterManager.inschrijvingteamsTableAdapter = null;
             this.tableAdapterManager.locatiesTableAdapter = null;
             this.tableAdapterManager.schoolTableAdapter = null;
             this.tableAdapterManager.spelersTableAdapter = null;
@@ -78,6 +81,7 @@
             this.toernooienDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.toernooienDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
+            this.Doelgroep,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.btnClmToernooien});
@@ -87,35 +91,6 @@
             this.toernooienDataGridView.RowTemplate.Height = 24;
             this.toernooienDataGridView.Size = new System.Drawing.Size(640, 374);
             this.toernooienDataGridView.TabIndex = 7;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Naam";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Naam";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 80;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Datum";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Datum";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Locaties_Naam";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Locaties_Naam";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 140;
-            // 
-            // btnClmToernooien
-            // 
-            this.btnClmToernooien.HeaderText = "Bekijk";
-            this.btnClmToernooien.Name = "btnClmToernooien";
             // 
             // button7
             // 
@@ -135,10 +110,46 @@
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 10;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Naam";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Naam";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 80;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // Doelgroep
+            // 
+            this.Doelgroep.DataPropertyName = "Doelgroep";
+            this.Doelgroep.HeaderText = "Doelgroep";
+            this.Doelgroep.Name = "Doelgroep";
+            this.Doelgroep.ReadOnly = true;
+            this.Doelgroep.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Datum";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Datum";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Locaties_Naam";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Locaties_Naam";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 120;
+            // 
+            // btnClmToernooien
+            // 
+            this.btnClmToernooien.HeaderText = "Bekijk";
+            this.btnClmToernooien.Name = "btnClmToernooien";
+            // 
             // FrmToernooien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(800, 478);
@@ -163,11 +174,12 @@
         private rack_itDataSetTableAdapters.toernooienTableAdapter toernooienTableAdapter;
         private rack_itDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView toernooienDataGridView;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Doelgroep;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewButtonColumn btnClmToernooien;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -90,7 +90,13 @@ namespace rack_it
 
         private void btnMaakToernooi_Click(object sender, EventArgs e)
         {
+            FrmMaakToernooi frmMaakToernooi = new FrmMaakToernooi();
+            frmMaakToernooi.StartPosition = FormStartPosition.CenterParent;
 
+            if (frmMaakToernooi.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("Nieuw toernooi toegevoegd");
+            }
         }
 
         private void btnImporteerXML_Click(object sender, EventArgs e)

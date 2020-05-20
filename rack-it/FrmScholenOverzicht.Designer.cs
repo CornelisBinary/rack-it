@@ -60,6 +60,8 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.inschrijvingspelersTableAdapter = null;
+            this.tableAdapterManager.inschrijvingteamsTableAdapter = null;
             this.tableAdapterManager.locatiesTableAdapter = null;
             this.tableAdapterManager.schoolTableAdapter = this.schoolTableAdapter;
             this.tableAdapterManager.spelersTableAdapter = null;
@@ -119,8 +121,7 @@
             // 
             // FrmScholenOverzicht
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(800, 478);

@@ -15,6 +15,8 @@ namespace rack_it
         public FrmBase()
         {
             InitializeComponent();
+
+            this.Bounds = Screen.GetBounds(this);
         }
 
         private void FrmBase_Load(object sender, EventArgs e)
