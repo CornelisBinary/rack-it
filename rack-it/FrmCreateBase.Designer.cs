@@ -67,6 +67,7 @@
             this.Controls.Add(this.btnCreate);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmCreateBase";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rack-It";
             this.ResumeLayout(false);
 

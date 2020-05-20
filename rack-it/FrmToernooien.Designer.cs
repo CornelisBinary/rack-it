@@ -66,7 +66,7 @@
             this.tableAdapterManager.inschrijvingspelersTableAdapter = null;
             this.tableAdapterManager.inschrijvingteamsTableAdapter = null;
             this.tableAdapterManager.locatiesTableAdapter = null;
-            this.tableAdapterManager.schoolTableAdapter = null;
+            this.tableAdapterManager.scholenTableAdapter = null;
             this.tableAdapterManager.spelersTableAdapter = null;
             this.tableAdapterManager.teamsTableAdapter = null;
             this.tableAdapterManager.toernooienTableAdapter = this.toernooienTableAdapter;

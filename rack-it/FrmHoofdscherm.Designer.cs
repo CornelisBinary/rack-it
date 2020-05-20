@@ -44,13 +44,10 @@
             this.btnTeamsOverzicht = new System.Windows.Forms.Button();
             this.btnSpelersOverzicht = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.rack_itDataSet = new rack_it.rack_itDataSet();
-            this.tableAdapterManager = new rack_it.rack_itDataSetTableAdapters.TableAdapterManager();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -73,7 +70,7 @@
             this.btnImporteerXML.Name = "btnImporteerXML";
             this.btnImporteerXML.Size = new System.Drawing.Size(305, 46);
             this.btnImporteerXML.TabIndex = 8;
-            this.btnImporteerXML.Text = "XML(popup)";
+            this.btnImporteerXML.Text = "XML";
             this.btnImporteerXML.UseVisualStyleBackColor = true;
             this.btnImporteerXML.Click += new System.EventHandler(this.btnImporteerXML_Click);
             // 
@@ -108,7 +105,7 @@
             this.btnMaakToernooi.Name = "btnMaakToernooi";
             this.btnMaakToernooi.Size = new System.Drawing.Size(305, 46);
             this.btnMaakToernooi.TabIndex = 7;
-            this.btnMaakToernooi.Text = "Maak toernooi(popup)";
+            this.btnMaakToernooi.Text = "Maak toernooi";
             this.btnMaakToernooi.UseVisualStyleBackColor = true;
             this.btnMaakToernooi.Click += new System.EventHandler(this.btnMaakToernooi_Click);
             // 
@@ -241,26 +238,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Bewerkbare gegevens:";
             // 
-            // rack_itDataSet
-            // 
-            this.rack_itDataSet.DataSetName = "rack_itDataSet";
-            this.rack_itDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.inschrijvingspelersTableAdapter = null;
-            this.tableAdapterManager.inschrijvingteamsTableAdapter = null;
-            this.tableAdapterManager.locatiesTableAdapter = null;
-            this.tableAdapterManager.schoolTableAdapter = null;
-            this.tableAdapterManager.spelersTableAdapter = null;
-            this.tableAdapterManager.teamsTableAdapter = null;
-            this.tableAdapterManager.toernooienTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = rack_it.rack_itDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.veldenTableAdapter = null;
-            this.tableAdapterManager.wedstrijdenTableAdapter = null;
-            // 
             // FrmHoofdscherm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -283,7 +260,6 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -306,7 +282,5 @@
         private System.Windows.Forms.Button btnTeamsOverzicht;
         private System.Windows.Forms.Button btnSpelersOverzicht;
         private System.Windows.Forms.Label label2;
-        private rack_itDataSet rack_itDataSet;
-        private rack_itDataSetTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

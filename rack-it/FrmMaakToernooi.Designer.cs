@@ -64,6 +64,7 @@
             // 
             // datumLabel
             // 
+            datumLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             datumLabel.AutoSize = true;
             datumLabel.Location = new System.Drawing.Point(13, 183);
             datumLabel.Name = "datumLabel";
@@ -73,6 +74,7 @@
             // 
             // naamLabel
             // 
+            naamLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             naamLabel.AutoSize = true;
             naamLabel.Location = new System.Drawing.Point(13, 126);
             naamLabel.Name = "naamLabel";
@@ -82,12 +84,23 @@
             // 
             // locaties_NaamLabel
             // 
+            locaties_NaamLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             locaties_NaamLabel.AutoSize = true;
             locaties_NaamLabel.Location = new System.Drawing.Point(13, 209);
             locaties_NaamLabel.Name = "locaties_NaamLabel";
             locaties_NaamLabel.Size = new System.Drawing.Size(58, 17);
             locaties_NaamLabel.TabIndex = 6;
             locaties_NaamLabel.Text = "Locatie:";
+            // 
+            // doelgroepLabel
+            // 
+            doelgroepLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            doelgroepLabel.AutoSize = true;
+            doelgroepLabel.Location = new System.Drawing.Point(13, 153);
+            doelgroepLabel.Name = "doelgroepLabel";
+            doelgroepLabel.Size = new System.Drawing.Size(78, 17);
+            doelgroepLabel.TabIndex = 9;
+            doelgroepLabel.Text = "Doelgroep:";
             // 
             // rack_itDataSet
             // 
@@ -109,7 +122,7 @@
             this.tableAdapterManager.inschrijvingspelersTableAdapter = null;
             this.tableAdapterManager.inschrijvingteamsTableAdapter = null;
             this.tableAdapterManager.locatiesTableAdapter = null;
-            this.tableAdapterManager.schoolTableAdapter = null;
+            this.tableAdapterManager.scholenTableAdapter = null;
             this.tableAdapterManager.spelersTableAdapter = null;
             this.tableAdapterManager.teamsTableAdapter = null;
             this.tableAdapterManager.toernooienTableAdapter = this.toernooienTableAdapter;
@@ -128,6 +141,7 @@
             // 
             // datumDateTimePicker
             // 
+            this.datumDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.datumDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.toernooienBindingSource, "Datum", true));
             this.datumDateTimePicker.Location = new System.Drawing.Point(125, 179);
             this.datumDateTimePicker.Name = "datumDateTimePicker";
@@ -136,6 +150,7 @@
             // 
             // naamTextBox
             // 
+            this.naamTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.naamTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.toernooienBindingSource, "Naam", true));
             this.naamTextBox.Location = new System.Drawing.Point(125, 123);
             this.naamTextBox.Name = "naamTextBox";
@@ -144,6 +159,7 @@
             // 
             // locaties_NaamComboBox
             // 
+            this.locaties_NaamComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.locaties_NaamComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.toernooienBindingSource, "Locaties_Naam", true));
             this.locaties_NaamComboBox.DataSource = this.locatiesBindingSource;
             this.locaties_NaamComboBox.DisplayMember = "Naam";
@@ -154,17 +170,9 @@
             this.locaties_NaamComboBox.TabIndex = 7;
             this.locaties_NaamComboBox.ValueMember = "Naam";
             // 
-            // doelgroepLabel
-            // 
-            doelgroepLabel.AutoSize = true;
-            doelgroepLabel.Location = new System.Drawing.Point(13, 153);
-            doelgroepLabel.Name = "doelgroepLabel";
-            doelgroepLabel.Size = new System.Drawing.Size(78, 17);
-            doelgroepLabel.TabIndex = 9;
-            doelgroepLabel.Text = "Doelgroep:";
-            // 
             // doelgroepComboBox
             // 
+            this.doelgroepComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.doelgroepComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.toernooienBindingSource, "Doelgroep", true));
             this.doelgroepComboBox.FormattingEnabled = true;
             this.doelgroepComboBox.Location = new System.Drawing.Point(125, 150);

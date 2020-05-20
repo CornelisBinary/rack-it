@@ -38,6 +38,7 @@
             this.btnClmTeams = new System.Windows.Forms.DataGridViewButtonColumn();
             this.button7 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnNieuw = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamsDataGridView)).BeginInit();
@@ -63,7 +64,7 @@
             this.tableAdapterManager.inschrijvingspelersTableAdapter = null;
             this.tableAdapterManager.inschrijvingteamsTableAdapter = null;
             this.tableAdapterManager.locatiesTableAdapter = null;
-            this.tableAdapterManager.schoolTableAdapter = null;
+            this.tableAdapterManager.scholenTableAdapter = null;
             this.tableAdapterManager.spelersTableAdapter = null;
             this.tableAdapterManager.teamsTableAdapter = this.teamsTableAdapter;
             this.tableAdapterManager.toernooienTableAdapter = null;
@@ -85,6 +86,7 @@
             this.teamsDataGridView.RowTemplate.Height = 24;
             this.teamsDataGridView.Size = new System.Drawing.Size(640, 374);
             this.teamsDataGridView.TabIndex = 7;
+            this.teamsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.teamsDataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -118,12 +120,25 @@
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 10;
             // 
+            // btnNieuw
+            // 
+            this.btnNieuw.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnNieuw.BackColor = System.Drawing.Color.LightBlue;
+            this.btnNieuw.Location = new System.Drawing.Point(620, 43);
+            this.btnNieuw.Name = "btnNieuw";
+            this.btnNieuw.Size = new System.Drawing.Size(100, 23);
+            this.btnNieuw.TabIndex = 12;
+            this.btnNieuw.Text = "+";
+            this.btnNieuw.UseVisualStyleBackColor = false;
+            this.btnNieuw.Click += new System.EventHandler(this.btnNieuw_Click);
+            // 
             // FrmTeamsOverzicht
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(800, 478);
+            this.Controls.Add(this.btnNieuw);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.teamsDataGridView);
@@ -149,5 +164,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewButtonColumn btnClmTeams;
+        private System.Windows.Forms.Button btnNieuw;
     }
 }

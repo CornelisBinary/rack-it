@@ -18,3 +18,9 @@ C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.exe
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.pdb
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmMaakToernooi.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csprojAssemblyReference.cache
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmBewerkSchool.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmBewerkSpeler.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmBewerkTeam.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmMaakSchool.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmMaakTeam.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmMaakSpeler.resources

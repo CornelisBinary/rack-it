@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace rack_it
 {
-    public partial class FrmTeamsOverzicht : Form
+    public partial class FrmMaakTeam : rack_it.FrmCreateBase
     {
-        public FrmTeamsOverzicht()
+        public FrmMaakTeam()
         {
             InitializeComponent();
         }
@@ -23,29 +23,35 @@ namespace rack_it
 
         }
 
-        private void frmTeamsOverzicht_Load(object sender, EventArgs e)
+        private void FrmMaakTeam_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'rack_itDataSet.teams' table. You can move, or remove it, as needed.
             this.teamsTableAdapter.Fill(this.rack_itDataSet.teams);
 
+            teamsBindingSource.AddNew();
         }
 
-        private void teamsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (e.ColumnIndex == 1)
+            try
             {
-                MessageBox.Show(e.RowIndex.ToString() + " " + teamsDataGridView.Rows[e.RowIndex].Cells[0].Value);
+                this.Validate();
+                teamsBindingSource.EndEdit();
+                tableAdapterManager.UpdateAll(this.rack_itDataSet);
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
             }
         }
 
-        private void btnNieuw_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            FrmMaakTeam frmMaakTeam = new FrmMaakTeam();
-
-            if (frmMaakTeam.ShowDialog() == DialogResult.OK)
-            {
-                this.teamsTableAdapter.Fill(this.rack_itDataSet.teams);
-            }
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

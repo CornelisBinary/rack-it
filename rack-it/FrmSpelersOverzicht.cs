@@ -29,5 +29,23 @@ namespace rack_it
             this.spelersTableAdapter.Fill(this.rack_itDataSet.spelers);
 
         }
+
+        private void spelersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4)
+            {
+                MessageBox.Show(e.RowIndex.ToString() + " " + spelersDataGridView.Rows[e.RowIndex].Cells[0].Value);
+            }
+        }
+
+        private void btnNieuw_Click(object sender, EventArgs e)
+        {
+            FrmMaakSpeler frmMaakSpeler = new FrmMaakSpeler();
+
+            if (frmMaakSpeler.ShowDialog() == DialogResult.OK)
+            {
+                this.spelersTableAdapter.Fill(this.rack_itDataSet.spelers);
+            }
+        }
     }
 }

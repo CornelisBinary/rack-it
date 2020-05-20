@@ -72,6 +72,24 @@
     <Compile Include="FrmBase.Designer.cs">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBewerkSchool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBewerkSchool.Designer.cs">
+      <DependentUpon>FrmBewerkSchool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBewerkSpeler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBewerkSpeler.Designer.cs">
+      <DependentUpon>FrmBewerkSpeler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBewerkTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBewerkTeam.Designer.cs">
+      <DependentUpon>FrmBewerkTeam.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCreateBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +107,24 @@
     </Compile>
     <Compile Include="FrmHoofdscherm.Designer.cs">
       <DependentUpon>FrmHoofdscherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMaakSchool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMaakSchool.Designer.cs">
+      <DependentUpon>FrmMaakSchool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMaakSpeler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMaakSpeler.Designer.cs">
+      <DependentUpon>FrmMaakSpeler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMaakTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMaakTeam.Designer.cs">
+      <DependentUpon>FrmMaakTeam.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMaakToernooi.cs">
       <SubType>Form</SubType>
@@ -133,6 +169,15 @@
     <EmbeddedResource Include="FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmBewerkSchool.resx">
+      <DependentUpon>FrmBewerkSchool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBewerkSpeler.resx">
+      <DependentUpon>FrmBewerkSpeler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBewerkTeam.resx">
+      <DependentUpon>FrmBewerkTeam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCreateBase.resx">
       <DependentUpon>FrmCreateBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +186,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHoofdscherm.resx">
       <DependentUpon>FrmHoofdscherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMaakSchool.resx">
+      <DependentUpon>FrmMaakSchool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMaakSpeler.resx">
+      <DependentUpon>FrmMaakSpeler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMaakTeam.resx">
+      <DependentUpon>FrmMaakTeam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMaakToernooi.resx">
       <DependentUpon>FrmMaakToernooi.cs</DependentUpon>

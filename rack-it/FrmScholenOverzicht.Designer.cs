@@ -30,16 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.rack_itDataSet = new rack_it.rack_itDataSet();
-            this.schoolBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.schoolTableAdapter = new rack_it.rack_itDataSetTableAdapters.schoolTableAdapter();
+            this.scholenBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.scholenTableAdapter = new rack_it.rack_itDataSetTableAdapters.scholenTableAdapter();
             this.tableAdapterManager = new rack_it.rack_itDataSetTableAdapters.TableAdapterManager();
             this.schoolDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClmSchool = new System.Windows.Forms.DataGridViewButtonColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
+            this.btnNieuw = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scholenBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schoolDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,14 +49,14 @@
             this.rack_itDataSet.DataSetName = "rack_itDataSet";
             this.rack_itDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // schoolBindingSource
+            // scholenBindingSource
             // 
-            this.schoolBindingSource.DataMember = "school";
-            this.schoolBindingSource.DataSource = this.rack_itDataSet;
+            this.scholenBindingSource.DataMember = "scholen";
+            this.scholenBindingSource.DataSource = this.rack_itDataSet;
             // 
-            // schoolTableAdapter
+            // scholenTableAdapter
             // 
-            this.schoolTableAdapter.ClearBeforeFill = true;
+            this.scholenTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
@@ -63,7 +64,7 @@
             this.tableAdapterManager.inschrijvingspelersTableAdapter = null;
             this.tableAdapterManager.inschrijvingteamsTableAdapter = null;
             this.tableAdapterManager.locatiesTableAdapter = null;
-            this.tableAdapterManager.schoolTableAdapter = this.schoolTableAdapter;
+            this.tableAdapterManager.scholenTableAdapter = this.scholenTableAdapter;
             this.tableAdapterManager.spelersTableAdapter = null;
             this.tableAdapterManager.teamsTableAdapter = null;
             this.tableAdapterManager.toernooienTableAdapter = null;
@@ -79,12 +80,13 @@
             this.schoolDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.btnClmSchool});
-            this.schoolDataGridView.DataSource = this.schoolBindingSource;
+            this.schoolDataGridView.DataSource = this.scholenBindingSource;
             this.schoolDataGridView.Location = new System.Drawing.Point(80, 72);
             this.schoolDataGridView.Name = "schoolDataGridView";
             this.schoolDataGridView.RowTemplate.Height = 24;
             this.schoolDataGridView.Size = new System.Drawing.Size(640, 374);
             this.schoolDataGridView.TabIndex = 7;
+            this.schoolDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.schoolDataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -119,12 +121,25 @@
             this.button7.Text = "button7";
             this.button7.UseVisualStyleBackColor = true;
             // 
+            // btnNieuw
+            // 
+            this.btnNieuw.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnNieuw.BackColor = System.Drawing.Color.LightBlue;
+            this.btnNieuw.Location = new System.Drawing.Point(620, 44);
+            this.btnNieuw.Name = "btnNieuw";
+            this.btnNieuw.Size = new System.Drawing.Size(100, 23);
+            this.btnNieuw.TabIndex = 10;
+            this.btnNieuw.Text = "+";
+            this.btnNieuw.UseVisualStyleBackColor = false;
+            this.btnNieuw.Click += new System.EventHandler(this.btnNieuw_Click);
+            // 
             // FrmScholenOverzicht
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(800, 478);
+            this.Controls.Add(this.btnNieuw);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.schoolDataGridView);
@@ -132,7 +147,7 @@
             this.Name = "FrmScholenOverzicht";
             this.Load += new System.EventHandler(this.frmScholenOverzicht_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scholenBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schoolDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -142,13 +157,14 @@
         #endregion
 
         private rack_itDataSet rack_itDataSet;
-        private System.Windows.Forms.BindingSource schoolBindingSource;
-        private rack_itDataSetTableAdapters.schoolTableAdapter schoolTableAdapter;
+        private System.Windows.Forms.BindingSource scholenBindingSource;
+        private rack_itDataSetTableAdapters.scholenTableAdapter scholenTableAdapter;
         private rack_itDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView schoolDataGridView;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewButtonColumn btnClmSchool;
+        private System.Windows.Forms.Button btnNieuw;
     }
 }
