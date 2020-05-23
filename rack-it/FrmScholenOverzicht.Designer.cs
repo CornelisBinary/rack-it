@@ -74,6 +74,8 @@
             // 
             // schoolDataGridView
             // 
+            this.schoolDataGridView.AllowUserToAddRows = false;
+            this.schoolDataGridView.AllowUserToDeleteRows = false;
             this.schoolDataGridView.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.schoolDataGridView.AutoGenerateColumns = false;
             this.schoolDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

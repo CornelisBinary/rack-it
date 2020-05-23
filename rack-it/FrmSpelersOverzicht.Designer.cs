@@ -34,14 +34,14 @@
             this.spelersTableAdapter = new rack_it.rack_itDataSetTableAdapters.spelersTableAdapter();
             this.tableAdapterManager = new rack_it.rack_itDataSetTableAdapters.TableAdapterManager();
             this.spelersDataGridView = new System.Windows.Forms.DataGridView();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnNieuw = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Scholen_Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClmSpelers = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.button7 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnNieuw = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelersDataGridView)).BeginInit();
@@ -77,6 +77,8 @@
             // 
             // spelersDataGridView
             // 
+            this.spelersDataGridView.AllowUserToAddRows = false;
+            this.spelersDataGridView.AllowUserToDeleteRows = false;
             this.spelersDataGridView.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.spelersDataGridView.AutoGenerateColumns = false;
             this.spelersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -93,36 +95,6 @@
             this.spelersDataGridView.Size = new System.Drawing.Size(640, 374);
             this.spelersDataGridView.TabIndex = 7;
             this.spelersDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.spelersDataGridView_CellContentClick);
-            // 
-            // button7
-            // 
-            this.button7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button7.Location = new System.Drawing.Point(186, 43);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 24);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox1.Location = new System.Drawing.Point(80, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 10;
-            // 
-            // btnNieuw
-            // 
-            this.btnNieuw.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnNieuw.BackColor = System.Drawing.Color.LightBlue;
-            this.btnNieuw.Location = new System.Drawing.Point(620, 43);
-            this.btnNieuw.Name = "btnNieuw";
-            this.btnNieuw.Size = new System.Drawing.Size(100, 23);
-            this.btnNieuw.TabIndex = 12;
-            this.btnNieuw.Text = "+";
-            this.btnNieuw.UseVisualStyleBackColor = false;
-            this.btnNieuw.Click += new System.EventHandler(this.btnNieuw_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -158,6 +130,36 @@
             // 
             this.btnClmSpelers.HeaderText = "Bewerk";
             this.btnClmSpelers.Name = "btnClmSpelers";
+            // 
+            // button7
+            // 
+            this.button7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button7.Location = new System.Drawing.Point(186, 43);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 24);
+            this.button7.TabIndex = 11;
+            this.button7.Text = "button7";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBox1.Location = new System.Drawing.Point(80, 44);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 10;
+            // 
+            // btnNieuw
+            // 
+            this.btnNieuw.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnNieuw.BackColor = System.Drawing.Color.LightBlue;
+            this.btnNieuw.Location = new System.Drawing.Point(620, 43);
+            this.btnNieuw.Name = "btnNieuw";
+            this.btnNieuw.Size = new System.Drawing.Size(100, 23);
+            this.btnNieuw.TabIndex = 12;
+            this.btnNieuw.Text = "+";
+            this.btnNieuw.UseVisualStyleBackColor = false;
+            this.btnNieuw.Click += new System.EventHandler(this.btnNieuw_Click);
             // 
             // FrmSpelersOverzicht
             // 

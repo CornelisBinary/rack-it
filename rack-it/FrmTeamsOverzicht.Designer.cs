@@ -74,6 +74,8 @@
             // 
             // teamsDataGridView
             // 
+            this.teamsDataGridView.AllowUserToAddRows = false;
+            this.teamsDataGridView.AllowUserToDeleteRows = false;
             this.teamsDataGridView.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.teamsDataGridView.AutoGenerateColumns = false;
             this.teamsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

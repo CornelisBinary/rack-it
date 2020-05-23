@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="codeStash\CodeFile1.cs" />
     <Compile Include="FrmBase.cs">
       <SubType>Form</SubType>
     </Compile>

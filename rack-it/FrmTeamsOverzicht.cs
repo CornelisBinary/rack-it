@@ -32,9 +32,16 @@ namespace rack_it
 
         private void teamsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 1)
+            if (e.ColumnIndex == 1 && teamsDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString() != "");
             {
-                MessageBox.Show(e.RowIndex.ToString() + " " + teamsDataGridView.Rows[e.RowIndex].Cells[0].Value);
+                int index = e.RowIndex;
+                FrmBewerkTeam frmBewerkTeam = new FrmBewerkTeam(index);
+
+                if (frmBewerkTeam.ShowDialog() == DialogResult.OK)
+                {
+                    this.teamsTableAdapter.Fill(rack_itDataSet.teams);
+                }
+                //MessageBox.Show(e.RowIndex.ToString() + " " + teamsDataGridView.Rows[e.RowIndex].Cells[0].Value);
             }
         }
 

@@ -65,7 +65,6 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEdit);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(350, 450);
             this.Name = "FrmEditBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rack-It";

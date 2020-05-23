@@ -32,10 +32,18 @@ namespace rack_it
 
         private void schoolDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 1)
+            if (e.ColumnIndex == 1 && schoolDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString() != "")
             {
-                MessageBox.Show(e.RowIndex.ToString() + " " + schoolDataGridView.Rows[e.RowIndex].Cells[0].Value);
+                int index = e.RowIndex;
+                FrmBewerkSchool frmBewerkSchool = new FrmBewerkSchool(index);
+
+                if (frmBewerkSchool.ShowDialog() == DialogResult.OK)
+                {
+                    scholenTableAdapter.Fill(this.rack_itDataSet.scholen);
+                }
+                //MessageBox.Show(e.RowIndex.ToString() + " " + schoolDataGridView.Rows[e.RowIndex].Cells[0].Value);
             }
+
         }
 
         private void btnNieuw_Click(object sender, EventArgs e)

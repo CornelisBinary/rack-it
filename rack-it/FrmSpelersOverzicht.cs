@@ -32,9 +32,16 @@ namespace rack_it
 
         private void spelersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 4 && spelersDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString() != "")
             {
-                MessageBox.Show(e.RowIndex.ToString() + " " + spelersDataGridView.Rows[e.RowIndex].Cells[0].Value);
+                int index = e.RowIndex;
+                FrmBewerkSpeler frmBewerkSpeler = new FrmBewerkSpeler(index);
+
+                if (frmBewerkSpeler.ShowDialog() == DialogResult.OK)
+                {
+                    spelersTableAdapter.Fill(rack_itDataSet.spelers);
+                }
+                //MessageBox.Show(e.RowIndex.ToString() + " " + spelersDataGridView.Rows[e.RowIndex].Cells[0].Value);
             }
         }
 
