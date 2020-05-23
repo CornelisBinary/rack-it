@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace rack_it
 {
-    public partial class FrmToernooien : Form
+    public partial class FrmToernooienOverzicht : Form
     {
-        public FrmToernooien()
+        public FrmToernooienOverzicht()
         {
             InitializeComponent();
         }

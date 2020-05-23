@@ -151,11 +151,17 @@
     <Compile Include="FrmTeamsOverzicht.Designer.cs">
       <DependentUpon>FrmTeamsOverzicht.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmToernooien.cs">
+    <Compile Include="FrmToernooienOverzicht.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmToernooien.Designer.cs">
-      <DependentUpon>FrmToernooien.cs</DependentUpon>
+    <Compile Include="FrmToernooienOverzicht.Designer.cs">
+      <DependentUpon>FrmToernooienOverzicht.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmToernooienWeergave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmToernooienWeergave.Designer.cs">
+      <DependentUpon>FrmToernooienWeergave.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -209,8 +215,11 @@
     <EmbeddedResource Include="FrmTeamsOverzicht.resx">
       <DependentUpon>FrmTeamsOverzicht.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmToernooien.resx">
-      <DependentUpon>FrmToernooien.cs</DependentUpon>
+    <EmbeddedResource Include="FrmToernooienOverzicht.resx">
+      <DependentUpon>FrmToernooienOverzicht.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmToernooienWeergave.resx">
+      <DependentUpon>FrmToernooienWeergave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

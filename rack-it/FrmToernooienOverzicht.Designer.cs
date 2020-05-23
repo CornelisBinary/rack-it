@@ -1,6 +1,6 @@
 ﻿namespace rack_it
 {
-    partial class FrmToernooien
+    partial class FrmToernooienOverzicht
     {
         /// <summary>
         /// Required designer variable.
