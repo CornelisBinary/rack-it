@@ -4,7 +4,6 @@ C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmEditBase
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmScholenOverzicht.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmSpelersOverzicht.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmTeamsOverzicht.resources
-C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmToernooien.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.Properties.Resources.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csproj.GenerateResource.cache
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csproj.CoreCompileInputs.cache
@@ -24,3 +23,5 @@ C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmBewerkTe
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmMaakSchool.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmMaakTeam.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmMaakSpeler.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmToernooienOverzicht.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmToernooienWeergave.resources

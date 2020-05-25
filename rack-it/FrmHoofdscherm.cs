@@ -18,7 +18,7 @@ namespace rack_it
         }
         private void btnAfgelegdeToernooien_Click(object sender, EventArgs e)
         {
-            FrmToernooienOverzicht frmToernooien = new FrmToernooienOverzicht();
+            FrmToernooienOverzicht frmToernooien = new FrmToernooienOverzicht(Toernooi.Afgelegd);
             frmToernooien.MdiParent = this.MdiParent;
 
             frmToernooien.StartPosition = FormStartPosition.CenterScreen;
@@ -30,7 +30,7 @@ namespace rack_it
 
         private void btnActieveToernooien_Click(object sender, EventArgs e)
         {
-            FrmToernooienOverzicht frmToernooien = new FrmToernooienOverzicht();
+            FrmToernooienOverzicht frmToernooien = new FrmToernooienOverzicht(Toernooi.Actief);
             frmToernooien.MdiParent = this.MdiParent;
 
             frmToernooien.StartPosition = FormStartPosition.CenterScreen;
@@ -42,7 +42,7 @@ namespace rack_it
 
         private void btnAankomendeToernooien_Click(object sender, EventArgs e)
         {
-            FrmToernooienOverzicht frmToernooien = new FrmToernooienOverzicht();
+            FrmToernooienOverzicht frmToernooien = new FrmToernooienOverzicht(Toernooi.Aankomend);
             frmToernooien.MdiParent = this.MdiParent;
 
             frmToernooien.StartPosition = FormStartPosition.CenterScreen;

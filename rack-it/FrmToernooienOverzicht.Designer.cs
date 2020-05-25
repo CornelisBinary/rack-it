@@ -29,50 +29,29 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.rack_itDataSet = new rack_it.rack_itDataSet();
-            this.toernooienBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toernooienTableAdapter = new rack_it.rack_itDataSetTableAdapters.toernooienTableAdapter();
-            this.tableAdapterManager = new rack_it.rack_itDataSetTableAdapters.TableAdapterManager();
             this.toernooienDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Doelgroep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClmToernooien = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.toernooienBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rack_itDataSet = new rack_it.rack_itDataSet();
             this.btnZoeken = new System.Windows.Forms.Button();
             this.txbZoekwaarde = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toernooienBindingSource)).BeginInit();
+            this.rdbAankomend = new System.Windows.Forms.RadioButton();
+            this.ckbAlleToernooien = new System.Windows.Forms.CheckBox();
+            this.rdbActief = new System.Windows.Forms.RadioButton();
+            this.rdbAfgelegd = new System.Windows.Forms.RadioButton();
+            this.toernooienTableAdapter = new rack_it.rack_itDataSetTableAdapters.toernooienTableAdapter();
+            this.tableAdapterManager = new rack_it.rack_itDataSetTableAdapters.TableAdapterManager();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.toernooienDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toernooienBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // rack_itDataSet
-            // 
-            this.rack_itDataSet.DataSetName = "rack_itDataSet";
-            this.rack_itDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // toernooienBindingSource
-            // 
-            this.toernooienBindingSource.DataMember = "toernooien";
-            this.toernooienBindingSource.DataSource = this.rack_itDataSet;
-            // 
-            // toernooienTableAdapter
-            // 
-            this.toernooienTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.inschrijvingspelersTableAdapter = null;
-            this.tableAdapterManager.inschrijvingteamsTableAdapter = null;
-            this.tableAdapterManager.locatiesTableAdapter = null;
-            this.tableAdapterManager.scholenTableAdapter = null;
-            this.tableAdapterManager.spelersTableAdapter = null;
-            this.tableAdapterManager.teamsTableAdapter = null;
-            this.tableAdapterManager.toernooienTableAdapter = this.toernooienTableAdapter;
-            this.tableAdapterManager.UpdateOrder = rack_it.rack_itDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.veldenTableAdapter = null;
-            this.tableAdapterManager.wedstrijdenTableAdapter = null;
             // 
             // toernooienDataGridView
             // 
@@ -131,6 +110,16 @@
             this.btnClmToernooien.HeaderText = "Bekijk";
             this.btnClmToernooien.Name = "btnClmToernooien";
             // 
+            // toernooienBindingSource
+            // 
+            this.toernooienBindingSource.DataMember = "toernooien";
+            this.toernooienBindingSource.DataSource = this.rack_itDataSet;
+            // 
+            // rack_itDataSet
+            // 
+            this.rack_itDataSet.DataSetName = "rack_itDataSet";
+            this.rack_itDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // btnZoeken
             // 
             this.btnZoeken.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -151,21 +140,99 @@
             this.txbZoekwaarde.Size = new System.Drawing.Size(100, 22);
             this.txbZoekwaarde.TabIndex = 10;
             // 
-            // FrmToernooien
+            // rdbAankomend
+            // 
+            this.rdbAankomend.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rdbAankomend.BackColor = System.Drawing.Color.Silver;
+            this.rdbAankomend.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rdbAankomend.Location = new System.Drawing.Point(566, 41);
+            this.rdbAankomend.Name = "rdbAankomend";
+            this.rdbAankomend.Size = new System.Drawing.Size(34, 25);
+            this.rdbAankomend.TabIndex = 12;
+            this.rdbAankomend.TabStop = true;
+            this.rdbAankomend.UseVisualStyleBackColor = false;
+            this.rdbAankomend.CheckedChanged += new System.EventHandler(this.rdbAankomend_CheckedChanged);
+            // 
+            // ckbAlleToernooien
+            // 
+            this.ckbAlleToernooien.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ckbAlleToernooien.BackColor = System.Drawing.Color.Gray;
+            this.ckbAlleToernooien.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ckbAlleToernooien.Location = new System.Drawing.Point(686, 41);
+            this.ckbAlleToernooien.Name = "ckbAlleToernooien";
+            this.ckbAlleToernooien.Size = new System.Drawing.Size(34, 25);
+            this.ckbAlleToernooien.TabIndex = 15;
+            this.ckbAlleToernooien.UseVisualStyleBackColor = false;
+            this.ckbAlleToernooien.CheckedChanged += new System.EventHandler(this.ckbAlleToernooien_CheckedChanged);
+            // 
+            // rdbActief
+            // 
+            this.rdbActief.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rdbActief.BackColor = System.Drawing.Color.LightGreen;
+            this.rdbActief.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rdbActief.Location = new System.Drawing.Point(606, 41);
+            this.rdbActief.Name = "rdbActief";
+            this.rdbActief.Size = new System.Drawing.Size(34, 25);
+            this.rdbActief.TabIndex = 16;
+            this.rdbActief.TabStop = true;
+            this.rdbActief.UseVisualStyleBackColor = false;
+            this.rdbActief.CheckedChanged += new System.EventHandler(this.rdbActief_CheckedChanged);
+            // 
+            // rdbAfgelegd
+            // 
+            this.rdbAfgelegd.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rdbAfgelegd.BackColor = System.Drawing.Color.Black;
+            this.rdbAfgelegd.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rdbAfgelegd.Location = new System.Drawing.Point(646, 41);
+            this.rdbAfgelegd.Name = "rdbAfgelegd";
+            this.rdbAfgelegd.Size = new System.Drawing.Size(34, 25);
+            this.rdbAfgelegd.TabIndex = 17;
+            this.rdbAfgelegd.TabStop = true;
+            this.rdbAfgelegd.UseVisualStyleBackColor = false;
+            this.rdbAfgelegd.CheckedChanged += new System.EventHandler(this.rdbAfgelegd_CheckedChanged);
+            // 
+            // toernooienTableAdapter
+            // 
+            this.toernooienTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.inschrijvingspelersTableAdapter = null;
+            this.tableAdapterManager.inschrijvingteamsTableAdapter = null;
+            this.tableAdapterManager.locatiesTableAdapter = null;
+            this.tableAdapterManager.scholenTableAdapter = null;
+            this.tableAdapterManager.spelersTableAdapter = null;
+            this.tableAdapterManager.teamsTableAdapter = null;
+            this.tableAdapterManager.toernooienTableAdapter = this.toernooienTableAdapter;
+            this.tableAdapterManager.UpdateOrder = rack_it.rack_itDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.veldenTableAdapter = null;
+            this.tableAdapterManager.wedstrijdenTableAdapter = null;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // FrmToernooienOverzicht
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(800, 478);
+            this.Controls.Add(this.rdbAfgelegd);
+            this.Controls.Add(this.rdbActief);
+            this.Controls.Add(this.ckbAlleToernooien);
+            this.Controls.Add(this.rdbAankomend);
             this.Controls.Add(this.btnZoeken);
             this.Controls.Add(this.txbZoekwaarde);
             this.Controls.Add(this.toernooienDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmToernooien";
+            this.Name = "FrmToernooienOverzicht";
             this.Load += new System.EventHandler(this.frmToernooien_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toernooienBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toernooienDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toernooienBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +252,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewButtonColumn btnClmToernooien;
+        private System.Windows.Forms.RadioButton rdbAankomend;
+        private System.Windows.Forms.CheckBox ckbAlleToernooien;
+        private System.Windows.Forms.RadioButton rdbActief;
+        private System.Windows.Forms.RadioButton rdbAfgelegd;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
