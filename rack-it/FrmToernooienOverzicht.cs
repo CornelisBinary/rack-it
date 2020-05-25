@@ -12,7 +12,8 @@ namespace rack_it
     {
         Aankomend,
         Actief,
-        Afgelegd
+        Afgelegd,
+        Alle
     }
 
     public partial class FrmToernooienOverzicht : Form
@@ -33,6 +34,9 @@ namespace rack_it
                 case Toernooi.Afgelegd:
                     rdbAfgelegd.Checked = true;
                     break;
+                case Toernooi.Alle:
+                    rdbAlleToernooien.Checked = true;
+                    break;
                 default:
                     break;
             }
@@ -43,7 +47,7 @@ namespace rack_it
             toolTip1.SetToolTip(rdbAankomend, "aankomende toernooien");
             toolTip1.SetToolTip(rdbActief, "actieve toernooien");
             toolTip1.SetToolTip(rdbAfgelegd, "afgelegde toernooien");
-            toolTip1.SetToolTip(ckbAlleToernooien, "alle toernooien");
+            toolTip1.SetToolTip(rdbAlleToernooien, "alle toernooien");
         }
 
         private void btnZoeken_Click(object sender, EventArgs e)
@@ -76,35 +80,37 @@ namespace rack_it
 
         private void rdbAankomend_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdbAankomend.Checked && ckbAlleToernooien.Checked == false)
-            {
-                toernooienTableAdapter.AankomendeToernooien(this.rack_itDataSet.toernooien);
-            }
+            toernooienTableAdapter.AankomendeToernooien(this.rack_itDataSet.toernooien);
         }
 
         private void rdbActief_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdbActief.Checked && ckbAlleToernooien.Checked == false)
-            {
-                toernooienTableAdapter.ActieveToernooien(this.rack_itDataSet.toernooien);
-
-            }
+            toernooienTableAdapter.ActieveToernooien(this.rack_itDataSet.toernooien);
         }
 
         private void rdbAfgelegd_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdbAfgelegd.Checked && ckbAlleToernooien.Checked == false)
-            {
-                toernooienTableAdapter.AfgelegdeToernooien(this.rack_itDataSet.toernooien);
-
-            }
+            toernooienTableAdapter.AfgelegdeToernooien(this.rack_itDataSet.toernooien);
         }
 
-        private void ckbAlleToernooien_CheckedChanged(object sender, EventArgs e)
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            if (ckbAlleToernooien.Checked)
+            toernooienTableAdapter.Fill(this.rack_itDataSet.toernooien);
+        }
+
+        private void toernooienDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4  && toernooienDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString() != "")
             {
-                toernooienTableAdapter.Fill(this.rack_itDataSet.toernooien);
+                string naam = toernooienDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                FrmToernooienWeergave frmToernooienWeergave = new FrmToernooienWeergave(naam);
+                frmToernooienWeergave.MdiParent = this.MdiParent;
+
+                frmToernooienWeergave.StartPosition = FormStartPosition.CenterScreen;
+                frmToernooienWeergave.Dock = DockStyle.Fill;
+
+                frmToernooienWeergave.Show();
+                this.Close();
             }
         }
     }

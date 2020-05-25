@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<gegevens>
+  <teams>
+    <team naam=""></team>
+  </teams>
+
+  <scholen>
+    <school naam="">
+      <spelers>
+        <speler nummer="" naam="" team="" school=""></speler>
+      </spelers>
+    </school>
+  </scholen>
+
+  <locaties>
+    <locatie naam="" plaats="">
+      <velden>
+        <veld naam=""></veld>
+      </velden>
+    </locatie>
+  </locaties>
+
+  <toernooien>
+    <toernooi naam="" datum="" locatie="">
+      <doelgroep naam="">
+        <Inschrijvingen>
+          <inschrijving naam=""></inschrijving>
+        </Inschrijvingen>
+      </doelgroep>
+
+      <wedstrijden>
+        <wedstrijd afvalfase="" toernooi="" veld="">
+          <eindstand winnaar="" verliezer="" eindstand=""></eindstand>
+        </wedstrijd>
+      </wedstrijden>
+    </toernooi>
+  </toernooien>
+</gegevens>

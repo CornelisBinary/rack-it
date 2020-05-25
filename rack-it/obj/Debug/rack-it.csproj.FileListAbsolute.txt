@@ -16,7 +16,6 @@ C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csproj.Copy
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.exe
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.pdb
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmMaakToernooi.resources
-C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csprojAssemblyReference.cache
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmBewerkSchool.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmBewerkSpeler.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmBewerkTeam.resources
@@ -25,3 +24,6 @@ C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmMaakTeam
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmMaakSpeler.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmToernooienOverzicht.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmToernooienWeergave.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmVoegToeBase.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.Frm_H_Spelers_AanmeldenToernooi.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.Frm_H_Teams_AanmeldenToernooi.resources

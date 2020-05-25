@@ -5773,7 +5773,7 @@ namespace rack_it.rack_itDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[5];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Naam, Datum, Locaties_Naam, Doelgroep FROM toernooien";
@@ -5793,6 +5793,18 @@ namespace rack_it.rack_itDataSetTableAdapters {
             this._commandCollection[3].CommandText = "SELECT Naam, Datum, Locaties_Naam, Doelgroep FROM toernooien WHERE Datum < CAST(C" +
                 "URRENT_TIMESTAMP as DATE)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT Naam, Datum, Locaties_Naam, Doelgroep FROM toernooien WHERE Naam = @naam";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@naam";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 45;
+            param.IsNullable = true;
+            param.SourceColumn = "Naam";
+            this._commandCollection[4].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5851,6 +5863,25 @@ namespace rack_it.rack_itDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int AfgelegdeToernooien(rack_itDataSet.toernooienDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int GetToernooi(rack_itDataSet.toernooienDataTable dataTable, string naam) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((naam == null)) {
+                throw new global::System.ArgumentNullException("naam");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(naam));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }

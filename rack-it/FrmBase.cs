@@ -54,6 +54,21 @@ namespace rack_it
             this.Close();
         }
 
+        private void btnToernooien_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
 
+            FrmToernooienOverzicht frmToernooienOverzicht = new FrmToernooienOverzicht(Toernooi.Alle);
+
+            frmToernooienOverzicht.MdiParent = this;
+
+            frmToernooienOverzicht.StartPosition = FormStartPosition.CenterScreen;
+            frmToernooienOverzicht.Dock = DockStyle.Fill;
+
+            frmToernooienOverzicht.Show();
+        }
     }
 }

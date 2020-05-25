@@ -42,7 +42,7 @@
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(332, 24);
             this.btnCreate.TabIndex = 0;
-            this.btnCreate.Text = "Create";
+            this.btnCreate.Text = "Creëren";
             this.btnCreate.UseVisualStyleBackColor = false;
             // 
             // btnCancel
@@ -54,7 +54,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(332, 24);
             this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Annuleren";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // FrmCreateBase

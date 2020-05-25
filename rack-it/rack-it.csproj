@@ -66,6 +66,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="XML\ToernooiInschrijvingen.xml" />
+    <None Include="XML\GegevensImport.xml" />
     <Compile Include="codeStash\CodeFile1.cs" />
     <Compile Include="FrmBase.cs">
       <SubType>Form</SubType>
@@ -108,6 +110,18 @@
     </Compile>
     <Compile Include="FrmHoofdscherm.Designer.cs">
       <DependentUpon>FrmHoofdscherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImporteerModuleXML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImporteerModuleXML.Designer.cs">
+      <DependentUpon>FrmImporteerModuleXML.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVoegToeBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVoegToeBase.Designer.cs">
+      <DependentUpon>FrmVoegToeBase.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMaakSchool.cs">
       <SubType>Form</SubType>
@@ -163,6 +177,24 @@
     <Compile Include="FrmToernooienWeergave.Designer.cs">
       <DependentUpon>FrmToernooienWeergave.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_H_Spelers_AanmeldenToernooi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_H_Spelers_AanmeldenToernooi.Designer.cs">
+      <DependentUpon>Frm_H_Spelers_AanmeldenToernooi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_H_Teams_AanmeldenToernooi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_H_Teams_AanmeldenToernooi.Designer.cs">
+      <DependentUpon>Frm_H_Teams_AanmeldenToernooi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_XML_AanmeldenToernooi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_XML_AanmeldenToernooi.Designer.cs">
+      <DependentUpon>Frm_XML_AanmeldenToernooi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_rack_itDataSet.cs">
@@ -194,6 +226,9 @@
     <EmbeddedResource Include="FrmHoofdscherm.resx">
       <DependentUpon>FrmHoofdscherm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmVoegToeBase.resx">
+      <DependentUpon>FrmVoegToeBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMaakSchool.resx">
       <DependentUpon>FrmMaakSchool.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,6 +255,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmToernooienWeergave.resx">
       <DependentUpon>FrmToernooienWeergave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_H_Spelers_AanmeldenToernooi.resx">
+      <DependentUpon>Frm_H_Spelers_AanmeldenToernooi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_H_Teams_AanmeldenToernooi.resx">
+      <DependentUpon>Frm_H_Teams_AanmeldenToernooi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -270,5 +311,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

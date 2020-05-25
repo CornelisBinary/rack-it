@@ -40,13 +40,13 @@
             this.btnZoeken = new System.Windows.Forms.Button();
             this.txbZoekwaarde = new System.Windows.Forms.TextBox();
             this.rdbAankomend = new System.Windows.Forms.RadioButton();
-            this.ckbAlleToernooien = new System.Windows.Forms.CheckBox();
             this.rdbActief = new System.Windows.Forms.RadioButton();
             this.rdbAfgelegd = new System.Windows.Forms.RadioButton();
             this.toernooienTableAdapter = new rack_it.rack_itDataSetTableAdapters.toernooienTableAdapter();
             this.tableAdapterManager = new rack_it.rack_itDataSetTableAdapters.TableAdapterManager();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.rdbAlleToernooien = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.toernooienDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toernooienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).BeginInit();
@@ -72,6 +72,7 @@
             this.toernooienDataGridView.RowTemplate.Height = 24;
             this.toernooienDataGridView.Size = new System.Drawing.Size(640, 374);
             this.toernooienDataGridView.TabIndex = 7;
+            this.toernooienDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.toernooienDataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -153,18 +154,6 @@
             this.rdbAankomend.UseVisualStyleBackColor = false;
             this.rdbAankomend.CheckedChanged += new System.EventHandler(this.rdbAankomend_CheckedChanged);
             // 
-            // ckbAlleToernooien
-            // 
-            this.ckbAlleToernooien.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ckbAlleToernooien.BackColor = System.Drawing.Color.Gray;
-            this.ckbAlleToernooien.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ckbAlleToernooien.Location = new System.Drawing.Point(686, 41);
-            this.ckbAlleToernooien.Name = "ckbAlleToernooien";
-            this.ckbAlleToernooien.Size = new System.Drawing.Size(34, 25);
-            this.ckbAlleToernooien.TabIndex = 15;
-            this.ckbAlleToernooien.UseVisualStyleBackColor = false;
-            this.ckbAlleToernooien.CheckedChanged += new System.EventHandler(this.ckbAlleToernooien_CheckedChanged);
-            // 
             // rdbActief
             // 
             this.rdbActief.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -213,15 +202,28 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // rdbAlleToernooien
+            // 
+            this.rdbAlleToernooien.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rdbAlleToernooien.BackColor = System.Drawing.Color.Gray;
+            this.rdbAlleToernooien.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rdbAlleToernooien.Location = new System.Drawing.Point(686, 41);
+            this.rdbAlleToernooien.Name = "rdbAlleToernooien";
+            this.rdbAlleToernooien.Size = new System.Drawing.Size(34, 25);
+            this.rdbAlleToernooien.TabIndex = 18;
+            this.rdbAlleToernooien.TabStop = true;
+            this.rdbAlleToernooien.UseVisualStyleBackColor = false;
+            this.rdbAlleToernooien.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
             // FrmToernooienOverzicht
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(800, 478);
+            this.Controls.Add(this.rdbAlleToernooien);
             this.Controls.Add(this.rdbAfgelegd);
             this.Controls.Add(this.rdbActief);
-            this.Controls.Add(this.ckbAlleToernooien);
             this.Controls.Add(this.rdbAankomend);
             this.Controls.Add(this.btnZoeken);
             this.Controls.Add(this.txbZoekwaarde);
@@ -253,10 +255,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewButtonColumn btnClmToernooien;
         private System.Windows.Forms.RadioButton rdbAankomend;
-        private System.Windows.Forms.CheckBox ckbAlleToernooien;
         private System.Windows.Forms.RadioButton rdbActief;
         private System.Windows.Forms.RadioButton rdbAfgelegd;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.RadioButton rdbAlleToernooien;
     }
 }

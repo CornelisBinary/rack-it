@@ -1,6 +1,6 @@
 ﻿namespace rack_it
 {
-    partial class FrmEditBase
+    partial class FrmVoegToeBase
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditBase));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVoegToeBase));
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -45,27 +45,27 @@
             this.btnCancel.Text = "Annuleren";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
-            // btnEdit
+            // btnCreate
             // 
-            this.btnEdit.BackColor = System.Drawing.Color.LightGreen;
-            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEdit.Location = new System.Drawing.Point(0, 379);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(332, 24);
-            this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "Bewerken";
-            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnCreate.BackColor = System.Drawing.Color.LightGreen;
+            this.btnCreate.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCreate.Location = new System.Drawing.Point(0, 379);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(332, 24);
+            this.btnCreate.TabIndex = 2;
+            this.btnCreate.Text = "Toevoegen";
+            this.btnCreate.UseVisualStyleBackColor = false;
             // 
-            // FrmEditBase
+            // FrmVoegToeBase
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(332, 403);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnCreate);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmEditBase";
+            this.Name = "FrmVoegToeBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rack-It";
             this.ResumeLayout(false);
@@ -75,6 +75,6 @@
         #endregion
 
         protected System.Windows.Forms.Button btnCancel;
-        protected System.Windows.Forms.Button btnEdit;
+        protected System.Windows.Forms.Button btnCreate;
     }
 }
