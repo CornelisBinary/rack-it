@@ -197,6 +197,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Afvalschema.cs" />
     <Compile Include="_rack_itDataSet.cs">
       <DependentUpon>_rack_itDataSet.xsd</DependentUpon>
     </Compile>

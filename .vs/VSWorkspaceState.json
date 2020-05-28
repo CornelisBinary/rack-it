@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\rack-it",
-    "\\rack-it\\Properties"
+    "\\rack-it\\Properties",
+    "\\rack-it\\XML"
   ],
-  "SelectedNode": "\\rack-it\\FrmMaakToernooi.cs",
   "PreviewInSolutionExplorer": false
 }
