@@ -42,7 +42,7 @@ namespace rack_it
 
         // methodes
         // check voor genereren afvalschema.
-        private bool controleGegevens()
+        private bool controleBestaandeGegevens()
         {
             // check of er al bestaande wedstrijden zijn in de database.
             if (dRC_Wedstrijden[0] == null)
@@ -70,11 +70,12 @@ namespace rack_it
                         throw new Exception("Overschrijding van miximaal aantal deelnemers : 256!") { };
                     }
                 }
-
+                // Er is nog geen fase gespeeld en er moet een nieuwe fase met de `MaakActieveFase` gegenereerd worden.
                 return false;
             }
             else
             {
+                // Er zijn al fases gespeeld en die fases moeten met de methode uit `GenereerFases` door `maakAfgelegdeFase` gegenereerd worden.
                 return true;
             }
         }
@@ -84,80 +85,106 @@ namespace rack_it
         public void GenereerFases(Graphics papier, DataRowCollection DRC_Wedstrijden)
         {
             dRC_Wedstrijden = DRC_Wedstrijden;
-            if (TeveelDeelnemers != true)
+            
+            if (controleBestaandeGegevens())
             {
-                if (controleGegevens())
+                // al de winnaars worden hierin opgeslagen tot één fase terug;
+                List<string> winnaarsVorigeRonde = new List<string> { };
+                List<string> winnaarsHuidigeRonde = new List<string> { };
+
+                // check functie toevoegen die controleert of het de laatste fase uit de lijst is en controleert voor lege eindstanden.
+                foreach (DataRow wedstrijd in dRC_Wedstrijden)
                 {
-                    // al de winnaars worden hierin opgeslagen tot één fase terug;
-                    List<string> winnaarsVorigeRonde = new List<string> { };
-                    List<string> winnaarsHuidigeRonde = new List<string> { };
+                    // als de afvalfase nog niet gedefineerd is wordt die hier gevuld. 
+                    AfvalFase = AfvalFase == -1 ? (int)wedstrijd["Afvalfase"] : AfvalFase;
 
-                    // check functie toevoegen die controleert of het de laatste fase uit de lijst is en controleert voor lege eindstanden.
-                    foreach (DataRow wedstrijd in dRC_Wedstrijden)
+                    // check of de wedstrijd eindstand gevuld is.
+                    if (wedstrijd["Eindstand"] != null)
                     {
-                        // als de afvalfase nog niet gedefineerd is wordt die hier gevuld. 
-                        AfvalFase = AfvalFase == -1 ? (int)wedstrijd["Afvalfase"] : AfvalFase;
 
-                        // check of de wedstrijd eindstand gevuld is.
-                        if (wedstrijd["Eindstand"] != null)
+                        // to do:
+                        // 1.   (af maar niet getest..)
+                        //      Als al de gemaakte afvalfases gevisualiseerd zijn moet er een controle komen die controleert
+                        //      of het de laatste fase, als dit niet zo is moet de functie `maakActieveFase` aangeroepen worden
+                        //      met de gegevens uit de `List` `winnaarsHuidigeRonde`.
+                        // 2.   .
+                        // 3.   .
+
+                        // check of het over een andere afval fase gaat en roep dan de nodige methodes aan.
+                        if ((int)wedstrijd["Afvalfase"] != AfvalFase)
                         {
-                            // check of het over dezelfde afvalfase gaat.
-                            if ((int)wedstrijd["Afvalfase"] == AfvalFase)
-                            {
-                                // voegt de huidige datarow toe aan de fase.
-                                wedstrijdFase.Add(wedstrijd);
-                                // winnaar registeren, voor als er een ontbrekende eindstand in de volgende fase wordt ontdekt 
-                                // kan dit gebruikt worden om die fase opnieuw te genereren.
-                                winnaarsHuidigeRonde.Add(wedstrijd["Winnaar"].ToString());
+                            // het afvalfase nummer verhogen.
+                            AfvalFase = (int)wedstrijd["Afvalfase"];
 
-                            }
-                            else
-                            {
-                                // visuele weergave maken van wedstrijd fase.
-                                MaakAfgelegdeFase(papier, wedstrijdFase);
+                            // visuele weergave maken van wedstrijd fase.
+                            MaakAfgelegdeFase(papier, wedstrijdFase);
 
-                                // leeg de wedstrijdFase voor de volgende fase.
-                                wedstrijdFase.Clear();
+                            // leeg de wedstrijdFase voor de volgende fase.
+                            wedstrijdFase.Clear();
 
-                                // het afvalfase nummer verhogen.
-                                AfvalFase = (int)wedstrijd["Afvalfase"];
+                            // de gegevens lijsten met winnaars updaten
+                            winnaarsVorigeRonde.Clear();
+                            winnaarsVorigeRonde = winnaarsHuidigeRonde;
+                            winnaarsHuidigeRonde.Clear();
 
-                                // de gegevens lijsten met winnaars updaten
-                                winnaarsVorigeRonde.Clear();
-                                winnaarsVorigeRonde = winnaarsHuidigeRonde;
-                                winnaarsHuidigeRonde.Clear();
-                            }
-                        }
-                        else
-                        {
-                            // met de gegevens uit `winnaarsVorigeRonde` genereer je de niet complete fase opnieuw;
-                            MaakActieveFase(papier, winnaarsVorigeRonde);
                         }
 
+                        // gegevens moeten altijd toegevoegd worden, een if check statement is hier overbodig.
+                        // voegt de huidige datarow toe aan de fase.
+                        wedstrijdFase.Add(wedstrijd);
+                        // winnaar registeren, voor als er een ontbrekende eindstand in de volgende fase wordt ontdekt 
+                        // kan dit gebruikt worden om die fase opnieuw te genereren.
+                        winnaarsHuidigeRonde.Add(wedstrijd["Winnaar"].ToString());
 
+                        // als het de laatste wedstrijd in de collectie blijkt te zijn moet de huidige fase + nieuwe fase gevisualiseerd worden.
+                        if (dRC_Wedstrijden.IndexOf(wedstrijd).Equals((dRC_Wedstrijden.Count-1)))
+                        {
+                            // Eerst de huidige fase.
+                            MaakAfgelegdeFase(papier, wedstrijdFase);
+
+                            // verhogen van het nummer van de afval faze.
+                            AfvalFase++;
+
+                            // Daarna de nieuwe fase.
+                            MaakActieveFase(papier, winnaarsHuidigeRonde);
+                        }
+                    }
+                    else
+                    {
+                        // met de gegevens uit `winnaarsVorigeRonde` genereer je de niet complete fase opnieuw;
+                        MaakActieveFase(papier, winnaarsVorigeRonde);
+                        break;
                     }
                 }
-                // Als er nog geen wedstrijden zijn gespeelt wordt met de deelnemers de eerste afvalfase gegenereerd.
-                else
-                {
-                    AfvalFase = 1;
-
-                    MaakActieveFase(papier, deelnemers);
-                }
             }
-           
+            // Als er nog geen wedstrijden zijn gespeelt wordt met de deelnemers de eerste afvalfase gegenereerd.
+            else
+            {
+                AfvalFase = 1;
+
+                MaakActieveFase(papier, deelnemers);
+            }
+                
         }
      
-        // Visualiseer een afgeronde fase met de gegevens opgehaald uit de database.
+        // Visualiseer een afgelegde fase met de gegevens opgehaald uit de database.
         private void MaakAfgelegdeFase(Graphics papier, DataRowCollection wedstrijdFase)
         {
-                     
+            // to do:
+            // 1.  .
+            // 2.  .
+            // 3.  .
+
+
         }
 
-        // Visualiseer een nog niet afgeronde fase waarvoor automatisch nieuwe datarows voor de database tafel wedstrijden gemaakt moet worden.
+        // Visualiseer een nog niet afgelegde fase waarvoor automatisch nieuwe datarows voor de database tafel wedstrijden gemaakt moet worden.
         private void MaakActieveFase(Graphics papier, List<string> spelers)
         {
-
+            // to do:
+            // 1.   .
+            // 2.   .
+            // 3.   .
         }
 
         // Deze functie wordt gebruikt om de individuele wedstrijden te tekenen.
@@ -165,6 +192,5 @@ namespace rack_it
         {
 
         }
-
     }
 }
