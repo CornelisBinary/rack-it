@@ -13,16 +13,20 @@ namespace rack_it
     {
         // eigenschappen
         //public
-        public int AfvalFase = -1;
-        public bool TeveelDeelnemers;
+        public bool TeveelDeelnemers { get; set; }
+
+        public DataRowCollection HuidigeFase { get;}
 
         //private
         private DataRowCollection dRC_Wedstrijden;
         private DataRowCollection wedstrijdFase;
-        private List<string> deelnemers;
-        private List<string> dummySpelers;
+
+        private List<string> deelnemers = new List<string> { };
+        private List<string> dummySpelers = new List<string> { };
         private List<int> gewensteAantalSpelers = new List<int> { 2, 4, 8, 16, 32, 64, 128, 256};
-        private int aantalDeelnemers;
+
+        private int aantalDeelnemers = 0;
+        private int AfvalFase = -1;
 
         // grafische eigenschappen
 
@@ -59,6 +63,9 @@ namespace rack_it
                         {
                             dummySpelers.Add("DummySpeler" + (i + 1));
                         }
+                        // voegt al de dummy spelers toe aan de deelnemer `List` om op een werkend getal uit te komen.
+                        deelnemers.AddRange(dummySpelers);
+
                         aantalDeelnemers = getal;
                         TeveelDeelnemers = false;
                         break;
@@ -142,6 +149,8 @@ namespace rack_it
                             // Eerst de huidige fase.
                             MaakAfgelegdeFase(papier, wedstrijdFase);
 
+        // check toevoegen die controleert of het niet de laatste fase is van het toernooi!
+
                             // verhogen van het nummer van de afval faze.
                             AfvalFase++;
 
@@ -168,7 +177,7 @@ namespace rack_it
         }
      
         // Visualiseer een afgelegde fase met de gegevens opgehaald uit de database.
-        private void MaakAfgelegdeFase(Graphics papier, DataRowCollection wedstrijdFase)
+        private void MaakAfgelegdeFase(Graphics papier, DataRowCollection WedstrijdFase)
         {
             // to do:
             // 1.  .
@@ -182,9 +191,12 @@ namespace rack_it
         private void MaakActieveFase(Graphics papier, List<string> spelers)
         {
             // to do:
-            // 1.   .
+            // 1.   methode die nieuwe datarows aanmaakt voor elke wedstrijd 
+            //      die hier gegenereerd wordt en aan een prive `dataRowCollection` wordt toegevoegd.
             // 2.   .
             // 3.   .
+
+
         }
 
         // Deze functie wordt gebruikt om de individuele wedstrijden te tekenen.

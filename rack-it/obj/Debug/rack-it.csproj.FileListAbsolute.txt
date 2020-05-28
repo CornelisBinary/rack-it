@@ -27,4 +27,3 @@ C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmToernooi
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmVoegToeBase.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.Frm_H_Spelers_AanmeldenToernooi.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.Frm_H_Teams_AanmeldenToernooi.resources
-C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csprojAssemblyReference.cache
