@@ -32,7 +32,7 @@ namespace rack_it
         private List<string> dummySpelers = new List<string> { };
         private List<int> gewensteAantalSpelers = new List<int> { 2, 4, 8, 16, 32, 64, 128, 256};
 
-        private int aantalDeelnemers = 0;
+        public int aantalDeelnemers = 0;
 
         // grafische eigenschappen
 
@@ -64,9 +64,10 @@ namespace rack_it
         private bool controleBestaandeGegevens()
         {
             // check of er al bestaande wedstrijden zijn in de database.
-            if (dRC_Wedstrijden == null)
+            if (dRC_Wedstrijden.Count == 0)
             {
                 int AantalDeelnemers = deelnemers.Count;
+                //throw new Exception("Overschrijding van miximaal aantal deelnemers : 256!") { };
 
                 // Check of het aantal spelers overeenkomt met het gewenste aantal, als dit niet zo is worden er 
                 // dummy spelers toegevoegd.
@@ -80,6 +81,7 @@ namespace rack_it
                         }
                         // voegt al de dummy spelers toe aan de deelnemer `List` om op een werkend getal uit te komen.
                         deelnemers.AddRange(dummySpelers);
+                        //throw new Exception("Overschrijding van miximaal aantal deelnemers : 256!") { };
 
                         aantalDeelnemers = getal;
                         TeveelDeelnemers = false;
@@ -207,10 +209,10 @@ namespace rack_it
             float lengteVeld = 300;
             float breedteVeld = 600;
 
-            float offsetX = breedteVeld / 6;
+            float offsetX = breedteVeld / 8;
             float offsetY = lengteVeld / ((WedstrijdFase.Count * 2)+ 1);
 
-            float positieX = offsetX * AfvalFase;
+            float positieX = AfvalFase == 1 ? 0 : offsetX * (AfvalFase-1);
             float positieY = offsetY;
 
 
@@ -252,10 +254,10 @@ namespace rack_it
             float lengteVeld = 300;
             float breedteVeld = 600;
 
-            float offsetX = breedteVeld / 6;
+            float offsetX = breedteVeld / 8;
             float offsetY = lengteVeld / (spelers.Count() + 1);
 
-            float positieX = offsetX * AfvalFase;
+            float positieX = AfvalFase == 1 ? 0 : offsetX * (AfvalFase - 1);
             float positieY = offsetY;
 
             // check als het de tweede speler is voor de if in de for loop.
@@ -272,24 +274,25 @@ namespace rack_it
                 {
                     // check als er een veld in de `List` bestaat met het opgegeven index, 
                     // als dit niet zo is wordt de variabele die het index aanwijst gereset naar nul.
-                    if (VeldTeller.Equals(velden.Count - 1))
+                    if (VeldTeller.Equals(velden.Count))
                     {
                         VeldTeller = 0;
                     }
-                    else if (velden.Count != 0)
+                    if (velden.Count != 0)
                     {
                         
                         // veld toevoegen tussen bijde namen van spelers
                         Papier.DrawString(velden[VeldTeller], font, kwastVeld, positieX, positieY - (offsetY * (float)0.5));
 
                         // datarow toevoegen
+        // oplossing verzinnen om dubbele waardes toetelaten, bv wedstrijd nummer !
                         wedstrijdFase.Add(AfvalFase, Naam, velden[VeldTeller], "", "", "");
                     }
-
-                    // als er geen velden meegegeven zijn blijft dat vakje leeg in de wedstrijdenfase collectie.
-                    // datarow toevoegen
-                    wedstrijdFase.Add(AfvalFase, Naam, "", "", "", "");
-
+                    else
+                    {
+                        // als er geen velden meegegeven wordt kan wordt het niet wegeschreven naar de fase datarow collectie.
+                        //wedstrijdFase.Add(AfvalFase, Naam, "", "", "", "");
+                    }
 
                     // tellers updaten
                     veldTeller = 0;

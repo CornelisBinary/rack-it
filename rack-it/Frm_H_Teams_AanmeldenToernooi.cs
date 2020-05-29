@@ -21,8 +21,7 @@ namespace rack_it
         private void Frm_H_Teams_AanmeldenToernooi_Load(object sender, EventArgs e)
         {
             this.teamsTableAdapter.Fill(this.rack_itDataSet.teams);
-            inschrijvingteamsTableAdapter.Fill(this.rack_itDataSet.inschrijvingteams);
-            inschrijvingteamsBindingSource.AddNew();
+            inschrijvingteamsTableAdapter.ToernooiInschrijvingen(this.rack_itDataSet.inschrijvingteams, toernooi);
 
             toernooien_NaamTextBox.Text = toernooi;
         }

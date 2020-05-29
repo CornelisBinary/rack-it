@@ -23,8 +23,7 @@ namespace rack_it
         {
             spelersTableAdapter.Fill(this.rack_itDataSet.spelers);
 
-            inschrijvingspelersTableAdapter.Fill(this.rack_itDataSet.inschrijvingspelers);
-            inschrijvingspelersBindingSource.AddNew();
+            inschrijvingspelersTableAdapter.ToernooiInschrijvingen(this.rack_itDataSet.inschrijvingspelers, toernooi);
 
             toernooien_NaamTextBox.Text = toernooi;
   
