@@ -120,8 +120,6 @@
             // pnlToernooi
             // 
             this.pnlToernooi.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pnlToernooi.AutoScroll = true;
-            this.pnlToernooi.AutoSize = true;
             this.pnlToernooi.BackColor = System.Drawing.SystemColors.Control;
             this.pnlToernooi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlToernooi.Controls.Add(this.pbAfvalschema);
@@ -132,12 +130,13 @@
             // 
             // pbAfvalschema
             // 
-            this.pbAfvalschema.Location = new System.Drawing.Point(10, 10);
+            this.pbAfvalschema.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbAfvalschema.Location = new System.Drawing.Point(-1, -1);
             this.pbAfvalschema.Name = "pbAfvalschema";
-            this.pbAfvalschema.Size = new System.Drawing.Size(580, 300);
-            this.pbAfvalschema.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbAfvalschema.Size = new System.Drawing.Size(600, 300);
             this.pbAfvalschema.TabIndex = 3;
             this.pbAfvalschema.TabStop = false;
+            this.pbAfvalschema.Click += new System.EventHandler(this.pbAfvalschema_Click);
             // 
             // FrmToernooienWeergave
             // 
@@ -155,10 +154,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.toernooienBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).EndInit();
             this.pnlToernooi.ResumeLayout(false);
-            this.pnlToernooi.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAfvalschema)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

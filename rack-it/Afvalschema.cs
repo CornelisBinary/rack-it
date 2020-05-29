@@ -16,32 +16,38 @@ namespace rack_it
         public bool TeveelDeelnemers { get; set; }
 
         public DataRowCollection HuidigeFase { get;}
+        public int AfvalFase { get; set; }
+
+        public Graphics Papier { get; set; }
 
         //private
         private DataRowCollection dRC_Wedstrijden;
         private DataRowCollection wedstrijdFase;
 
+        private List<string> velden = new List<string> { };
         private List<string> deelnemers = new List<string> { };
         private List<string> dummySpelers = new List<string> { };
         private List<int> gewensteAantalSpelers = new List<int> { 2, 4, 8, 16, 32, 64, 128, 256};
 
         private int aantalDeelnemers = 0;
-        private int AfvalFase = -1;
 
         // grafische eigenschappen
 
 
 
         // initialisatie
-        public Afvalschema(List<string> Deelnemers, DataRowCollection DRC_Wedstrijden)
+        public Afvalschema(List<string> Deelnemers, List<string> Velden, DataRowCollection DRC_Wedstrijden)
         {
-            initClass(Deelnemers, DRC_Wedstrijden);
+            initClass(Deelnemers, Velden, DRC_Wedstrijden);
         }
 
-        private void initClass(List<string> Deelnemers, DataRowCollection DRC_Wedstrijden)
+        private void initClass(List<string> Deelnemers, List<string> Velden, DataRowCollection DRC_Wedstrijden)
         {
             deelnemers = Deelnemers;
+            velden = Velden;
             dRC_Wedstrijden = DRC_Wedstrijden;
+
+            AfvalFase = 0;
         }
 
         // methodes
@@ -91,6 +97,8 @@ namespace rack_it
         // de algemene functie voor het visueel weergeven van het toernooi wat met elke fase aangeroepen wordt. 
         public void GenereerFases(Graphics papier, DataRowCollection DRC_Wedstrijden)
         {
+            Papier = papier;
+
             dRC_Wedstrijden = DRC_Wedstrijden;
             
             if (controleBestaandeGegevens())
@@ -103,14 +111,14 @@ namespace rack_it
                 foreach (DataRow wedstrijd in dRC_Wedstrijden)
                 {
                     // als de afvalfase nog niet gedefineerd is wordt die hier gevuld. 
-                    AfvalFase = AfvalFase == -1 ? (int)wedstrijd["Afvalfase"] : AfvalFase;
+                    AfvalFase = AfvalFase == 0 ? (int)wedstrijd["Afvalfase"] : AfvalFase;
 
                     // check of de wedstrijd eindstand gevuld is.
                     if (wedstrijd["Eindstand"] != null)
                     {
 
                         // to do:
-                        // 1.   (af maar niet getest..)
+                        // 1.   (gedeeltelijk af maar niet getest..)
                         //      Als al de gemaakte afvalfases gevisualiseerd zijn moet er een controle komen die controleert
                         //      of het de laatste fase, als dit niet zo is moet de functie `maakActieveFase` aangeroepen worden
                         //      met de gegevens uit de `List` `winnaarsHuidigeRonde`.
@@ -124,7 +132,7 @@ namespace rack_it
                             AfvalFase = (int)wedstrijd["Afvalfase"];
 
                             // visuele weergave maken van wedstrijd fase.
-                            MaakAfgelegdeFase(papier, wedstrijdFase);
+                            MaakAfgelegdeFase(wedstrijdFase);
 
                             // leeg de wedstrijdFase voor de volgende fase.
                             wedstrijdFase.Clear();
@@ -147,7 +155,7 @@ namespace rack_it
                         if (dRC_Wedstrijden.IndexOf(wedstrijd).Equals((dRC_Wedstrijden.Count-1)))
                         {
                             // Eerst de huidige fase.
-                            MaakAfgelegdeFase(papier, wedstrijdFase);
+                            MaakAfgelegdeFase(wedstrijdFase);
 
         // check toevoegen die controleert of het niet de laatste fase is van het toernooi!
 
@@ -155,13 +163,13 @@ namespace rack_it
                             AfvalFase++;
 
                             // Daarna de nieuwe fase.
-                            MaakActieveFase(papier, winnaarsHuidigeRonde);
+                          //  MaakActieveFase(winnaarsHuidigeRonde);
                         }
                     }
                     else
                     {
                         // met de gegevens uit `winnaarsVorigeRonde` genereer je de niet complete fase opnieuw;
-                        MaakActieveFase(papier, winnaarsVorigeRonde);
+                      //  MaakActieveFase(winnaarsVorigeRonde);
                         break;
                     }
                 }
@@ -171,13 +179,13 @@ namespace rack_it
             {
                 AfvalFase = 1;
 
-                MaakActieveFase(papier, deelnemers);
+               // MaakActieveFase(deelnemers);
             }
                 
         }
      
         // Visualiseer een afgelegde fase met de gegevens opgehaald uit de database.
-        private void MaakAfgelegdeFase(Graphics papier, DataRowCollection WedstrijdFase)
+        private void MaakAfgelegdeFase(DataRowCollection WedstrijdFase)
         {
             // to do:
             // 1.  .
@@ -188,7 +196,7 @@ namespace rack_it
         }
 
         // Visualiseer een nog niet afgelegde fase waarvoor automatisch nieuwe datarows voor de database tafel wedstrijden gemaakt moet worden.
-        private void MaakActieveFase(Graphics papier, List<string> spelers)
+        public void MaakActieveFase(List<string> spelers, Graphics papier)
         {
             // to do:
             // 1.   methode die nieuwe datarows aanmaakt voor elke wedstrijd 
@@ -196,8 +204,46 @@ namespace rack_it
             // 2.   .
             // 3.   .
 
+            SolidBrush kwastSpeler = new SolidBrush(Color.Black);
+
+            SolidBrush kwastVeld = new SolidBrush(Color.DarkOrange);
+
+            Font font = new Font(FontFamily.GenericSansSerif, 11);
+           
+            float lengteVeld = 300;
+            float breedteVeld = 600;
+
+            float offsetX = breedteVeld / 8;
+            float offsetY = lengteVeld / (spelers.Count() +1);
+
+            float positieX = offsetX * AfvalFase;
+            float positieY = offsetY;
+
+            int veldTeller = 1;
+            int VeldTeller = 0;
+            for (int i = 1; i <= spelers.Count; i++)
+            {
+                    // spelers tekenen op ui
+                    papier.DrawString(spelers[i - 1], font, kwastSpeler, positieX, positieY);
+
+                if (veldTeller == 2)
+                {
+                    // veld toevoegen tussen bijde namen van spelers
+                    papier.DrawString(velden[VeldTeller], font, kwastVeld, positieX, positieY - (offsetY * (float)0.5));
+
+                    veldTeller = 0;
+                    VeldTeller++;
+                }
+                veldTeller++;
+                positieY += offsetY;
+
+            }
+
+            kwastSpeler.Dispose();
+            kwastVeld.Dispose();
 
         }
+      
 
         // Deze functie wordt gebruikt om de individuele wedstrijden te tekenen.
         private void MaakKolom(List<string>spelers, List<int> eindstand)
