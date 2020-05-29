@@ -53,6 +53,7 @@
             this.veldenTableAdapter = new rack_it.rack_itDataSetTableAdapters.veldenTableAdapter();
             this.wedstrijdenTableAdapter = new rack_it.rack_itDataSetTableAdapters.wedstrijdenTableAdapter();
             this.btnAanmelden = new System.Windows.Forms.Button();
+            this.btnToernooi = new System.Windows.Forms.Button();
             this.pnlAanmelden.SuspendLayout();
             this.pnlToernooi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAfvalschema)).BeginInit();
@@ -186,11 +187,12 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(0, 310);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 30);
             this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
+            this.button1.Text = "afvalschema";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -264,11 +266,24 @@
             this.btnAanmelden.UseVisualStyleBackColor = true;
             this.btnAanmelden.Click += new System.EventHandler(this.btnAanmelden_Click);
             // 
+            // btnToernooi
+            // 
+            this.btnToernooi.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnToernooi.Enabled = false;
+            this.btnToernooi.Location = new System.Drawing.Point(206, 21);
+            this.btnToernooi.Name = "btnToernooi";
+            this.btnToernooi.Size = new System.Drawing.Size(100, 25);
+            this.btnToernooi.TabIndex = 11;
+            this.btnToernooi.Text = "Toernooi";
+            this.btnToernooi.UseVisualStyleBackColor = true;
+            this.btnToernooi.Click += new System.EventHandler(this.btnToernooi_Click);
+            // 
             // FrmToernooienWeergave
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnToernooi);
             this.Controls.Add(this.btnAanmelden);
             this.Controls.Add(this.pnlToernooi);
             this.Controls.Add(this.pnlAanmelden);
@@ -312,5 +327,6 @@
         internal rack_itDataSetTableAdapters.veldenTableAdapter veldenTableAdapter;
         private rack_itDataSetTableAdapters.spelersTableAdapter spelersTableAdapter;
         private System.Windows.Forms.Button btnAanmelden;
+        private System.Windows.Forms.Button btnToernooi;
     }
 }

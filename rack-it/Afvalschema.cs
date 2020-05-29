@@ -265,6 +265,8 @@ namespace rack_it
             // wijst een specifiek veld aan in de `velden` `list`. 
             int VeldTeller = 0;
 
+            int nummer = 1;
+
             foreach (string speler in spelers)
             {
                 // spelers tekenen op ui
@@ -286,12 +288,12 @@ namespace rack_it
 
                         // datarow toevoegen
         // oplossing verzinnen om dubbele waardes toetelaten, bv wedstrijd nummer !
-                        wedstrijdFase.Add(AfvalFase, Naam, velden[VeldTeller], "", "", "");
+                        wedstrijdFase.Add(AfvalFase, Naam, nummer, velden[VeldTeller], "", "", "");
                     }
                     else
                     {
                         // als er geen velden meegegeven wordt kan wordt het niet wegeschreven naar de fase datarow collectie.
-                        //wedstrijdFase.Add(AfvalFase, Naam, "", "", "", "");
+                        wedstrijdFase.Add(AfvalFase, Naam, nummer, null,"", "", "");
                     }
 
                     // tellers updaten
@@ -302,7 +304,7 @@ namespace rack_it
                 // tellers + positie updaten.
                 veldTeller++;
                 positieY += offsetY;
-
+                nummer++;
             }
             // gelijk geheugen van items legen.
             kwastSpeler.Dispose();

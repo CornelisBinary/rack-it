@@ -76,6 +76,7 @@ namespace rack_it
 
             } else if(Date == DateTime.Today){
                 btnAanmelden.Enabled = true;
+                btnToernooi.Enabled = true;
 
                 pnlAanmelden.SendToBack();
                 pnlToernooi.BringToFront();
@@ -111,6 +112,8 @@ namespace rack_it
                     }
 
                 }
+
+                
             }
             else
             {
@@ -130,12 +133,19 @@ namespace rack_it
         }
         private void btnAanmelden_Click(object sender, EventArgs e)
         {
-            handmatigAanmelden();
+            pnlAanmelden.BringToFront();
+            pnlToernooi.SendToBack();
 
+        }
+        private void btnToernooi_Click(object sender, EventArgs e)
+        {
+            pnlAanmelden.SendToBack();
+            pnlToernooi.BringToFront();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+    // manier verzinnen om dit gelijk inteladen zonder dat je deze knop moet indrukken
             Afvalschema toernooiAfvalschema = new Afvalschema(Naam, Deelnemers, Velden,
                                                                     (DataRowCollection)rack_itDataSet.wedstrijden.Rows);
 
@@ -167,7 +177,5 @@ namespace rack_it
                 }
             }
         }
-
-       
     }
 }
