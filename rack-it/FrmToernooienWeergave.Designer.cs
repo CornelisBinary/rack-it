@@ -33,17 +33,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnHandmatig = new System.Windows.Forms.Button();
             this.btnXML = new System.Windows.Forms.Button();
+            this.pnlToernooi = new System.Windows.Forms.Panel();
+            this.pbAfvalschema = new System.Windows.Forms.PictureBox();
             this.toernooienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rack_itDataSet = new rack_it.rack_itDataSet();
             this.toernooienTableAdapter = new rack_it.rack_itDataSetTableAdapters.toernooienTableAdapter();
             this.tableAdapterManager = new rack_it.rack_itDataSetTableAdapters.TableAdapterManager();
-            this.pnlToernooi = new System.Windows.Forms.Panel();
-            this.pbAfvalschema = new System.Windows.Forms.PictureBox();
+            this.wedstrijdenTableAdapter = new rack_it.rack_itDataSetTableAdapters.wedstrijdenTableAdapter();
             this.pnlAanmelden.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.toernooienBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).BeginInit();
             this.pnlToernooi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAfvalschema)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toernooienBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlAanmelden
@@ -89,6 +90,28 @@
             this.btnXML.UseVisualStyleBackColor = true;
             this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
             // 
+            // pnlToernooi
+            // 
+            this.pnlToernooi.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pnlToernooi.BackColor = System.Drawing.Color.Gainsboro;
+            this.pnlToernooi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlToernooi.Controls.Add(this.pbAfvalschema);
+            this.pnlToernooi.Location = new System.Drawing.Point(100, 50);
+            this.pnlToernooi.Name = "pnlToernooi";
+            this.pnlToernooi.Size = new System.Drawing.Size(600, 350);
+            this.pnlToernooi.TabIndex = 9;
+            // 
+            // pbAfvalschema
+            // 
+            this.pbAfvalschema.BackColor = System.Drawing.Color.Black;
+            this.pbAfvalschema.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbAfvalschema.Location = new System.Drawing.Point(-1, -1);
+            this.pbAfvalschema.Name = "pbAfvalschema";
+            this.pbAfvalschema.Size = new System.Drawing.Size(600, 300);
+            this.pbAfvalschema.TabIndex = 3;
+            this.pbAfvalschema.TabStop = false;
+            this.pbAfvalschema.Click += new System.EventHandler(this.pbAfvalschema_Click);
+            // 
             // toernooienBindingSource
             // 
             this.toernooienBindingSource.DataMember = "toernooien";
@@ -115,28 +138,11 @@
             this.tableAdapterManager.toernooienTableAdapter = this.toernooienTableAdapter;
             this.tableAdapterManager.UpdateOrder = rack_it.rack_itDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.veldenTableAdapter = null;
-            this.tableAdapterManager.wedstrijdenTableAdapter = null;
+            this.tableAdapterManager.wedstrijdenTableAdapter = this.wedstrijdenTableAdapter;
             // 
-            // pnlToernooi
+            // wedstrijdenTableAdapter
             // 
-            this.pnlToernooi.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pnlToernooi.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlToernooi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlToernooi.Controls.Add(this.pbAfvalschema);
-            this.pnlToernooi.Location = new System.Drawing.Point(100, 50);
-            this.pnlToernooi.Name = "pnlToernooi";
-            this.pnlToernooi.Size = new System.Drawing.Size(600, 350);
-            this.pnlToernooi.TabIndex = 9;
-            // 
-            // pbAfvalschema
-            // 
-            this.pbAfvalschema.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbAfvalschema.Location = new System.Drawing.Point(-1, -1);
-            this.pbAfvalschema.Name = "pbAfvalschema";
-            this.pbAfvalschema.Size = new System.Drawing.Size(600, 300);
-            this.pbAfvalschema.TabIndex = 3;
-            this.pbAfvalschema.TabStop = false;
-            this.pbAfvalschema.Click += new System.EventHandler(this.pbAfvalschema_Click);
+            this.wedstrijdenTableAdapter.ClearBeforeFill = true;
             // 
             // FrmToernooienWeergave
             // 
@@ -151,10 +157,10 @@
             this.Load += new System.EventHandler(this.FrmToernooienWeergave_Load);
             this.pnlAanmelden.ResumeLayout(false);
             this.pnlAanmelden.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.toernooienBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).EndInit();
             this.pnlToernooi.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbAfvalschema)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toernooienBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -171,5 +177,6 @@
         private System.Windows.Forms.Button btnHandmatig;
         private System.Windows.Forms.Button btnXML;
         private System.Windows.Forms.PictureBox pbAfvalschema;
+        private rack_itDataSetTableAdapters.wedstrijdenTableAdapter wedstrijdenTableAdapter;
     }
 }

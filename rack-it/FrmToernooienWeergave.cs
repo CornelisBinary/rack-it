@@ -70,27 +70,11 @@ namespace rack_it
 
         private void pbAfvalschema_Click(object sender, EventArgs e)
         {
-           
-                Afvalschema afvalschema = new Afvalschema(new List<string> { "piet", "henk", "tuin", "musket", "doeplet", "henk", "tuin", "musket" },
-                                                                        new List<string> { "veld1", "veld2", "veld3", "veld4", "veld5", "veld1", "veld2", "veld3", "veld4", "veld5" },
-                                                                        ((DataRowCollection)rack_itDataSet.wedstrijden.Rows));
+            wedstrijdenTableAdapter.GetToernooiWedstrijden(rack_itDataSet.wedstrijden, "SlimDoen");
 
-                List<string> spelers = new List<string> { "piet", "henk", "tuin", "musket", "piet", "henk", "tuin", "musket" };
-            afvalschema.AfvalFase++;
+            Afvalschema toernooiAfvalschema = new Afvalschema(Naam, new List<string> {"Mariane","Rodrigo" }, new List<string> { }, (DataRowCollection)rack_itDataSet.wedstrijden.Rows);
 
-            afvalschema.MaakActieveFase(spelers.GetRange(0, 8), pbAfvalschema.CreateGraphics());
-            afvalschema.AfvalFase++;
-
-            afvalschema.MaakActieveFase(spelers.GetRange(0, 4), pbAfvalschema.CreateGraphics());
-            afvalschema.AfvalFase++;
-
-            afvalschema.MaakActieveFase(spelers.GetRange(0, 2), pbAfvalschema.CreateGraphics());
-            afvalschema.AfvalFase++;
-
-            afvalschema.MaakActieveFase(spelers.GetRange(0, 1), pbAfvalschema.CreateGraphics());
-
-
-          
+            toernooiAfvalschema.GenereerFases(pbAfvalschema.CreateGraphics(), (DataRowCollection)rack_itDataSet.wedstrijden.Rows);
 
         }
     }
