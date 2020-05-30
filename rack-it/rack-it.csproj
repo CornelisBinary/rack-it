@@ -105,6 +105,12 @@
     <Compile Include="FrmEditBase.Designer.cs">
       <DependentUpon>FrmEditBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEditWedstrijden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditWedstrijden.Designer.cs">
+      <DependentUpon>FrmEditWedstrijden.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHoofdscherm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEditBase.resx">
       <DependentUpon>FrmEditBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditWedstrijden.resx">
+      <DependentUpon>FrmEditWedstrijden.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHoofdscherm.resx">
       <DependentUpon>FrmHoofdscherm.cs</DependentUpon>

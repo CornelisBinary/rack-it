@@ -40,9 +40,8 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pbAfvalschema = new System.Windows.Forms.PictureBox();
+            this.btnVerwerk = new System.Windows.Forms.Button();
+            this.btnAfvalSchema = new System.Windows.Forms.Button();
             this.toernooienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rack_itDataSet = new rack_it.rack_itDataSet();
             this.toernooienTableAdapter = new rack_it.rack_itDataSetTableAdapters.toernooienTableAdapter();
@@ -54,11 +53,12 @@
             this.wedstrijdenTableAdapter = new rack_it.rack_itDataSetTableAdapters.wedstrijdenTableAdapter();
             this.btnAanmelden = new System.Windows.Forms.Button();
             this.btnToernooi = new System.Windows.Forms.Button();
+            this.pbAfvalschema = new System.Windows.Forms.PictureBox();
             this.pnlAanmelden.SuspendLayout();
             this.pnlToernooi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAfvalschema)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toernooienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAfvalschema)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlAanmelden
@@ -114,8 +114,8 @@
             this.pnlToernooi.Controls.Add(this.button5);
             this.pnlToernooi.Controls.Add(this.button4);
             this.pnlToernooi.Controls.Add(this.button3);
-            this.pnlToernooi.Controls.Add(this.button2);
-            this.pnlToernooi.Controls.Add(this.button1);
+            this.pnlToernooi.Controls.Add(this.btnVerwerk);
+            this.pnlToernooi.Controls.Add(this.btnAfvalSchema);
             this.pnlToernooi.Controls.Add(this.pbAfvalschema);
             this.pnlToernooi.Location = new System.Drawing.Point(100, 50);
             this.pnlToernooi.Name = "pnlToernooi";
@@ -176,35 +176,26 @@
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnVerwerk
             // 
-            this.button2.Location = new System.Drawing.Point(75, 310);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 30);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnVerwerk.Location = new System.Drawing.Point(75, 310);
+            this.btnVerwerk.Name = "btnVerwerk";
+            this.btnVerwerk.Size = new System.Drawing.Size(75, 30);
+            this.btnVerwerk.TabIndex = 5;
+            this.btnVerwerk.Text = "Verwerk";
+            this.btnVerwerk.UseVisualStyleBackColor = true;
+            this.btnVerwerk.Click += new System.EventHandler(this.btnVerwerk_Click);
             // 
-            // button1
+            // btnAfvalSchema
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(0, 310);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 30);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "afvalschema";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pbAfvalschema
-            // 
-            this.pbAfvalschema.BackColor = System.Drawing.Color.Black;
-            this.pbAfvalschema.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbAfvalschema.Location = new System.Drawing.Point(0, 0);
-            this.pbAfvalschema.Name = "pbAfvalschema";
-            this.pbAfvalschema.Size = new System.Drawing.Size(600, 300);
-            this.pbAfvalschema.TabIndex = 3;
-            this.pbAfvalschema.TabStop = false;
+            this.btnAfvalSchema.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAfvalSchema.Location = new System.Drawing.Point(0, 310);
+            this.btnAfvalSchema.Name = "btnAfvalSchema";
+            this.btnAfvalSchema.Size = new System.Drawing.Size(75, 30);
+            this.btnAfvalSchema.TabIndex = 4;
+            this.btnAfvalSchema.Text = "afvalschema";
+            this.btnAfvalSchema.UseVisualStyleBackColor = true;
+            this.btnAfvalSchema.Click += new System.EventHandler(this.btnAfvalSchema_Click);
             // 
             // toernooienBindingSource
             // 
@@ -264,6 +255,7 @@
             this.btnAanmelden.TabIndex = 10;
             this.btnAanmelden.Text = "Aanmelden";
             this.btnAanmelden.UseVisualStyleBackColor = true;
+            this.btnAanmelden.Visible = false;
             this.btnAanmelden.Click += new System.EventHandler(this.btnAanmelden_Click);
             // 
             // btnToernooi
@@ -276,7 +268,18 @@
             this.btnToernooi.TabIndex = 11;
             this.btnToernooi.Text = "Toernooi";
             this.btnToernooi.UseVisualStyleBackColor = true;
+            this.btnToernooi.Visible = false;
             this.btnToernooi.Click += new System.EventHandler(this.btnToernooi_Click);
+            // 
+            // pbAfvalschema
+            // 
+            this.pbAfvalschema.BackColor = System.Drawing.Color.Black;
+            this.pbAfvalschema.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbAfvalschema.Location = new System.Drawing.Point(0, 0);
+            this.pbAfvalschema.Name = "pbAfvalschema";
+            this.pbAfvalschema.Size = new System.Drawing.Size(600, 300);
+            this.pbAfvalschema.TabIndex = 3;
+            this.pbAfvalschema.TabStop = false;
             // 
             // FrmToernooienWeergave
             // 
@@ -294,9 +297,9 @@
             this.pnlAanmelden.ResumeLayout(false);
             this.pnlAanmelden.PerformLayout();
             this.pnlToernooi.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbAfvalschema)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toernooienBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAfvalschema)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -314,9 +317,9 @@
         private System.Windows.Forms.Button btnXML;
         private System.Windows.Forms.PictureBox pbAfvalschema;
         private rack_itDataSetTableAdapters.wedstrijdenTableAdapter wedstrijdenTableAdapter;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAfvalSchema;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnVerwerk;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;

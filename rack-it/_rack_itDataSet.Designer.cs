@@ -6919,7 +6919,7 @@ namespace rack_it.rack_itDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Toernooien_Naam, Afvalfase, Nummer, Velden_Naam, Winnaar, Verliezer, Einds" +
@@ -6927,8 +6927,9 @@ namespace rack_it.rack_itDataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Afvalfase, Eindstand, Nummer, Toernooien_Naam, Velden_Naam, Verliezer, Win" +
-                "naar FROM wedstrijden WHERE (Toernooien_Naam = @naam) ORDER BY Afvalfase";
+            this._commandCollection[1].CommandText = "SELECT Toernooien_Naam, Afvalfase, Nummer, Velden_Naam, Winnaar, Verliezer, Einds" +
+                "tand\r\nFROM     wedstrijden\r\nWHERE  (Toernooien_Naam = @naam) AND (Afvalfase = @a" +
+                "fvalfase)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@naam";
@@ -6938,6 +6939,26 @@ namespace rack_it.rack_itDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Toernooien_Naam";
             this._commandCollection[1].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@afvalfase";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Afvalfase";
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT Afvalfase, Eindstand, Nummer, Toernooien_Naam, Velden_Naam, Verliezer, Win" +
+                "naar FROM wedstrijden WHERE (Toernooien_Naam = @naam) ORDER BY Afvalfase";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@naam";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 45;
+            param.IsNullable = true;
+            param.SourceColumn = "Toernooien_Naam";
+            this._commandCollection[2].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6968,8 +6989,28 @@ namespace rack_it.rack_itDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int GetToernooiWedstrijden(rack_itDataSet.wedstrijdenDataTable dataTable, string naam) {
+        public virtual int GetFaseToernooi(rack_itDataSet.wedstrijdenDataTable dataTable, string naam, int afvalfase) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((naam == null)) {
+                throw new global::System.ArgumentNullException("naam");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(naam));
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(afvalfase));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int GetToernooiWedstrijden(rack_itDataSet.wedstrijdenDataTable dataTable, string naam) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((naam == null)) {
                 throw new global::System.ArgumentNullException("naam");
             }

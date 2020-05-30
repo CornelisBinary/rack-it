@@ -17,6 +17,8 @@ namespace rack_it
         private string Naam;
         private List<string> Deelnemers = new List<string> { };
         private List<string> Velden = new List<string> { };
+
+        private Afvalschema afvalschema;
         public FrmToernooienWeergave(string naam)
         {
             InitializeComponent();
@@ -33,86 +35,24 @@ namespace rack_it
             Date = (DateTime)dataRow["Datum"];
             Doelgroep = dataRow["Doelgroep"].ToString();
             
-            tableAdapterManager.UpdateAll(this.rack_itDataSet);
-
-    // DIT KAN 10 keer korter en compacter!!!
             // als het toernooi actief of uitgevoerd is moeten we de gegevens ophalen.
             if (Date < DateTime.Today)
             {
                 pnlAanmelden.SendToBack();
                 pnlToernooi.BringToFront();
 
-                // alle eventuel gemaakte wedstrijden van het toernooi.
-                wedstrijdenTableAdapter.GetToernooiWedstrijden(rack_itDataSet.wedstrijden, Naam);
-                // alle velden van de locatie die gekozen is voor het toernooi.
-                veldenTableAdapter.ToernooiVelden(rack_itDataSet.velden, Naam);
-                // toevoegen aan de velden `List`
-                //Velden.AddRange(new List<string> { rack_itDataSet.velden.Rows.ToString() });
-                foreach (DataRow data in rack_itDataSet.velden.Rows)
-                {
-                    Velden.Add(data["Naam"].ToString());
-                }
-
-                // alle inschrijvingen voor het toernooi ophalen.
-                if (Doelgroep == "teams")
-                {
-                    inschrijvingteamsTableAdapter.ToernooiInschrijvingen(rack_itDataSet.inschrijvingteams, Naam);
-                    //Deelnemers.AddRange(new List<string> { rack_itDataSet.inschrijvingteams.Rows.ToString() });
-                    foreach (DataRow data in rack_itDataSet.inschrijvingteams.Rows)
-                    {
-                        Deelnemers.Add(data["Teams_Naam"].ToString());
-                    }
-                }
-                else if( Doelgroep == "spelers")
-                {
-                   inschrijvingspelersTableAdapter.ToernooiInschrijvingen(rack_itDataSet.inschrijvingspelers, Naam);
-                    foreach (DataRow data in rack_itDataSet.inschrijvingspelers.Rows)
-                    {
-
-                        Deelnemers.Add(data["Spelers_Nummer"].ToString());
-                    }
-
-                }
+                toernooiGegevensOphalen();
 
             } else if(Date == DateTime.Today){
                 btnAanmelden.Enabled = true;
+                btnAanmelden.Visible = true;
                 btnToernooi.Enabled = true;
+                btnToernooi.Visible = true;
 
                 pnlAanmelden.SendToBack();
                 pnlToernooi.BringToFront();
 
-                // alle eventuel gemaakte wedstrijden van het toernooi.
-                wedstrijdenTableAdapter.GetToernooiWedstrijden(rack_itDataSet.wedstrijden, Naam);
-                // alle velden van de locatie die gekozen is voor het toernooi.
-                veldenTableAdapter.ToernooiVelden(rack_itDataSet.velden, Naam);
-                // toevoegen aan de velden `List`
-                //Velden.AddRange(new List<string> { rack_itDataSet.velden.Rows.ToString() });
-                foreach (DataRow data in rack_itDataSet.velden.Rows)
-                {
-                    Velden.Add(data["Naam"].ToString());
-                }
-
-                // alle inschrijvingen voor het toernooi ophalen.
-                if (Doelgroep == "teams")
-                {
-                    inschrijvingteamsTableAdapter.ToernooiInschrijvingen(rack_itDataSet.inschrijvingteams, Naam);
-                    //Deelnemers.AddRange(new List<string> { rack_itDataSet.inschrijvingteams.Rows.ToString() });
-                    foreach (DataRow data in rack_itDataSet.inschrijvingteams.Rows)
-                    {
-                        Deelnemers.Add(data["Teams_Naam"].ToString());
-                    }
-                }
-                else if (Doelgroep == "spelers")
-                {
-                    inschrijvingspelersTableAdapter.ToernooiInschrijvingen(rack_itDataSet.inschrijvingspelers, Naam);
-                    foreach (DataRow data in rack_itDataSet.inschrijvingspelers.Rows)
-                    {
-
-                        Deelnemers.Add(data["Spelers_Nummer"].ToString());
-                    }
-
-                }
-
+                toernooiGegevensOphalen();
                 
             }
             else
@@ -143,15 +83,50 @@ namespace rack_it
             pnlToernooi.BringToFront();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAfvalSchema_Click(object sender, EventArgs e)
         {
-    // manier verzinnen om dit gelijk inteladen zonder dat je deze knop moet indrukken
-            Afvalschema toernooiAfvalschema = new Afvalschema(Naam, Deelnemers, Velden,
+            // manier verzinnen om dit gelijk inteladen zonder dat je deze knop moet indrukken
+            leegPictureBox();
+
+            afvalschema = new Afvalschema(Naam, Deelnemers, Velden,
                                                                     (DataRowCollection)rack_itDataSet.wedstrijden.Rows);
 
-            toernooiAfvalschema.GenereerFases(pbAfvalschema.CreateGraphics(),
+            afvalschema.GenereerFases(pbAfvalschema.CreateGraphics(),
                                             (DataRowCollection)rack_itDataSet.wedstrijden.Rows);
+        }
 
+        private void btnVerwerk_Click(object sender, EventArgs e)
+        {
+           
+            try
+            {
+                foreach (DataRow wedstrijd in afvalschema.wedstrijdFase)
+                {
+                    rack_itDataSet.wedstrijden.Rows.Add(wedstrijd.ItemArray);
+                }
+
+                tableAdapterManager.UpdateAll(this.rack_itDataSet);
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+
+            FrmEditWedstrijden frmEditWedstrijden = new FrmEditWedstrijden(Naam, afvalschema.AfvalFase);
+            frmEditWedstrijden.StartPosition = FormStartPosition.CenterParent;
+
+            if (frmEditWedstrijden.ShowDialog() == DialogResult.OK)
+            {
+                afvalschema.wedstrijdFase.Clear();
+
+                wedstrijdenTableAdapter.GetToernooiWedstrijden(rack_itDataSet.wedstrijden, Naam);
+
+                leegPictureBox();
+
+                afvalschema.GenereerFases(pbAfvalschema.CreateGraphics(),
+                                     (DataRowCollection)rack_itDataSet.wedstrijden.Rows);
+            }
         }
 
         private void handmatigAanmelden()
@@ -176,6 +151,46 @@ namespace rack_it
 
                 }
             }
+        }
+
+        private void toernooiGegevensOphalen()
+        {
+
+            // alle eventuel gemaakte wedstrijden van het toernooi.
+            wedstrijdenTableAdapter.GetToernooiWedstrijden(rack_itDataSet.wedstrijden, Naam);
+            // alle velden van de locatie die gekozen is voor het toernooi.
+            veldenTableAdapter.ToernooiVelden(rack_itDataSet.velden, Naam);
+            // toevoegen aan de velden `List`
+            //Velden.AddRange(new List<string> { rack_itDataSet.velden.Rows.ToString() });
+            foreach (DataRow data in rack_itDataSet.velden.Rows)
+            {
+                Velden.Add(data["Naam"].ToString());
+            }
+
+            // alle inschrijvingen voor het toernooi ophalen.
+            if (Doelgroep == "teams")
+            {
+                inschrijvingteamsTableAdapter.ToernooiInschrijvingen(rack_itDataSet.inschrijvingteams, Naam);
+                //Deelnemers.AddRange(new List<string> { rack_itDataSet.inschrijvingteams.Rows.ToString() });
+                foreach (DataRow data in rack_itDataSet.inschrijvingteams.Rows)
+                {
+                    Deelnemers.Add(data["Teams_Naam"].ToString());
+                }
+            }
+            else if (Doelgroep == "spelers")
+            {
+                inschrijvingspelersTableAdapter.ToernooiInschrijvingen(rack_itDataSet.inschrijvingspelers, Naam);
+                foreach (DataRow data in rack_itDataSet.inschrijvingspelers.Rows)
+                {
+
+                    Deelnemers.Add(data["Spelers_Nummer"].ToString());
+                }
+
+            }
+        }
+        private void leegPictureBox()
+        {
+            pbAfvalschema.Refresh();
         }
     }
 }

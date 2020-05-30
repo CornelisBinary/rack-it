@@ -15,17 +15,17 @@ namespace rack_it
         //public
         public bool TeveelDeelnemers { get; set; }
 
-        public DataRowCollection HuidigeFase { get;}
         public int AfvalFase { get; set; }
 
         public Graphics Papier { get; set; }
 
         public string Naam { get; set; }
 
+        public DataRowCollection wedstrijdFase { get; set; }
+
         //private
         private rack_itDataSet.wedstrijdenDataTable dTWedstrijdFase;
         private DataRowCollection dRC_Wedstrijden;
-        private DataRowCollection wedstrijdFase;
 
         private List<string> velden = new List<string> { };
         private List<string> deelnemers = new List<string> { };
@@ -123,30 +123,29 @@ namespace rack_it
                 {
                     // als de afvalfase nog niet gedefineerd is wordt die hier gevuld. 
                     AfvalFase = AfvalFase == 0 ? (int)wedstrijd["Afvalfase"] : AfvalFase;
-                    
+
+                    // check of het over een andere afval fase gaat en roep dan de nodige methodes aan.
+                    if ((int)wedstrijd["Afvalfase"] != AfvalFase)
+                    {
+
+                        // visuele weergave maken van wedstrijd fase.
+                        MaakAfgelegdeFase(wedstrijdFase);
+
+                        // het afvalfase nummer verhogen.
+                        AfvalFase = (int)wedstrijd["Afvalfase"];
+
+                        // leeg de wedstrijdFase voor de volgende fase.
+                        wedstrijdFase.Clear();
+
+                        // de gegevens lijsten met winnaars updaten
+                        winnaarsVorigeRonde = new List<string>(winnaarsHuidigeRonde);
+                        winnaarsHuidigeRonde.Clear();
+
+                    }
+
                     // check of de wedstrijd eindstand gevuld is.
                     if (wedstrijd["Eindstand"].ToString() != "")
                     {
-
-                        // check of het over een andere afval fase gaat en roep dan de nodige methodes aan.
-                        if ((int)wedstrijd["Afvalfase"] != AfvalFase)
-                        {
-
-                            // visuele weergave maken van wedstrijd fase.
-                            MaakAfgelegdeFase(wedstrijdFase);
-
-                            // het afvalfase nummer verhogen.
-                            AfvalFase = (int)wedstrijd["Afvalfase"];
-
-                            // leeg de wedstrijdFase voor de volgende fase.
-                            wedstrijdFase.Clear();
-
-                            // de gegevens lijsten met winnaars updaten
-                            winnaarsVorigeRonde.Clear();
-                            winnaarsVorigeRonde = winnaarsHuidigeRonde;
-                            winnaarsHuidigeRonde.Clear();
-
-                        }
 
                         // gegevens moeten altijd toegevoegd worden, een if check statement is hier overbodig.
                         // voegt de huidige datarow toe aan de fase.
@@ -170,17 +169,16 @@ namespace rack_it
                     }
                     else
                     {
-                        
                         // met de gegevens uit `winnaarsVorigeRonde` genereer je de niet complete fase opnieuw;
                         if (winnaarsVorigeRonde.Count == 0)
                         {
+
                             MaakActieveFase(deelnemers);
+                            
                         }
                         else
                         {
-                            
                             MaakActieveFase(winnaarsVorigeRonde);
-
                         }
                         break;
                     }
@@ -210,7 +208,7 @@ namespace rack_it
             float breedteVeld = 600;
 
             float offsetX = breedteVeld / 8;
-            float offsetY = lengteVeld / ((WedstrijdFase.Count * 2)+ 1);
+            float offsetY = lengteVeld / ((WedstrijdFase.Count * 2)+ 2);
 
             float positieX = AfvalFase == 1 ? 0 : offsetX * (AfvalFase-1);
             float positieY = offsetY;
@@ -245,6 +243,8 @@ namespace rack_it
         // Visualiseer een nog niet afgelegde fase waarvoor automatisch nieuwe datarows voor de database tafel wedstrijden gemaakt moet worden.
         private void MaakActieveFase(List<string> spelers)
         {
+            // datarowcollection leeg gooien om problemen te voorkomen.
+            wedstrijdFase.Clear();
 
             SolidBrush kwastSpeler = new SolidBrush(Color.Silver);
             SolidBrush kwastVeld = new SolidBrush(Color.DarkOrange);
@@ -255,7 +255,7 @@ namespace rack_it
             float breedteVeld = 600;
 
             float offsetX = breedteVeld / 8;
-            float offsetY = lengteVeld / (spelers.Count() + 1);
+            float offsetY = lengteVeld / (spelers.Count() + 2);
 
             float positieX = AfvalFase == 1 ? 0 : offsetX * (AfvalFase - 1);
             float positieY = offsetY;
@@ -269,6 +269,7 @@ namespace rack_it
 
             foreach (string speler in spelers)
             {
+
                 // spelers tekenen op ui
                 Papier.DrawString(speler, font, kwastSpeler, positieX, positieY);
 
@@ -287,7 +288,7 @@ namespace rack_it
                         Papier.DrawString(velden[VeldTeller], font, kwastVeld, positieX, positieY - (offsetY * (float)0.5));
 
                         // datarow toevoegen
-        // oplossing verzinnen om dubbele waardes toetelaten, bv wedstrijd nummer !
+        // oplossing verzinnen om dubbele waardes toetelaten, bv wedstrijd nummer (done)
                         wedstrijdFase.Add(AfvalFase, Naam, nummer, velden[VeldTeller], "", "", "");
                     }
                     else
