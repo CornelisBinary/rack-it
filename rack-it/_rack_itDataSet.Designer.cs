@@ -46,8 +46,6 @@ namespace rack_it {
         
         private global::System.Data.DataRelation relationfk_Toernooien_Locaties1;
         
-        private global::System.Data.DataRelation relationfk_Velden_Locaties1;
-        
         private global::System.Data.DataRelation relationfk_InschrijvingSpelers_Spelers1;
         
         private global::System.Data.DataRelation relationfk_InschrijvingSpelers_Toernooien1;
@@ -61,6 +59,8 @@ namespace rack_it {
         private global::System.Data.DataRelation relationfk_Wedstrijden_Toernooien1;
         
         private global::System.Data.DataRelation relationfk_Wedstrijden_Velden1;
+        
+        private global::System.Data.DataRelation relationfk_Velden_Locaties1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -408,7 +408,6 @@ namespace rack_it {
             }
             this.relationfk_Spelers_Teams1 = this.Relations["fk_Spelers_Teams1"];
             this.relationfk_Toernooien_Locaties1 = this.Relations["fk_Toernooien_Locaties1"];
-            this.relationfk_Velden_Locaties1 = this.Relations["fk_Velden_Locaties1"];
             this.relationfk_InschrijvingSpelers_Spelers1 = this.Relations["fk_InschrijvingSpelers_Spelers1"];
             this.relationfk_InschrijvingSpelers_Toernooien1 = this.Relations["fk_InschrijvingSpelers_Toernooien1"];
             this.relationfk_InschrijvingTeams_Teams1 = this.Relations["fk_InschrijvingTeams_Teams1"];
@@ -416,6 +415,7 @@ namespace rack_it {
             this.relationfk_Spelers_Scholen1 = this.Relations["fk_Spelers_Scholen1"];
             this.relationfk_Wedstrijden_Toernooien1 = this.Relations["fk_Wedstrijden_Toernooien1"];
             this.relationfk_Wedstrijden_Velden1 = this.Relations["fk_Wedstrijden_Velden1"];
+            this.relationfk_Velden_Locaties1 = this.Relations["fk_Velden_Locaties1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -452,10 +452,6 @@ namespace rack_it {
                         this.tablelocaties.NaamColumn}, new global::System.Data.DataColumn[] {
                         this.tabletoernooien.Locaties_NaamColumn}, false);
             this.Relations.Add(this.relationfk_Toernooien_Locaties1);
-            this.relationfk_Velden_Locaties1 = new global::System.Data.DataRelation("fk_Velden_Locaties1", new global::System.Data.DataColumn[] {
-                        this.tablelocaties.NaamColumn}, new global::System.Data.DataColumn[] {
-                        this.tablevelden.Locaties_NaamColumn}, false);
-            this.Relations.Add(this.relationfk_Velden_Locaties1);
             this.relationfk_InschrijvingSpelers_Spelers1 = new global::System.Data.DataRelation("fk_InschrijvingSpelers_Spelers1", new global::System.Data.DataColumn[] {
                         this.tablespelers.nummerColumn}, new global::System.Data.DataColumn[] {
                         this.tableinschrijvingspelers.Spelers_nummerColumn}, false);
@@ -484,6 +480,10 @@ namespace rack_it {
                         this.tablevelden.NaamColumn}, new global::System.Data.DataColumn[] {
                         this.tablewedstrijden.Velden_NaamColumn}, false);
             this.Relations.Add(this.relationfk_Wedstrijden_Velden1);
+            this.relationfk_Velden_Locaties1 = new global::System.Data.DataRelation("fk_Velden_Locaties1", new global::System.Data.DataColumn[] {
+                        this.tablelocaties.NaamColumn}, new global::System.Data.DataColumn[] {
+                        this.tablevelden.Locaties_NaamColumn}, false);
+            this.Relations.Add(this.relationfk_Velden_Locaties1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1886,8 +1886,9 @@ namespace rack_it {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public veldenRow FindByNaam(string Naam) {
+            public veldenRow FindByLocaties_NaamNaam(string Locaties_Naam, string Naam) {
                 return ((veldenRow)(this.Rows.Find(new object[] {
+                            Locaties_Naam,
                             Naam})));
             }
             
@@ -1920,9 +1921,9 @@ namespace rack_it {
                 this.columnLocaties_Naam = new global::System.Data.DataColumn("Locaties_Naam", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLocaties_Naam);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnLocaties_Naam,
                                 this.columnNaam}, true));
                 this.columnNaam.AllowDBNull = false;
-                this.columnNaam.Unique = true;
                 this.columnNaam.MaxLength = 45;
                 this.columnLocaties_Naam.AllowDBNull = false;
                 this.columnLocaties_Naam.MaxLength = 45;
@@ -6323,13 +6324,12 @@ namespace rack_it.rack_itDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Naam`, `Locaties_Naam` FROM `velden`";
+            this._commandCollection[0].CommandText = "SELECT     Naam, Locaties_Naam\r\nFROM        velden";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Locaties_Naam, Naam\r\nFROM     velden\r\nWHERE  (Locaties_Naam =\r\n           " +
-                "           (SELECT Locaties_Naam\r\n                       FROM      toernooien\r\n " +
-                "                      WHERE   (Naam = @naam)))";
+            this._commandCollection[1].CommandText = "SELECT Locaties_Naam, Naam FROM velden WHERE (Locaties_Naam = (SELECT Locaties_Na" +
+                "am FROM toernooien WHERE (Naam = @naam)))";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@naam";
@@ -6411,125 +6411,6 @@ namespace rack_it.rack_itDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string p1, string p2) {
-            if ((p1 == null)) {
-                throw new global::System.ArgumentNullException("p1");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(p1));
-            }
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(p2));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1, string p2) {
-            if ((p1 == null)) {
-                throw new global::System.ArgumentNullException("p1");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(p1));
-            }
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p2));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p1, string p2, string p3, string p4) {
-            if ((p1 == null)) {
-                throw new global::System.ArgumentNullException("p1");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(p1));
-            }
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(p2));
-            }
-            if ((p3 == null)) {
-                throw new global::System.ArgumentNullException("p3");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(p3));
-            }
-            if ((p4 == null)) {
-                throw new global::System.ArgumentNullException("p4");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(p4));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p2, string p3, string p4) {
-            return this.Update(p3, p2, p3, p4);
         }
     }
     

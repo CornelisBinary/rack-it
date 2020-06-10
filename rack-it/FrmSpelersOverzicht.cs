@@ -54,5 +54,32 @@ namespace rack_it
                 this.spelersTableAdapter.Fill(this.rack_itDataSet.spelers);
             }
         }
+
+        private void btnZoeken_Click(object sender, EventArgs e)
+        {
+            string zoekwaarde = txbZoekwaarde.Text;
+
+            try
+            {
+                spelersDataGridView.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
+
+                foreach (DataGridViewRow row in spelersDataGridView.Rows)
+                {
+                    if (row.Cells[0].Value.ToString().Equals(zoekwaarde))
+                    {
+                        spelersDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+                        row.Selected = true;
+                        break;
+                    }
+
+                }
+
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show(exception.Message);
+            }
+        }
     }
 }

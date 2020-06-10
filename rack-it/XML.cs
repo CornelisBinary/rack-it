@@ -61,7 +61,6 @@ namespace rack_it
             XmlNode hoofdNode = xmlDoc.SelectSingleNode("//gegevens");
             foreach (XmlNode itemNode in hoofdNode.ChildNodes)
             {
-                //throw new Exception(itemNode.Name);
                 try
                 {
                     switch (itemNode.Name)
@@ -69,7 +68,7 @@ namespace rack_it
                         case "teams":
                             _teams(itemNode);
                             break;
-                        case "scholen":
+                       case "scholen":
                             _scholen(itemNode);
                             break;
                         case "locaties":
@@ -87,6 +86,8 @@ namespace rack_it
                     throw new Exception("Fouten in het bestand! controleer het bestand op fouten: " + exception.Message) { };
                 }
 
+                // bestand opslaan in de import folder.
+                xmlDoc.Save("..\\..\\XML\\import\\" + FileName.Split('\\').Last());
             }
         }
         private void _teams(XmlNode itemNode)
@@ -103,16 +104,18 @@ namespace rack_it
         {
             XmlNodeList schoolNodes = itemNode.ChildNodes;
             XmlNodeList spelerNodes;
+            string school;
 
             foreach (XmlNode schoolNode in schoolNodes)
             {
-                ScholenCollection.Add(schoolNode.Attributes["naam"].Value);
-
+                school = schoolNode.Attributes["naam"].Value;
+                ScholenCollection.Add(school);
+                
                 spelerNodes = schoolNode.ChildNodes;
 
                 foreach (XmlNode spelerNode in spelerNodes)
                 {
-                    SpelersCollection.Add(spelerNode.Attributes["nummer"].Value, spelerNode.Attributes["naam"].Value, spelerNode.Attributes["team"].Value, spelerNode.Attributes["school"].Value);
+                    SpelersCollection.Add(spelerNode.Attributes["nummer"].Value, spelerNode.Attributes["naam"].Value, spelerNode.Attributes["team"].Value, school);
                 }
             }
         }
@@ -121,16 +124,19 @@ namespace rack_it
         {
             XmlNodeList locatieNodes = itemNode.ChildNodes;
             XmlNodeList veldNodes;
+            string locatie;
 
             foreach (XmlNode locatieNode in locatieNodes)
             {
-                LocatiesCollection.Add(locatieNode.Attributes["naam"].Value, locatieNode.Attributes["plaats"].Value);
+                locatie = locatieNode.Attributes["naam"].Value;
+
+                LocatiesCollection.Add(locatie, locatieNode.Attributes["plaats"].Value);
 
                 veldNodes = locatieNode.ChildNodes;
 
                 foreach (XmlNode veldNode in veldNodes)
                 {
-                    VeldenCollection.Add(veldNode.Attributes["naam"].Value);
+                    VeldenCollection.Add(veldNode.Attributes["naam"].Value, locatie);
                 }
             }
         }

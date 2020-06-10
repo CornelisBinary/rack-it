@@ -140,6 +140,7 @@
             this.txbZoekwaarde.Name = "txbZoekwaarde";
             this.txbZoekwaarde.Size = new System.Drawing.Size(100, 22);
             this.txbZoekwaarde.TabIndex = 10;
+            this.txbZoekwaarde.TextChanged += new System.EventHandler(this.txbZoekwaarde_TextChanged);
             // 
             // rdbAankomend
             // 

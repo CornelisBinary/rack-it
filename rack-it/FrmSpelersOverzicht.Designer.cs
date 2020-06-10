@@ -39,9 +39,9 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Scholen_Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClmSpelers = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnNieuw = new System.Windows.Forms.Button();
+            this.btnZoeken = new System.Windows.Forms.Button();
+            this.txbZoekwaarde = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelersDataGridView)).BeginInit();
@@ -131,24 +131,6 @@
             this.btnClmSpelers.HeaderText = "Bewerk";
             this.btnClmSpelers.Name = "btnClmSpelers";
             // 
-            // button7
-            // 
-            this.button7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button7.Location = new System.Drawing.Point(186, 43);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 24);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox1.Location = new System.Drawing.Point(80, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 10;
-            // 
             // btnNieuw
             // 
             this.btnNieuw.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -161,15 +143,35 @@
             this.btnNieuw.UseVisualStyleBackColor = false;
             this.btnNieuw.Click += new System.EventHandler(this.btnNieuw_Click);
             // 
+            // btnZoeken
+            // 
+            this.btnZoeken.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnZoeken.BackColor = System.Drawing.Color.LightBlue;
+            this.btnZoeken.Location = new System.Drawing.Point(186, 42);
+            this.btnZoeken.Name = "btnZoeken";
+            this.btnZoeken.Size = new System.Drawing.Size(75, 24);
+            this.btnZoeken.TabIndex = 14;
+            this.btnZoeken.Text = "Zoek";
+            this.btnZoeken.UseVisualStyleBackColor = false;
+            this.btnZoeken.Click += new System.EventHandler(this.btnZoeken_Click);
+            // 
+            // txbZoekwaarde
+            // 
+            this.txbZoekwaarde.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txbZoekwaarde.Location = new System.Drawing.Point(80, 43);
+            this.txbZoekwaarde.Name = "txbZoekwaarde";
+            this.txbZoekwaarde.Size = new System.Drawing.Size(100, 22);
+            this.txbZoekwaarde.TabIndex = 13;
+            // 
             // FrmSpelersOverzicht
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(800, 478);
+            this.Controls.Add(this.btnZoeken);
+            this.Controls.Add(this.txbZoekwaarde);
             this.Controls.Add(this.btnNieuw);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.spelersDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmSpelersOverzicht";
@@ -190,13 +192,13 @@
         private rack_itDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView spelersDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnNieuw;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Scholen_Naam;
         private System.Windows.Forms.DataGridViewButtonColumn btnClmSpelers;
+        private System.Windows.Forms.Button btnZoeken;
+        private System.Windows.Forms.TextBox txbZoekwaarde;
     }
 }

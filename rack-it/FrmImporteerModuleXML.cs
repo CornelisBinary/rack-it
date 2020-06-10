@@ -11,7 +11,7 @@ namespace rack_it
 {
     public partial class FrmImporteerModuleXML : rack_it.FrmVoegToeBase
     {
-        XML Xml = new XML();
+        XML Xml;
         string fileName;
 
         public FrmImporteerModuleXML()
@@ -59,9 +59,16 @@ namespace rack_it
 
         private void btnCheckXml_Click(object sender, EventArgs e)
         {
+
+            Xml = new XML();
+
             Xml.ReadXml(fileName);
 
+            saveFileDialog1.FileName = fileName;
+
             btnCreate.Enabled = true;
+
+            btnCheckXml.Enabled = false;
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -89,20 +96,17 @@ namespace rack_it
                 }
                 foreach (DataRow dataRow in Xml.VeldenCollection)
                 {
-                    if (!rack_itDataSet.velden.Rows.Contains(dataRow["Naam"].ToString())) { rack_itDataSet.velden.Rows.Add(dataRow.ItemArray); };
+                    if (!rack_itDataSet.velden.Rows.Contains(new object[] { dataRow[0].ToString(), dataRow[1].ToString() })) { rack_itDataSet.velden.Rows.Add(dataRow.ItemArray); };
                 }
                 // toernooien + wedstrijden + inschrijvingen teams en spelers(leerlingen)
                 foreach (DataRow dataRow in Xml.ToernooienCollection)
                 {
-                    if (!rack_itDataSet.toernooien.Rows.Contains(dataRow["Naam"].ToString())) {
-                        rack_itDataSet.toernooien.Rows.Add(dataRow.ItemArray);
-                    };
+                    if (!rack_itDataSet.toernooien.Rows.Contains(dataRow["Naam"].ToString())) {rack_itDataSet.toernooien.Rows.Add(dataRow.ItemArray);};
                 }
 
                 foreach (DataRow dataRow in Xml.InschrijvingenSpelersCollection)
                 {
-                    if (!rack_itDataSet.inschrijvingspelers.Rows.Contains(new object[] 
-                    { dataRow[0].ToString(), dataRow[1].ToString() })) { rack_itDataSet.inschrijvingspelers.Rows.Add(dataRow.ItemArray); };
+                    if (!rack_itDataSet.inschrijvingspelers.Rows.Contains(new object[] { dataRow[0].ToString(), dataRow[1].ToString() })) { rack_itDataSet.inschrijvingspelers.Rows.Add(dataRow.ItemArray); };
                 }
                 foreach (DataRow dataRow in Xml.InschrijvingenTeamsCollection)
                 {

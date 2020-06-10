@@ -1,18 +1,97 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <gegevens>
   <teams>
-    <team naam="Xml-team"></team>
+    <team naam="Majorettes">
+    </team>
+    <team naam="Valken">
+    </team>
+    <team naam="Vleugel">
+    </team>
+    <team naam="Primals">
+    </team>
   </teams>
-
   <scholen>
-   
+    <school naam="Hoornbeeck-Kampen">
+      <speler nummer="38363" naam="Cornelis de Witte" team="Majorettes">
+      </speler>
+      <speler nummer="51532" naam="Vreek Vonk" team="Majorettes">
+      </speler>
+      <speler nummer="54531" naam="Cornelis de Vries" team="Majorettes">
+      </speler>
+      <speler nummer="67658" naam="Markus Leeuwert" team="Majorettes">
+      </speler>
+      <speler nummer="34532" naam="Alis Vaart" team="Valken">
+      </speler>
+      <speler nummer="56479" naam="Mees Kees" team="Valken">
+      </speler>
+      <speler nummer="52352" naam="Gerrit Kooiker" team="Valken">
+      </speler>
+      <speler nummer="19764" naam="Mike Vliegel" team="Valken">
+      </speler>
+    </school>
+    <school naam="VreemdeVogels">
+      <speler nummer="65433" naam="Willem Vries" team="Vleugel">
+      </speler>
+      <speler nummer="12312" naam="Marrit Dekker" team="Vleugel">
+      </speler>
+      <speler nummer="67756" naam="Marlies Vlooier" team="Vleugel">
+      </speler>
+      <speler nummer="34534" naam="Alles weerd" team="Vleugel">
+      </speler>
+      <speler nummer="78976" naam="Kasandra" team="Primals">
+      </speler>
+      <speler nummer="67854" naam="Alexios" team="Primals">
+      </speler>
+      <speler nummer="45647" naam="Oliver Queen" team="Primals">
+      </speler>
+      <speler nummer="34513" naam="Spartacus" team="Primals">
+      </speler>
+    </school>
   </scholen>
-
   <locaties>
-
+    <locatie naam="Sporthal" plaats="Staphorst">
+      <veld naam="veld1">
+      </veld>
+      <veld naam="veld2">
+      </veld>
+      <veld naam="veld3">
+      </veld>
+      <veld naam="veld4">
+      </veld>
+      <veld naam="veld5">
+      </veld>
+      <veld naam="veld6">
+      </veld>
+    </locatie>
+    <locatie naam="Gymzaal" plaats="Kampen">
+      <veld naam="veld1">
+      </veld>
+      <veld naam="veld2">
+      </veld>
+      <veld naam="veld3">
+      </veld>
+      <veld naam="veld4">
+      </veld>
+      <veld naam="veld5">
+      </veld>
+      <veld naam="veld6">
+      </veld>
+    </locatie>
   </locaties>
-
   <toernooien>
-  
+    <toernooi naam="Vleugel|Primals" datum="2020-06-10" locatie="Sporthal">
+      <Inschrijvingen doelgroep="teams">
+        <inschrijving naam="Vleugel">
+        </inschrijving>
+        <inschrijving naam="Primals">
+        </inschrijving>
+      </Inschrijvingen>
+      <wedstrijden>
+        <wedstrijd afvalfase="1" nummer="1" veld="veld1">
+          <eindstand winnaar="Vleugel|Willem Vries" verliezer="Primals|Oliver Queen" eindstand="10|5">
+          </eindstand>
+        </wedstrijd>
+      </wedstrijden>
+    </toernooi>
   </toernooien>
 </gegevens>

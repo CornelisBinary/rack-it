@@ -71,9 +71,8 @@ namespace rack_it
                 }
 
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-
                 //MessageBox.Show(exception.Message);
             }
         }
@@ -114,6 +113,9 @@ namespace rack_it
             }
         }
 
-        
+        private void txbZoekwaarde_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -54,5 +54,32 @@ namespace rack_it
                 this.teamsTableAdapter.Fill(this.rack_itDataSet.teams);
             }
         }
+
+        private void btnZoeken_Click(object sender, EventArgs e)
+        {
+            string zoekwaarde = txbZoekwaarde.Text;
+
+            try
+            {
+                teamsDataGridView.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
+
+                foreach (DataGridViewRow row in teamsDataGridView.Rows)
+                {
+                    if (row.Cells[0].Value.ToString().Equals(zoekwaarde))
+                    {
+                        teamsDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+                        row.Selected = true;
+                        break;
+                    }
+
+                }
+
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show(exception.Message);
+            }
+        }
     }
 }

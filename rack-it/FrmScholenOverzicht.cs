@@ -55,5 +55,32 @@ namespace rack_it
                 this.scholenTableAdapter.Fill(rack_itDataSet.scholen);
             }
         }
+
+        private void btnZoeken_Click(object sender, EventArgs e)
+        {
+            string zoekwaarde = txbZoekwaarde.Text;
+
+            try
+            {
+                schoolDataGridView.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
+
+                foreach (DataGridViewRow row in schoolDataGridView.Rows)
+                {
+                    if (row.Cells[0].Value.ToString().Equals(zoekwaarde))
+                    {
+                        schoolDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+                        row.Selected = true;
+                        break;
+                    }
+
+                }
+
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show(exception.Message);
+            }
+        }
     }
 }

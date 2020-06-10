@@ -9,12 +9,12 @@
     <Shape ID="DesignTable:locaties" ZOrder="19" X="949" Y="252" Height="135" Width="220" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
     <Shape ID="DesignTable:spelers" ZOrder="18" X="70" Y="70" Height="181" Width="215" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="122" />
     <Shape ID="DesignTable:teams" ZOrder="17" X="355" Y="251" Height="113" Width="209" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="54" />
-    <Shape ID="DesignTable:toernooien" ZOrder="5" X="620" Y="141" Height="273" Width="245" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="122" />
-    <Shape ID="DesignTable:velden" ZOrder="16" X="675" Y="480" Height="158" Width="213" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
-    <Shape ID="DesignTable:wedstrijden" ZOrder="1" X="354" Y="466" Height="296" Width="285" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="191" />
-    <Shape ID="DesignTable:inschrijvingspelers" ZOrder="4" X="1239" Y="70" Height="158" Width="299" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
-    <Shape ID="DesignTable:inschrijvingteams" ZOrder="12" X="1608" Y="70" Height="158" Width="292" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
-    <Shape ID="DesignTable:scholen" ZOrder="7" X="0" Y="-1" Height="113" Width="220" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="54" />
+    <Shape ID="DesignTable:toernooien" ZOrder="6" X="620" Y="141" Height="273" Width="245" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="122" />
+    <Shape ID="DesignTable:velden" ZOrder="16" X="712" Y="475" Height="158" Width="213" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
+    <Shape ID="DesignTable:wedstrijden" ZOrder="2" X="354" Y="466" Height="296" Width="285" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="191" />
+    <Shape ID="DesignTable:inschrijvingspelers" ZOrder="5" X="1239" Y="70" Height="158" Width="299" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
+    <Shape ID="DesignTable:inschrijvingteams" ZOrder="13" X="1608" Y="70" Height="158" Width="292" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
+    <Shape ID="DesignTable:scholen" ZOrder="8" X="0" Y="-1" Height="113" Width="220" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="54" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:fk_Spelers_Teams1" ZOrder="15" LineWidth="11">
@@ -45,23 +45,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:fk_Velden_Locaties1" ZOrder="13" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>966</X>
-          <Y>387</Y>
-        </Point>
-        <Point>
-          <X>966</X>
-          <Y>521</Y>
-        </Point>
-        <Point>
-          <X>888</X>
-          <Y>521</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
-    <Connector ID="DesignRelation:fk_InschrijvingSpelers_Spelers1" ZOrder="11" LineWidth="11">
+    <Connector ID="DesignRelation:fk_InschrijvingSpelers_Spelers1" ZOrder="12" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>285</X>
@@ -73,7 +57,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:fk_InschrijvingSpelers_Toernooien1" ZOrder="10" LineWidth="11">
+    <Connector ID="DesignRelation:fk_InschrijvingSpelers_Toernooien1" ZOrder="11" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>848</X>
@@ -89,7 +73,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:fk_InschrijvingTeams_Teams1" ZOrder="9" LineWidth="11">
+    <Connector ID="DesignRelation:fk_InschrijvingTeams_Teams1" ZOrder="10" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>547</X>
@@ -105,7 +89,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:fk_InschrijvingTeams_Toernooien1" ZOrder="8" LineWidth="11">
+    <Connector ID="DesignRelation:fk_InschrijvingTeams_Toernooien1" ZOrder="9" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>840</X>
@@ -121,7 +105,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:fk_Spelers_Scholen1" ZOrder="6" LineWidth="11">
+    <Connector ID="DesignRelation:fk_Spelers_Scholen1" ZOrder="7" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>53</X>
@@ -137,7 +121,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:fk_Wedstrijden_Toernooien1" ZOrder="3" LineWidth="11">
+    <Connector ID="DesignRelation:fk_Wedstrijden_Toernooien1" ZOrder="4" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>627</X>
@@ -149,15 +133,31 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:fk_Wedstrijden_Velden1" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:fk_Wedstrijden_Velden1" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>675</X>
-          <Y>546</Y>
+          <X>712</X>
+          <Y>541</Y>
         </Point>
         <Point>
           <X>639</X>
-          <Y>546</Y>
+          <Y>541</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:fk_Velden_Locaties1" ZOrder="1" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>966</X>
+          <Y>387</Y>
+        </Point>
+        <Point>
+          <X>966</X>
+          <Y>492</Y>
+        </Point>
+        <Point>
+          <X>925</X>
+          <Y>492</Y>
         </Point>
       </RoutePoints>
     </Connector>

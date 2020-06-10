@@ -60,7 +60,6 @@
             this.openFileDialog1.DefaultExt = "xml";
             this.openFileDialog1.Filter = "XML Files (*.xml)|*.xml";
             this.openFileDialog1.FilterIndex = 0;
-            this.openFileDialog1.InitialDirectory = "C:\\Users\\home\\source\\repos\\rack-it\\rack-it\\rack-it\\XML\\import";
             // 
             // btnImportXml
             // 
