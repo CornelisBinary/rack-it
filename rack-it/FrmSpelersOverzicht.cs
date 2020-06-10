@@ -15,14 +15,6 @@ namespace rack_it
             InitializeComponent();
         }
 
-        private void spelersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.spelersBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.rack_itDataSet);
-
-        }
-
         private void frmSpelersOverzicht_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'rack_itDataSet.spelers' table. You can move, or remove it, as needed.

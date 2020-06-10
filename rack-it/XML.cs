@@ -12,7 +12,8 @@ namespace rack_it
 
     // check functie toevoegen die alleen de structuur controleert !!!
     class XML
-    {
+    {   // eigenschappen
+        // public
         private rack_itDataSet rack_ItDataSet = new rack_itDataSet();
 
         public DataRowCollection TeamsCollection;
@@ -28,7 +29,7 @@ namespace rack_it
         public DataRowCollection InschrijvingenTeamsCollection;
         public DataRowCollection WedstrijdenCollection;
 
-
+        // constructor
         public XML()
         {
             TeamsCollection = rack_ItDataSet.teams.Rows;
@@ -45,7 +46,8 @@ namespace rack_it
             WedstrijdenCollection = rack_ItDataSet.wedstrijden.Rows;
         }
 
-
+        // methodes
+        // public hoofd functie
         public void ReadXml(string FileName)
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -90,6 +92,8 @@ namespace rack_it
                 xmlDoc.Save("..\\..\\XML\\import\\" + FileName.Split('\\').Last());
             }
         }
+
+        // private sub methodes
         private void _teams(XmlNode itemNode)
         {
             XmlNodeList teamNodes = itemNode.ChildNodes;

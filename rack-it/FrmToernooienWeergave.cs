@@ -44,7 +44,7 @@ namespace rack_it
                 pnlAanmelden.SendToBack();
                 pnlToernooi.BringToFront();
 
-                toernooiGegevensOphalen();
+                _toernooiGegevensOphalen();
 
             } else if(Date == DateTime.Today){
                 btnAanmelden.Visible = true;
@@ -54,7 +54,7 @@ namespace rack_it
                 pnlAanmelden.SendToBack();
                 pnlToernooi.BringToFront();
 
-                toernooiGegevensOphalen();
+                _toernooiGegevensOphalen();
                 
             }
             else
@@ -77,7 +77,7 @@ namespace rack_it
 
         private void btnHandmatig_Click(object sender, EventArgs e)
         {
-            handmatigAanmelden();
+            _handmatigAanmelden();
         }
         private void btnAanmelden_Click(object sender, EventArgs e)
         {
@@ -95,7 +95,7 @@ namespace rack_it
         {
     // manier verzinnen om dit gelijk inteladen zonder dat je deze knop moet indrukken
 
-            leegPictureBox();
+            _leegPictureBox();
 
             afvalschema = new Afvalschema(Naam, Deelnemers, Velden,
                                                                     (DataRowCollection)rack_itDataSet.wedstrijden.Rows);
@@ -109,7 +109,7 @@ namespace rack_it
            // twee blokken om als iets in de ééne fout gaat de ander door te laten gaan.
             try
             {
-                foreach (DataRow wedstrijd in afvalschema.wedstrijdFase)
+                foreach (DataRow wedstrijd in afvalschema.WedstrijdFase)
                 {
                     rack_itDataSet.wedstrijden.Rows.Add(wedstrijd.ItemArray);
                 }
@@ -131,11 +131,11 @@ namespace rack_it
                 if (frmEditWedstrijden.ShowDialog() == DialogResult.OK)
                 {
                     // dit moet globaler kunnen.!
-                    afvalschema.wedstrijdFase.Clear();
+                    afvalschema.WedstrijdFase.Clear();
 
                     wedstrijdenTableAdapter.GetToernooiWedstrijden(rack_itDataSet.wedstrijden, Naam);
 
-                    leegPictureBox();
+                    _leegPictureBox();
 
                     afvalschema.GenereerFases(pbAfvalschema.CreateGraphics(),
                                          (DataRowCollection)rack_itDataSet.wedstrijden.Rows);
@@ -148,7 +148,7 @@ namespace rack_it
 
         }
     // functies
-        private void handmatigAanmelden()
+        private void _handmatigAanmelden()
         {
             if (Doelgroep == "teams")
             {
@@ -172,7 +172,7 @@ namespace rack_it
             }
         }
 
-        private void toernooiGegevensOphalen()
+        private void _toernooiGegevensOphalen()
         {
 
             // alle eventuel gemaakte wedstrijden van het toernooi.
@@ -201,13 +201,12 @@ namespace rack_it
                 inschrijvingspelersTableAdapter.ToernooiInschrijvingen(rack_itDataSet.inschrijvingspelers, Naam);
                 foreach (DataRow data in rack_itDataSet.inschrijvingspelers.Rows)
                 {
-
                     Deelnemers.Add(data["Spelers_Nummer"].ToString());
                 }
 
             }
         }
-        private void leegPictureBox()
+        private void _leegPictureBox()
         {
             pbAfvalschema.Refresh();
         }
