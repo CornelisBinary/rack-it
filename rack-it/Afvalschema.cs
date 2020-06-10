@@ -204,11 +204,11 @@ namespace rack_it
 
             Font font = new Font(FontFamily.GenericSansSerif, 10);
 
-            float lengteVeld = 300;
+            float lengteVeld = 280;
             float breedteVeld = 600;
 
             float offsetX = breedteVeld / 8;
-            float offsetY = lengteVeld / ((WedstrijdFase.Count * 2)* (float)1.5);
+            float offsetY = lengteVeld / (WedstrijdFase.Count * 2);
 
             float positieX = AfvalFase == 1 ? 0 : offsetX * (AfvalFase-1);
             float positieY =  offsetY;
@@ -218,19 +218,16 @@ namespace rack_it
             foreach (DataRow wedstrijd in WedstrijdFase)
             {
                 // winnaar tekenen op het ui
-                Papier.DrawString(wedstrijd["Winnaar"].ToString() +" | "+ wedstrijd["Eindstand"].ToString().Split('|').First(), font, kwastWinnaar, positieX, positieY - (offsetY * (float)0.25));
-
-                // tellers + positie updaten.
-                positieY += (offsetY);
+                Papier.DrawString(wedstrijd["Winnaar"].ToString() +" | "+ wedstrijd["Eindstand"].ToString().Split('|').First(), font, kwastWinnaar, positieX, positieY - (offsetY * (float)0.5));
 
                 // veld toevoegen tussen bijde namen van spelers
-                Papier.DrawString(wedstrijd["Velden_Naam"].ToString(), font, kwastVeld, positieX, positieY - (offsetY * (float)0.5));
+                Papier.DrawString(wedstrijd["Velden_Naam"].ToString(), font, kwastVeld, positieX, positieY);
 
                 // tellers + positie updaten.
                 positieY += (offsetY);
 
                 // verliezer tekenen op het ui
-                Papier.DrawString(wedstrijd["Verliezer"].ToString() + " | " + wedstrijd["Eindstand"].ToString().Split('|').Last(), font, kwastVerliezer, positieX, positieY - (offsetY * (float)0.75));
+                Papier.DrawString(wedstrijd["Verliezer"].ToString() + " | " + wedstrijd["Eindstand"].ToString().Split('|').Last(), font, kwastVerliezer, positieX, positieY - (offsetY * (float)0.5));
 
                
                 // tellers + positie updaten.
@@ -254,17 +251,17 @@ namespace rack_it
 
             Font font = new Font(FontFamily.GenericSansSerif, 11);
            
-            float lengteVeld = 300;
+            float lengteVeld = 280;
             float breedteVeld = 600;
 
             float offsetX = breedteVeld / 8;
-            float offsetY = spelers.Count() == 1 ? lengteVeld / 2 : lengteVeld / (spelers.Count() * (float)1.5);
+            float offsetY = spelers.Count() == 1 ? lengteVeld / 2 : lengteVeld / spelers.Count();
 
             float positieX = AfvalFase == 1 ? 0 : offsetX * (AfvalFase - 1);
             float positieY = offsetY;
 
             // check als het de tweede speler is voor de if in de for loop.
-            int veldTeller = 1;
+            int veldTeller = 2;
             // wijst een specifiek veld aan in de `velden` `list`. 
             int VeldTeller = 0;
 
@@ -272,6 +269,17 @@ namespace rack_it
 
             foreach (string speler in spelers)
             {
+                if (spelers.Count() == 1)
+                {
+                    // spelers tekenen op ui
+                    Papier.DrawString(speler, font, kwastSpeler, positieX, positieY);
+                    break;
+                }
+                else
+                {
+                    // spelers tekenen op ui
+                    Papier.DrawString(speler, font, kwastSpeler, positieX, positieY - (offsetY * (float)0.5));
+                }
 
                 if (veldTeller == 2)
                 {
@@ -285,7 +293,7 @@ namespace rack_it
                     {
                         
                         // veld toevoegen tussen bijde namen van spelers
-                        Papier.DrawString(velden[VeldTeller], font, kwastVeld, positieX, positieY - (offsetY * (float)0.5));
+                        Papier.DrawString(velden[VeldTeller], font, kwastVeld, positieX, positieY);
 
                         // datarow toevoegen
                         WedstrijdFase.Add(Naam, AfvalFase,  nummer, velden[VeldTeller], "", "", "");
@@ -295,29 +303,17 @@ namespace rack_it
                         // als er geen velden meegegeven wordt kan wordt het niet wegeschreven naar de fase datarow collectie.
                         WedstrijdFase.Add(Naam, AfvalFase,  nummer, null,"", "", "");
                     }
-
-                    // tellers + positie updaten
-                    positieY += offsetY;
+                   
+                    // tellers updaten
                     veldTeller = 0;
                     VeldTeller++;
-
-                    // spelers tekenen op ui
-                    Papier.DrawString(speler, font, kwastSpeler, positieX, positieY - (offsetY * (float)0.75));
-
-                }
-                else if(spelers.Count() == 1)
-                {
-                    // spelers tekenen op ui
-                    Papier.DrawString(speler, font, kwastSpeler, positieX, positieY);
-                }
-                else
-                {
-                    Papier.DrawString(speler, font, kwastSpeler, positieX, positieY * (float)0.25);
+                   
                 }
                 // tellers + positie updaten.
                 veldTeller++;
                 positieY += offsetY;
                 nummer++;
+
             }
             // gelijk geheugen van items legen.
             kwastSpeler.Dispose();
