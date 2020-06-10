@@ -312,7 +312,7 @@ namespace rack_it
                 }
                 else
                 {
-                    Papier.DrawString(speler, font, kwastSpeler, positieX, positieY * (float)0.25));
+                    Papier.DrawString(speler, font, kwastSpeler, positieX, positieY * (float)0.25);
                 }
                 // tellers + positie updaten.
                 veldTeller++;
