@@ -41,10 +41,10 @@ namespace rack_it
         // initialisatie
         public Afvalschema(string naam, List<string> Deelnemers, List<string> Velden, DataRowCollection DRC_Wedstrijden)
         {
-            initClass(naam, Deelnemers, Velden, DRC_Wedstrijden);
+            _initClass(naam, Deelnemers, Velden, DRC_Wedstrijden);
         }
 
-        private void initClass(string naam, List<string> Deelnemers, List<string> Velden, DataRowCollection DRC_Wedstrijden)
+        private void _initClass(string naam, List<string> Deelnemers, List<string> Velden, DataRowCollection DRC_Wedstrijden)
         {
             Naam = naam;
             deelnemers = Deelnemers;
@@ -61,7 +61,7 @@ namespace rack_it
 
         // methodes
         // check voor genereren afvalschema.
-        private bool controleBestaandeGegevens()
+        private bool _controleBestaandeGegevens()
         {
             // check of er al bestaande wedstrijden zijn in de database.
             if (dRC_Wedstrijden.Count == 0)
@@ -94,12 +94,12 @@ namespace rack_it
                         throw new Exception("Overschrijding van miximaal aantal deelnemers : 256!") { };
                     }
                 }
-                // Er is nog geen fase gespeeld en er moet een nieuwe fase met de `MaakActieveFase` gegenereerd worden.
+                // Er is nog geen fase gespeeld en er moet een nieuwe fase met de `_maakActieveFase` gegenereerd worden.
                 return false;
             }
             else
             {
-                // Er zijn al fases gespeeld en die fases moeten met de methode uit `GenereerFases` door `maakAfgelegdeFase` gegenereerd worden.
+                // Er zijn al fases gespeeld en die fases moeten met de methode uit `GenereerFases` door `_maakAfgelegdeFase` gegenereerd worden.
                 return true;
             }
         }
@@ -112,7 +112,7 @@ namespace rack_it
 
             dRC_Wedstrijden = DRC_Wedstrijden;
             
-            if (controleBestaandeGegevens())
+            if (_controleBestaandeGegevens())
             {
                 // al de winnaars worden hierin opgeslagen tot één fase terug;
                 List<string> winnaarsVorigeRonde = new List<string> { };
@@ -129,7 +129,7 @@ namespace rack_it
                     {
 
                         // visuele weergave maken van wedstrijd fase.
-                        MaakAfgelegdeFase(wedstrijdFase);
+                        _maakAfgelegdeFase(wedstrijdFase);
 
                         // het afvalfase nummer verhogen.
                         AfvalFase = (int)wedstrijd["Afvalfase"];
@@ -158,13 +158,13 @@ namespace rack_it
                         if (dRC_Wedstrijden.IndexOf(wedstrijd).Equals((dRC_Wedstrijden.Count-1)))
                         {
                             // Eerst de huidige fase.
-                            MaakAfgelegdeFase(wedstrijdFase);
+                            _maakAfgelegdeFase(wedstrijdFase);
 
                             // verhogen van het nummer van de afval faze.
                             AfvalFase++;
 
                             // Daarna de nieuwe fase.
-                            MaakActieveFase(winnaarsHuidigeRonde);
+                            _maakActieveFase(winnaarsHuidigeRonde);
                         }
                     }
                     else
@@ -173,12 +173,12 @@ namespace rack_it
                         if (winnaarsVorigeRonde.Count == 0)
                         {
 
-                            MaakActieveFase(deelnemers);
+                            _maakActieveFase(deelnemers);
                             
                         }
                         else
                         {
-                            MaakActieveFase(winnaarsVorigeRonde);
+                            _maakActieveFase(winnaarsVorigeRonde);
                         }
                         break;
                     }
@@ -189,13 +189,13 @@ namespace rack_it
             {
                 AfvalFase = 1;
 
-                MaakActieveFase(deelnemers);
+                _maakActieveFase(deelnemers);
             }
                 
         }
      
         // Visualiseer een afgelegde fase met de gegevens opgehaald uit de database.
-        private void MaakAfgelegdeFase(DataRowCollection WedstrijdFase)
+        private void _maakAfgelegdeFase(DataRowCollection WedstrijdFase)
         {
             SolidBrush kwastWinnaar = new SolidBrush(Color.LightGreen);
             SolidBrush kwastVerliezer = new SolidBrush(Color.LightCoral);
@@ -241,7 +241,7 @@ namespace rack_it
         }
 
         // Visualiseer een nog niet afgelegde fase waarvoor automatisch nieuwe datarows voor de database tafel wedstrijden gemaakt moet worden.
-        private void MaakActieveFase(List<string> spelers)
+        private void _maakActieveFase(List<string> spelers)
         {
             // datarowcollection leeg gooien om problemen te voorkomen.
             wedstrijdFase.Clear();
@@ -288,7 +288,6 @@ namespace rack_it
                         Papier.DrawString(velden[VeldTeller], font, kwastVeld, positieX, positieY - (offsetY * (float)0.5));
 
                         // datarow toevoegen
-        // oplossing verzinnen om dubbele waardes toetelaten, bv wedstrijd nummer (done)
                         wedstrijdFase.Add(AfvalFase, Naam, nummer, velden[VeldTeller], "", "", "");
                     }
                     else

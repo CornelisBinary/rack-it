@@ -12,6 +12,7 @@ namespace rack_it
 {
     public partial class FrmToernooienWeergave : Form
     {
+    // prive variabelen
         private DateTime Date;
         private string Doelgroep;
         private string Naam;
@@ -19,6 +20,8 @@ namespace rack_it
         private List<string> Velden = new List<string> { };
 
         private Afvalschema afvalschema;
+
+    // initisatie methodes.
         public FrmToernooienWeergave(string naam)
         {
             InitializeComponent();
@@ -44,10 +47,9 @@ namespace rack_it
                 toernooiGegevensOphalen();
 
             } else if(Date == DateTime.Today){
-                btnAanmelden.Enabled = true;
                 btnAanmelden.Visible = true;
-                btnToernooi.Enabled = true;
                 btnToernooi.Visible = true;
+                btnVerwerk.Visible = true;
 
                 pnlAanmelden.SendToBack();
                 pnlToernooi.BringToFront();
@@ -61,7 +63,7 @@ namespace rack_it
                 pnlToernooi.SendToBack();
             }
         }
-
+    // onclick events
         private void btnXML_Click(object sender, EventArgs e)
         {
 
@@ -85,7 +87,8 @@ namespace rack_it
 
         private void btnAfvalSchema_Click(object sender, EventArgs e)
         {
-            // manier verzinnen om dit gelijk inteladen zonder dat je deze knop moet indrukken
+    // manier verzinnen om dit gelijk inteladen zonder dat je deze knop moet indrukken
+
             leegPictureBox();
 
             afvalschema = new Afvalschema(Naam, Deelnemers, Velden,
@@ -97,7 +100,7 @@ namespace rack_it
 
         private void btnVerwerk_Click(object sender, EventArgs e)
         {
-           
+           // twee blokken om als iets in de ééne fout gaat de ander door te laten gaan.
             try
             {
                 foreach (DataRow wedstrijd in afvalschema.wedstrijdFase)
@@ -113,22 +116,32 @@ namespace rack_it
                 MessageBox.Show(exception.Message);
             }
 
-            FrmEditWedstrijden frmEditWedstrijden = new FrmEditWedstrijden(Naam, afvalschema.AfvalFase);
-            frmEditWedstrijden.StartPosition = FormStartPosition.CenterParent;
-
-            if (frmEditWedstrijden.ShowDialog() == DialogResult.OK)
+            try
             {
-                afvalschema.wedstrijdFase.Clear();
+        // Filter toevoegen die aangeeft dat de doelgroep over teams gaat of over speler.
+                FrmEditWedstrijden frmEditWedstrijden = new FrmEditWedstrijden(Naam, afvalschema.AfvalFase);
+                frmEditWedstrijden.StartPosition = FormStartPosition.CenterParent;
 
-                wedstrijdenTableAdapter.GetToernooiWedstrijden(rack_itDataSet.wedstrijden, Naam);
+                if (frmEditWedstrijden.ShowDialog() == DialogResult.OK)
+                {
+                    // dit moet globaler kunnen.!
+                    afvalschema.wedstrijdFase.Clear();
 
-                leegPictureBox();
+                    wedstrijdenTableAdapter.GetToernooiWedstrijden(rack_itDataSet.wedstrijden, Naam);
 
-                afvalschema.GenereerFases(pbAfvalschema.CreateGraphics(),
-                                     (DataRowCollection)rack_itDataSet.wedstrijden.Rows);
+                    leegPictureBox();
+
+                    afvalschema.GenereerFases(pbAfvalschema.CreateGraphics(),
+                                         (DataRowCollection)rack_itDataSet.wedstrijden.Rows);
+                }
             }
-        }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
 
+        }
+    // functies
         private void handmatigAanmelden()
         {
             if (Doelgroep == "teams")
