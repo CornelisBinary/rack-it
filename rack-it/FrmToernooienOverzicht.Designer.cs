@@ -213,7 +213,7 @@
             this.rdbAlleToernooien.TabIndex = 18;
             this.rdbAlleToernooien.TabStop = true;
             this.rdbAlleToernooien.UseVisualStyleBackColor = false;
-            this.rdbAlleToernooien.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.rdbAlleToernooien.CheckedChanged += new System.EventHandler(this.rdbAlleToernooien_CheckedChanged);
             // 
             // FrmToernooienOverzicht
             // 

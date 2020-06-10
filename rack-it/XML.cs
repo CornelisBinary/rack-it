@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.IO;
-using System.Windows.Forms;
 using System.Data;
 
 namespace rack_it
 {
+
+    // check functie toevoegen die alleen de structuur controleert !!!
     class XML
     {
         private rack_itDataSet rack_ItDataSet = new rack_itDataSet();
@@ -57,10 +58,10 @@ namespace rack_it
                 throw new Exception("Het bestand kan niet gevonden worden, neem contact op met de beheerder!") {};
             }
 
-            XmlNodeList itemNodes = xmlDoc.SelectNodes("//gegevens");
-
-            foreach(XmlNode itemNode in itemNodes)
+            XmlNode hoofdNode = xmlDoc.SelectSingleNode("//gegevens");
+            foreach (XmlNode itemNode in hoofdNode.ChildNodes)
             {
+                //throw new Exception(itemNode.Name);
                 try
                 {
                     switch (itemNode.Name)
@@ -83,7 +84,6 @@ namespace rack_it
                 }
                 catch (Exception exception)
                 {
-
                     throw new Exception("Fouten in het bestand! controleer het bestand op fouten: " + exception.Message) { };
                 }
 
@@ -95,7 +95,7 @@ namespace rack_it
 
             foreach(XmlNode teamNode in teamNodes)
             {
-                TeamsCollection.Add(teamNode.Attributes["naam"]);
+                TeamsCollection.Add(teamNode.Attributes["naam"].Value);
             }
         }
 
@@ -106,13 +106,13 @@ namespace rack_it
 
             foreach (XmlNode schoolNode in schoolNodes)
             {
-                ScholenCollection.Add(schoolNode.Attributes["naam"]);
+                ScholenCollection.Add(schoolNode.Attributes["naam"].Value);
 
                 spelerNodes = schoolNode.ChildNodes;
 
                 foreach (XmlNode spelerNode in spelerNodes)
                 {
-                    SpelersCollection.Add(spelerNode.Attributes["nummer"], spelerNode.Attributes["naam"], spelerNode.Attributes["team"], spelerNode.Attributes["school"]);
+                    SpelersCollection.Add(spelerNode.Attributes["nummer"].Value, spelerNode.Attributes["naam"].Value, spelerNode.Attributes["team"].Value, spelerNode.Attributes["school"].Value);
                 }
             }
         }
@@ -124,13 +124,13 @@ namespace rack_it
 
             foreach (XmlNode locatieNode in locatieNodes)
             {
-                LocatiesCollection.Add(locatieNode.Attributes["naam"], locatieNode.Attributes["plaats"]);
+                LocatiesCollection.Add(locatieNode.Attributes["naam"].Value, locatieNode.Attributes["plaats"].Value);
 
                 veldNodes = locatieNode.ChildNodes;
 
                 foreach (XmlNode veldNode in veldNodes)
                 {
-                    VeldenCollection.Add(veldNode.Attributes["naam"]);
+                    VeldenCollection.Add(veldNode.Attributes["naam"].Value);
                 }
             }
         }
@@ -140,13 +140,52 @@ namespace rack_it
             XmlNodeList toernooiNodes = itemNode.ChildNodes;
             XmlNodeList inschrijvingNodes;
             XmlNodeList wedstrijdNodes;
+            string toernooiNaam;
             string doelgroep;
-
-    // to do: bepalen welke doelgroep het is en aan die collectie toevoegen.
 
             foreach (XmlNode toernooiNode in toernooiNodes)
             {
-                ToernooienCollection.Add(toernooiNode.Attributes["naam"], toernooiNode.Attributes["datum"], toernooiNode.Attributes["locatie"]);
+                toernooiNaam = toernooiNode.Attributes["naam"].Value;
+                doelgroep = toernooiNode.FirstChild.Attributes["doelgroep"].Value;
+
+                ToernooienCollection.Add(toernooiNode.Attributes["naam"].Value, toernooiNode.Attributes["datum"].Value, toernooiNode.Attributes["locatie"].Value, doelgroep);
+
+                inschrijvingNodes = toernooiNode.FirstChild.ChildNodes;
+                wedstrijdNodes = toernooiNode.LastChild.ChildNodes;
+
+                if (inschrijvingNodes != null)
+                {
+                    switch (doelgroep)
+                    {
+                        case "teams":
+                            foreach (XmlNode inschrijvingNode in inschrijvingNodes)
+                            {
+                                InschrijvingenTeamsCollection.Add(toernooiNaam, inschrijvingNode.Attributes["naam"].Value);
+                            }
+                            break;
+
+                        case "spelers":
+                            foreach (XmlNode inschrijvingNode in inschrijvingNodes)
+                            {
+                                InschrijvingenSpelersCollection.Add(toernooiNaam, inschrijvingNode.Attributes["naam"].Value);
+                            }
+                            break;
+
+                        default:
+                            throw new Exception("Geen of verkeerde doelgroep aangegeven in het XML-bestand!") { };
+                    }
+                }
+                if (wedstrijdNodes != null)
+                {
+                    foreach (XmlNode wedstrijdNode in wedstrijdNodes)
+                    {
+                        if (wedstrijdNode.HasChildNodes)
+                        {
+                            WedstrijdenCollection.Add(toernooiNaam, wedstrijdNode.Attributes["afvalfase"].Value, wedstrijdNode.Attributes["nummer"].Value, wedstrijdNode.Attributes["veld"].Value,
+                              wedstrijdNode.FirstChild.Attributes["winnaar"].Value, wedstrijdNode.FirstChild.Attributes["verliezer"].Value, wedstrijdNode.FirstChild.Attributes["eindstand"].Value);
+                        }
+                    }
+                }
             }
         }
 
@@ -159,10 +198,10 @@ namespace rack_it
 
 XmlDocument xmlDoc = new XmlDocument();
 xmlDoc.LoadXml("<user name=\"John Doe\" age=\"42\"></user>");
-if(xmlDoc.DocumentElement.Attributes["name"] != null)
-    Console.WriteLine(xmlDoc.DocumentElement.Attributes["name"].Value);
-if(xmlDoc.DocumentElement.Attributes["age"] != null)
-    Console.WriteLine(xmlDoc.DocumentElement.Attributes["age"].Value);
+if(xmlDoc.DocumentElement.Attributes["name"].Value != null)
+    Console.WriteLine(xmlDoc.DocumentElement.Attributes["name"].Value.Value);
+if(xmlDoc.DocumentElement.Attributes["age"].Value != null)
+    Console.WriteLine(xmlDoc.DocumentElement.Attributes["age"].Value.Value);
 Console.ReadKey();
 
  * nog een voorbeeld

@@ -101,7 +101,13 @@ namespace rack_it
 
         private void btnImporteerXML_Click(object sender, EventArgs e)
         {
+            FrmImporteerModuleXML frmImporteerModuleXML = new FrmImporteerModuleXML();
+            frmImporteerModuleXML.StartPosition = FormStartPosition.CenterParent;
 
+            if (frmImporteerModuleXML.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("Xml-bestand toegevoegd");
+            }
         }
     }
 }

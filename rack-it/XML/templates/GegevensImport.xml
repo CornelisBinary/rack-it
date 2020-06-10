@@ -22,14 +22,12 @@
 
   <toernooien>
     <toernooi naam="" datum="" locatie="">
-      <doelgroep naam="">
-        <Inschrijvingen>
-          <inschrijving naam=""></inschrijving>
-        </Inschrijvingen>
-      </doelgroep>
+      <Inschrijvingen doelgroep="">
+        <inschrijving naam=""></inschrijving>
+      </Inschrijvingen>
 
       <wedstrijden>
-        <wedstrijd afvalfase="" toernooi="" veld="">
+        <wedstrijd afvalfase="" nummer="" veld="">
           <eindstand winnaar="" verliezer="" eindstand=""></eindstand>
         </wedstrijd>
       </wedstrijden>

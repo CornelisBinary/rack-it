@@ -92,10 +92,10 @@ namespace rack_it
         {
             toernooienTableAdapter.AfgelegdeToernooien(this.rack_itDataSet.toernooien);
         }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void rdbAlleToernooien_CheckedChanged(object sender, EventArgs e)
         {
             toernooienTableAdapter.Fill(this.rack_itDataSet.toernooien);
+
         }
 
         private void toernooienDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -113,5 +113,7 @@ namespace rack_it
                 this.Close();
             }
         }
+
+        
     }
 }

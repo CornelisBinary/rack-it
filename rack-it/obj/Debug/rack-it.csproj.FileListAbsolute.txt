@@ -8,7 +8,9 @@ C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmBewerkSp
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmBewerkTeam.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmCreateBase.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmEditBase.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmEditWedstrijden.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmHoofdscherm.resources
+C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmImporteerModuleXML.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmVoegToeBase.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmMaakSchool.resources
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmMaakSpeler.resources
@@ -27,5 +29,3 @@ C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csproj.Core
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csproj.CopyComplete
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.exe
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.pdb
-C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csprojAssemblyReference.cache
-C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack_it.FrmEditWedstrijden.resources

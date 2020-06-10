@@ -48,8 +48,6 @@ namespace rack_it {
         
         private global::System.Data.DataRelation relationfk_Velden_Locaties1;
         
-        private global::System.Data.DataRelation relationfk_Wedstrijden_Toernooien1;
-        
         private global::System.Data.DataRelation relationfk_InschrijvingSpelers_Spelers1;
         
         private global::System.Data.DataRelation relationfk_InschrijvingSpelers_Toernooien1;
@@ -59,6 +57,8 @@ namespace rack_it {
         private global::System.Data.DataRelation relationfk_InschrijvingTeams_Toernooien1;
         
         private global::System.Data.DataRelation relationfk_Spelers_Scholen1;
+        
+        private global::System.Data.DataRelation relationfk_Wedstrijden_Toernooien1;
         
         private global::System.Data.DataRelation relationfk_Wedstrijden_Velden1;
         
@@ -409,12 +409,12 @@ namespace rack_it {
             this.relationfk_Spelers_Teams1 = this.Relations["fk_Spelers_Teams1"];
             this.relationfk_Toernooien_Locaties1 = this.Relations["fk_Toernooien_Locaties1"];
             this.relationfk_Velden_Locaties1 = this.Relations["fk_Velden_Locaties1"];
-            this.relationfk_Wedstrijden_Toernooien1 = this.Relations["fk_Wedstrijden_Toernooien1"];
             this.relationfk_InschrijvingSpelers_Spelers1 = this.Relations["fk_InschrijvingSpelers_Spelers1"];
             this.relationfk_InschrijvingSpelers_Toernooien1 = this.Relations["fk_InschrijvingSpelers_Toernooien1"];
             this.relationfk_InschrijvingTeams_Teams1 = this.Relations["fk_InschrijvingTeams_Teams1"];
             this.relationfk_InschrijvingTeams_Toernooien1 = this.Relations["fk_InschrijvingTeams_Toernooien1"];
             this.relationfk_Spelers_Scholen1 = this.Relations["fk_Spelers_Scholen1"];
+            this.relationfk_Wedstrijden_Toernooien1 = this.Relations["fk_Wedstrijden_Toernooien1"];
             this.relationfk_Wedstrijden_Velden1 = this.Relations["fk_Wedstrijden_Velden1"];
         }
         
@@ -456,10 +456,6 @@ namespace rack_it {
                         this.tablelocaties.NaamColumn}, new global::System.Data.DataColumn[] {
                         this.tablevelden.Locaties_NaamColumn}, false);
             this.Relations.Add(this.relationfk_Velden_Locaties1);
-            this.relationfk_Wedstrijden_Toernooien1 = new global::System.Data.DataRelation("fk_Wedstrijden_Toernooien1", new global::System.Data.DataColumn[] {
-                        this.tabletoernooien.NaamColumn}, new global::System.Data.DataColumn[] {
-                        this.tablewedstrijden.Toernooien_NaamColumn}, false);
-            this.Relations.Add(this.relationfk_Wedstrijden_Toernooien1);
             this.relationfk_InschrijvingSpelers_Spelers1 = new global::System.Data.DataRelation("fk_InschrijvingSpelers_Spelers1", new global::System.Data.DataColumn[] {
                         this.tablespelers.nummerColumn}, new global::System.Data.DataColumn[] {
                         this.tableinschrijvingspelers.Spelers_nummerColumn}, false);
@@ -480,6 +476,10 @@ namespace rack_it {
                         this.tablescholen.NaamColumn}, new global::System.Data.DataColumn[] {
                         this.tablespelers.Scholen_NaamColumn}, false);
             this.Relations.Add(this.relationfk_Spelers_Scholen1);
+            this.relationfk_Wedstrijden_Toernooien1 = new global::System.Data.DataRelation("fk_Wedstrijden_Toernooien1", new global::System.Data.DataColumn[] {
+                        this.tabletoernooien.NaamColumn}, new global::System.Data.DataColumn[] {
+                        this.tablewedstrijden.Toernooien_NaamColumn}, false);
+            this.Relations.Add(this.relationfk_Wedstrijden_Toernooien1);
             this.relationfk_Wedstrijden_Velden1 = new global::System.Data.DataRelation("fk_Wedstrijden_Velden1", new global::System.Data.DataColumn[] {
                         this.tablevelden.NaamColumn}, new global::System.Data.DataColumn[] {
                         this.tablewedstrijden.Velden_NaamColumn}, false);
@@ -2059,19 +2059,19 @@ namespace rack_it {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class wedstrijdenDataTable : global::System.Data.TypedTableBase<wedstrijdenRow> {
             
-            private global::System.Data.DataColumn columnAfvalfase;
-            
             private global::System.Data.DataColumn columnToernooien_Naam;
+            
+            private global::System.Data.DataColumn columnAfvalfase;
             
             private global::System.Data.DataColumn columnNummer;
             
             private global::System.Data.DataColumn columnVelden_Naam;
             
-            private global::System.Data.DataColumn columnEindstand;
-            
             private global::System.Data.DataColumn columnWinnaar;
             
             private global::System.Data.DataColumn columnVerliezer;
+            
+            private global::System.Data.DataColumn columnEindstand;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -2108,17 +2108,17 @@ namespace rack_it {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn AfvalfaseColumn {
+            public global::System.Data.DataColumn Toernooien_NaamColumn {
                 get {
-                    return this.columnAfvalfase;
+                    return this.columnToernooien_Naam;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Toernooien_NaamColumn {
+            public global::System.Data.DataColumn AfvalfaseColumn {
                 get {
-                    return this.columnToernooien_Naam;
+                    return this.columnAfvalfase;
                 }
             }
             
@@ -2140,14 +2140,6 @@ namespace rack_it {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn EindstandColumn {
-                get {
-                    return this.columnEindstand;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn WinnaarColumn {
                 get {
                     return this.columnWinnaar;
@@ -2159,6 +2151,14 @@ namespace rack_it {
             public global::System.Data.DataColumn VerliezerColumn {
                 get {
                     return this.columnVerliezer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn EindstandColumn {
+                get {
+                    return this.columnEindstand;
                 }
             }
             
@@ -2199,18 +2199,18 @@ namespace rack_it {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public wedstrijdenRow AddwedstrijdenRow(int Afvalfase, toernooienRow parenttoernooienRowByfk_Wedstrijden_Toernooien1, int Nummer, veldenRow parentveldenRowByfk_Wedstrijden_Velden1, string Eindstand, string Winnaar, string Verliezer) {
+            public wedstrijdenRow AddwedstrijdenRow(toernooienRow parenttoernooienRowByfk_Wedstrijden_Toernooien1, int Afvalfase, int Nummer, veldenRow parentveldenRowByfk_Wedstrijden_Velden1, string Winnaar, string Verliezer, string Eindstand) {
                 wedstrijdenRow rowwedstrijdenRow = ((wedstrijdenRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Afvalfase,
                         null,
+                        Afvalfase,
                         Nummer,
                         null,
-                        Eindstand,
                         Winnaar,
-                        Verliezer};
+                        Verliezer,
+                        Eindstand};
                 if ((parenttoernooienRowByfk_Wedstrijden_Toernooien1 != null)) {
-                    columnValuesArray[1] = parenttoernooienRowByfk_Wedstrijden_Toernooien1[0];
+                    columnValuesArray[0] = parenttoernooienRowByfk_Wedstrijden_Toernooien1[0];
                 }
                 if ((parentveldenRowByfk_Wedstrijden_Velden1 != null)) {
                     columnValuesArray[3] = parentveldenRowByfk_Wedstrijden_Velden1[0];
@@ -2222,11 +2222,11 @@ namespace rack_it {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public wedstrijdenRow FindByAfvalfaseNummerToernooien_Naam(int Afvalfase, int Nummer, string Toernooien_Naam) {
+            public wedstrijdenRow FindByToernooien_NaamAfvalfaseNummer(string Toernooien_Naam, int Afvalfase, int Nummer) {
                 return ((wedstrijdenRow)(this.Rows.Find(new object[] {
+                            Toernooien_Naam,
                             Afvalfase,
-                            Nummer,
-                            Toernooien_Naam})));
+                            Nummer})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2246,47 +2246,47 @@ namespace rack_it {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnAfvalfase = base.Columns["Afvalfase"];
                 this.columnToernooien_Naam = base.Columns["Toernooien_Naam"];
+                this.columnAfvalfase = base.Columns["Afvalfase"];
                 this.columnNummer = base.Columns["Nummer"];
                 this.columnVelden_Naam = base.Columns["Velden_Naam"];
-                this.columnEindstand = base.Columns["Eindstand"];
                 this.columnWinnaar = base.Columns["Winnaar"];
                 this.columnVerliezer = base.Columns["Verliezer"];
+                this.columnEindstand = base.Columns["Eindstand"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnAfvalfase = new global::System.Data.DataColumn("Afvalfase", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAfvalfase);
                 this.columnToernooien_Naam = new global::System.Data.DataColumn("Toernooien_Naam", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnToernooien_Naam);
+                this.columnAfvalfase = new global::System.Data.DataColumn("Afvalfase", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAfvalfase);
                 this.columnNummer = new global::System.Data.DataColumn("Nummer", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNummer);
                 this.columnVelden_Naam = new global::System.Data.DataColumn("Velden_Naam", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVelden_Naam);
-                this.columnEindstand = new global::System.Data.DataColumn("Eindstand", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEindstand);
                 this.columnWinnaar = new global::System.Data.DataColumn("Winnaar", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWinnaar);
                 this.columnVerliezer = new global::System.Data.DataColumn("Verliezer", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVerliezer);
+                this.columnEindstand = new global::System.Data.DataColumn("Eindstand", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEindstand);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnToernooien_Naam,
                                 this.columnAfvalfase,
-                                this.columnNummer,
-                                this.columnToernooien_Naam}, true));
-                this.columnAfvalfase.AllowDBNull = false;
+                                this.columnNummer}, true));
                 this.columnToernooien_Naam.AllowDBNull = false;
                 this.columnToernooien_Naam.MaxLength = 45;
+                this.columnAfvalfase.AllowDBNull = false;
                 this.columnNummer.AllowDBNull = false;
                 this.columnVelden_Naam.MaxLength = 45;
-                this.columnEindstand.AllowDBNull = false;
-                this.columnEindstand.MaxLength = 45;
                 this.columnWinnaar.AllowDBNull = false;
-                this.columnWinnaar.MaxLength = 45;
+                this.columnWinnaar.MaxLength = 80;
                 this.columnVerliezer.AllowDBNull = false;
                 this.columnVerliezer.MaxLength = 80;
+                this.columnEindstand.AllowDBNull = false;
+                this.columnEindstand.MaxLength = 45;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3556,17 +3556,6 @@ namespace rack_it {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public wedstrijdenRow[] GetwedstrijdenRows() {
-                if ((this.Table.ChildRelations["fk_Wedstrijden_Toernooien1"] == null)) {
-                    return new wedstrijdenRow[0];
-                }
-                else {
-                    return ((wedstrijdenRow[])(base.GetChildRows(this.Table.ChildRelations["fk_Wedstrijden_Toernooien1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public inschrijvingspelersRow[] GetinschrijvingspelersRows() {
                 if ((this.Table.ChildRelations["fk_InschrijvingSpelers_Toernooien1"] == null)) {
                     return new inschrijvingspelersRow[0];
@@ -3584,6 +3573,17 @@ namespace rack_it {
                 }
                 else {
                     return ((inschrijvingteamsRow[])(base.GetChildRows(this.Table.ChildRelations["fk_InschrijvingTeams_Toernooien1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public wedstrijdenRow[] GetwedstrijdenRows() {
+                if ((this.Table.ChildRelations["fk_Wedstrijden_Toernooien1"] == null)) {
+                    return new wedstrijdenRow[0];
+                }
+                else {
+                    return ((wedstrijdenRow[])(base.GetChildRows(this.Table.ChildRelations["fk_Wedstrijden_Toernooien1"])));
                 }
             }
         }
@@ -3663,23 +3663,23 @@ namespace rack_it {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int Afvalfase {
-                get {
-                    return ((int)(this[this.tablewedstrijden.AfvalfaseColumn]));
-                }
-                set {
-                    this[this.tablewedstrijden.AfvalfaseColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Toernooien_Naam {
                 get {
                     return ((string)(this[this.tablewedstrijden.Toernooien_NaamColumn]));
                 }
                 set {
                     this[this.tablewedstrijden.Toernooien_NaamColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int Afvalfase {
+                get {
+                    return ((int)(this[this.tablewedstrijden.AfvalfaseColumn]));
+                }
+                set {
+                    this[this.tablewedstrijden.AfvalfaseColumn] = value;
                 }
             }
             
@@ -3712,17 +3712,6 @@ namespace rack_it {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Eindstand {
-                get {
-                    return ((string)(this[this.tablewedstrijden.EindstandColumn]));
-                }
-                set {
-                    this[this.tablewedstrijden.EindstandColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Winnaar {
                 get {
                     return ((string)(this[this.tablewedstrijden.WinnaarColumn]));
@@ -3740,6 +3729,17 @@ namespace rack_it {
                 }
                 set {
                     this[this.tablewedstrijden.VerliezerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Eindstand {
+                get {
+                    return ((string)(this[this.tablewedstrijden.EindstandColumn]));
+                }
+                set {
+                    this[this.tablewedstrijden.EindstandColumn] = value;
                 }
             }
             
@@ -6654,13 +6654,13 @@ namespace rack_it.rack_itDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "wedstrijden";
-            tableMapping.ColumnMappings.Add("Afvalfase", "Afvalfase");
             tableMapping.ColumnMappings.Add("Toernooien_Naam", "Toernooien_Naam");
-            tableMapping.ColumnMappings.Add("Eindstand", "Eindstand");
-            tableMapping.ColumnMappings.Add("Winnaar", "Winnaar");
-            tableMapping.ColumnMappings.Add("Verliezer", "Verliezer");
+            tableMapping.ColumnMappings.Add("Afvalfase", "Afvalfase");
             tableMapping.ColumnMappings.Add("Nummer", "Nummer");
             tableMapping.ColumnMappings.Add("Velden_Naam", "Velden_Naam");
+            tableMapping.ColumnMappings.Add("Winnaar", "Winnaar");
+            tableMapping.ColumnMappings.Add("Verliezer", "Verliezer");
+            tableMapping.ColumnMappings.Add("Eindstand", "Eindstand");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -6922,14 +6922,14 @@ namespace rack_it.rack_itDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Toernooien_Naam, Afvalfase, Nummer, Velden_Naam, Winnaar, Verliezer, Einds" +
-                "tand\r\nFROM     wedstrijden";
+            this._commandCollection[0].CommandText = "SELECT     Toernooien_Naam, Afvalfase, Nummer, Velden_Naam, Winnaar, Verliezer, E" +
+                "indstand\r\nFROM        wedstrijden";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Toernooien_Naam, Afvalfase, Nummer, Velden_Naam, Winnaar, Verliezer, Einds" +
-                "tand\r\nFROM     wedstrijden\r\nWHERE  (Toernooien_Naam = @naam) AND (Afvalfase = @a" +
-                "fvalfase)";
+            this._commandCollection[1].CommandText = "SELECT Afvalfase, Eindstand, Nummer, Toernooien_Naam, Velden_Naam, Verliezer, Win" +
+                "naar FROM wedstrijden WHERE (Toernooien_Naam = @naam) AND (Afvalfase = @afvalfas" +
+                "e)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@naam";

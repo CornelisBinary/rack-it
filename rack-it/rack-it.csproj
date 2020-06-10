@@ -66,8 +66,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="XML\ToernooiInschrijvingen.xml" />
-    <None Include="XML\GegevensImport.xml" />
+    <Compile Include="_rack_itDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_rack_itDataSet.xsd</DependentUpon>
+    </Compile>
+    <None Include="XML\templates\ToernooiInschrijvingen.xml" />
+    <None Include="XML\templates\GegevensImport.xml">
+      <SubType>Designer</SubType>
+    </None>
     <Compile Include="codeStash\CodeFile1.cs" />
     <Compile Include="FrmBase.cs">
       <SubType>Form</SubType>
@@ -195,22 +202,11 @@
     <Compile Include="Frm_H_Teams_AanmeldenToernooi.Designer.cs">
       <DependentUpon>Frm_H_Teams_AanmeldenToernooi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_XML_AanmeldenToernooi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_XML_AanmeldenToernooi.Designer.cs">
-      <DependentUpon>Frm_XML_AanmeldenToernooi.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Afvalschema.cs" />
     <Compile Include="XML.cs" />
     <Compile Include="_rack_itDataSet.cs">
-      <DependentUpon>_rack_itDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="_rack_itDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>_rack_itDataSet.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FrmBase.resx">
@@ -236,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHoofdscherm.resx">
       <DependentUpon>FrmHoofdscherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImporteerModuleXML.resx">
+      <DependentUpon>FrmImporteerModuleXML.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVoegToeBase.resx">
       <DependentUpon>FrmVoegToeBase.cs</DependentUpon>
@@ -297,8 +296,8 @@
     </None>
     <None Include="_rack_itDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_rack_itDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>_rack_itDataSet.Designer.cs</LastGenOutput>
     </None>
     <None Include="_rack_itDataSet.xss">
       <DependentUpon>_rack_itDataSet.xsd</DependentUpon>
@@ -322,6 +321,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="XML\import\ToernooiInschrijving1.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="XML\import\GegevensImport1.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

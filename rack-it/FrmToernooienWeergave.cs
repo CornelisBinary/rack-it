@@ -66,7 +66,13 @@ namespace rack_it
     // onclick events
         private void btnXML_Click(object sender, EventArgs e)
         {
+            FrmImporteerModuleXML frmImporteerModuleXML = new FrmImporteerModuleXML();
+            frmImporteerModuleXML.StartPosition = FormStartPosition.CenterParent;
 
+            if (frmImporteerModuleXML.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("inschrijvingen toegevoegd");
+            }
         }
 
         private void btnHandmatig_Click(object sender, EventArgs e)
