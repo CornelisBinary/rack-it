@@ -13,17 +13,31 @@ namespace rack_it
         private string toernooi;
         private int afvalFase;
 
-        public FrmEditWedstrijden(string Toernooi, int AfvalFase)
+        public FrmEditWedstrijden(string Toernooi, int AfvalFase, DataRowCollection WedstrijdFase)
         {
             InitializeComponent();
 
             toernooi = Toernooi;
             afvalFase = AfvalFase;
+
+            // alle wedstrijden aan de lokale datatable toevoegen.
+            try
+            {
+                foreach (DataRow wedstrijd in WedstrijdFase)
+                {
+                    rack_itDataSet.wedstrijden.Rows.Add(wedstrijd.ItemArray);
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+          
+
         }
 
         private void FrmEditWedstrijden_Load(object sender, EventArgs e)
         {
-            this.wedstrijdenTableAdapter.GetFaseToernooi(this.rack_itDataSet.wedstrijden, toernooi, afvalFase);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

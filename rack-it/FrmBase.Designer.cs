@@ -34,9 +34,9 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnToernooien = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSpelers = new System.Windows.Forms.Button();
+            this.btnTeams = new System.Windows.Forms.Button();
+            this.btnScholen = new System.Windows.Forms.Button();
             this.btnHoofdscherm = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -79,9 +79,9 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.MediumTurquoise;
             this.panel6.Controls.Add(this.btnToernooien);
-            this.panel6.Controls.Add(this.button3);
-            this.panel6.Controls.Add(this.button2);
-            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.btnSpelers);
+            this.panel6.Controls.Add(this.btnTeams);
+            this.panel6.Controls.Add(this.btnScholen);
             this.panel6.Controls.Add(this.btnHoofdscherm);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(109, 0);
@@ -107,50 +107,56 @@
             this.btnToernooien.UseVisualStyleBackColor = false;
             this.btnToernooien.Click += new System.EventHandler(this.btnToernooien_Click);
             // 
-            // button3
+            // btnSpelers
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.Control;
-            this.button3.Location = new System.Drawing.Point(679, 2);
-            this.button3.Margin = new System.Windows.Forms.Padding(30, 1, 20, 1);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(150, 34);
-            this.button3.TabIndex = 3;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnSpelers.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSpelers.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSpelers.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnSpelers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSpelers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpelers.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSpelers.Location = new System.Drawing.Point(679, 2);
+            this.btnSpelers.Margin = new System.Windows.Forms.Padding(30, 1, 20, 1);
+            this.btnSpelers.Name = "btnSpelers";
+            this.btnSpelers.Size = new System.Drawing.Size(150, 34);
+            this.btnSpelers.TabIndex = 3;
+            this.btnSpelers.Text = "Spelers";
+            this.btnSpelers.UseVisualStyleBackColor = false;
+            this.btnSpelers.Click += new System.EventHandler(this.btnSpelers_Click);
             // 
-            // button2
+            // btnTeams
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button2.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(513, 2);
-            this.button2.Margin = new System.Windows.Forms.Padding(30, 1, 20, 1);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 34);
-            this.button2.TabIndex = 2;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnTeams.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnTeams.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnTeams.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnTeams.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTeams.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnTeams.Location = new System.Drawing.Point(513, 2);
+            this.btnTeams.Margin = new System.Windows.Forms.Padding(30, 1, 20, 1);
+            this.btnTeams.Name = "btnTeams";
+            this.btnTeams.Size = new System.Drawing.Size(150, 34);
+            this.btnTeams.TabIndex = 2;
+            this.btnTeams.Text = "Teams";
+            this.btnTeams.UseVisualStyleBackColor = false;
+            this.btnTeams.Click += new System.EventHandler(this.btnTeams_Click);
             // 
-            // button1
+            // btnScholen
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(347, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(30, 1, 20, 1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 34);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnScholen.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnScholen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnScholen.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnScholen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScholen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnScholen.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnScholen.Location = new System.Drawing.Point(347, 2);
+            this.btnScholen.Margin = new System.Windows.Forms.Padding(30, 1, 20, 1);
+            this.btnScholen.Name = "btnScholen";
+            this.btnScholen.Size = new System.Drawing.Size(150, 34);
+            this.btnScholen.TabIndex = 1;
+            this.btnScholen.Text = "Scholen";
+            this.btnScholen.UseVisualStyleBackColor = false;
+            this.btnScholen.Click += new System.EventHandler(this.btnScholen_Click);
             // 
             // btnHoofdscherm
             // 
@@ -196,9 +202,9 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btnEinde;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSpelers;
+        private System.Windows.Forms.Button btnTeams;
+        private System.Windows.Forms.Button btnScholen;
         private System.Windows.Forms.Button btnHoofdscherm;
         private System.Windows.Forms.Button btnToernooien;
     }

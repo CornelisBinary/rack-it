@@ -275,11 +275,9 @@ namespace rack_it
                     Papier.DrawString(speler, font, kwastSpeler, positieX, positieY);
                     break;
                 }
-                else
-                {
-                    // spelers tekenen op ui
-                    Papier.DrawString(speler, font, kwastSpeler, positieX, positieY - (offsetY * (float)0.5));
-                }
+
+                // spelers tekenen op ui
+                Papier.DrawString(speler, font, kwastSpeler, positieX, positieY - (offsetY * (float)0.5));
 
                 if (veldTeller == 2)
                 {
@@ -289,6 +287,7 @@ namespace rack_it
                     {
                         VeldTeller = 0;
                     }
+
                     if (velden.Count != 0)
                     {
                         

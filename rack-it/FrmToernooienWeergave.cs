@@ -89,11 +89,16 @@ namespace rack_it
         {
             pnlAanmelden.SendToBack();
             pnlToernooi.BringToFront();
+
+
+            _toernooiGegevensOphalen();
+
         }
 
         private void btnAfvalSchema_Click(object sender, EventArgs e)
         {
-    // manier verzinnen om dit gelijk inteladen zonder dat je deze knop moet indrukken
+            // manier verzinnen om dit gelijk inteladen zonder dat je deze knop moet indrukken
+            _toernooiGegevensOphalen();
 
             _leegPictureBox();
 
@@ -106,26 +111,10 @@ namespace rack_it
 
         private void btnVerwerk_Click(object sender, EventArgs e)
         {
-           // twee blokken om als iets in de ééne fout gaat de ander door te laten gaan.
-            try
-            {
-                foreach (DataRow wedstrijd in afvalschema.WedstrijdFase)
-                {
-                    rack_itDataSet.wedstrijden.Rows.Add(wedstrijd.ItemArray);
-                }
-
-                tableAdapterManager.UpdateAll(this.rack_itDataSet);
-
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-
             try
             {
         // Filter toevoegen die aangeeft dat de doelgroep over teams gaat of over speler.
-                FrmEditWedstrijden frmEditWedstrijden = new FrmEditWedstrijden(Naam, afvalschema.AfvalFase);
+                FrmEditWedstrijden frmEditWedstrijden = new FrmEditWedstrijden(Naam, afvalschema.AfvalFase, afvalschema.WedstrijdFase);
                 frmEditWedstrijden.StartPosition = FormStartPosition.CenterParent;
 
                 if (frmEditWedstrijden.ShowDialog() == DialogResult.OK)
@@ -174,6 +163,8 @@ namespace rack_it
 
         private void _toernooiGegevensOphalen()
         {
+            Deelnemers.Clear();
+            Velden.Clear();
 
             // alle eventuel gemaakte wedstrijden van het toernooi.
             wedstrijdenTableAdapter.GetToernooiWedstrijden(rack_itDataSet.wedstrijden, Naam);

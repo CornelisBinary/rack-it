@@ -70,5 +70,56 @@ namespace rack_it
 
             frmToernooienOverzicht.Show();
         }
+
+        private void btnScholen_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+
+            FrmScholenOverzicht frmScholenOverzicht = new FrmScholenOverzicht();
+
+            frmScholenOverzicht.MdiParent = this;
+
+            frmScholenOverzicht.StartPosition = FormStartPosition.CenterScreen;
+            frmScholenOverzicht.Dock = DockStyle.Fill;
+
+            frmScholenOverzicht.Show();
+        }
+
+        private void btnTeams_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+
+            FrmTeamsOverzicht frmTeamsOverzicht = new FrmTeamsOverzicht();
+
+            frmTeamsOverzicht.MdiParent = this;
+
+            frmTeamsOverzicht.StartPosition = FormStartPosition.CenterScreen;
+            frmTeamsOverzicht.Dock = DockStyle.Fill;
+
+            frmTeamsOverzicht.Show();
+        }
+
+        private void btnSpelers_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+
+            FrmSpelersOverzicht frmSpelersOverzicht = new FrmSpelersOverzicht();
+
+            frmSpelersOverzicht.MdiParent = this;
+
+            frmSpelersOverzicht.StartPosition = FormStartPosition.CenterScreen;
+            frmSpelersOverzicht.Dock = DockStyle.Fill;
+
+            frmSpelersOverzicht.Show();
+        }
     }
 }
