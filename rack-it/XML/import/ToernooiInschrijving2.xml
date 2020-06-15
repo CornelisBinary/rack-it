@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gegevens>
+  <toernooien>
+    <toernooi naam="WereldTopToernooi" datum="2020-06-15" locatie="Sporthal">
+      <Inschrijvingen doelgroep="teams">
+        <inschrijving naam="Vleugel">
+        </inschrijving>
+      </Inschrijvingen>
+    </toernooi>
+  </toernooien>
+</gegevens>

@@ -306,12 +306,12 @@ namespace rack_it
                     // tellers updaten
                     veldTeller = 0;
                     VeldTeller++;
-                   
+                    nummer++;
+
                 }
                 // tellers + positie updaten.
                 veldTeller++;
                 positieY += offsetY;
-                nummer++;
 
             }
             // gelijk geheugen van items legen.

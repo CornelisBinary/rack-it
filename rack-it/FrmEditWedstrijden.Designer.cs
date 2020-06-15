@@ -42,10 +42,14 @@
             this.wedstrijdenTableAdapter = new rack_it.rack_itDataSetTableAdapters.wedstrijdenTableAdapter();
             this.tableAdapterManager = new rack_it.rack_itDataSetTableAdapters.TableAdapterManager();
             this.wedstrijdenBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.afvalfaseTextBox = new System.Windows.Forms.TextBox();
             this.toernooien_NaamTextBox = new System.Windows.Forms.TextBox();
@@ -54,10 +58,6 @@
             this.eindstandTextBox = new System.Windows.Forms.TextBox();
             this.winnaarTextBox = new System.Windows.Forms.TextBox();
             this.verliezerTextBox = new System.Windows.Forms.TextBox();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             afvalfaseLabel = new System.Windows.Forms.Label();
             toernooien_NaamLabel = new System.Windows.Forms.Label();
             nummerLabel = new System.Windows.Forms.Label();
@@ -77,7 +77,71 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.Text = "Verwerken";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // afvalfaseLabel
+            // 
+            afvalfaseLabel.AutoSize = true;
+            afvalfaseLabel.Location = new System.Drawing.Point(37, 93);
+            afvalfaseLabel.Name = "afvalfaseLabel";
+            afvalfaseLabel.Size = new System.Drawing.Size(70, 17);
+            afvalfaseLabel.TabIndex = 4;
+            afvalfaseLabel.Text = "Afvalfase:";
+            // 
+            // toernooien_NaamLabel
+            // 
+            toernooien_NaamLabel.AutoSize = true;
+            toernooien_NaamLabel.Location = new System.Drawing.Point(37, 121);
+            toernooien_NaamLabel.Name = "toernooien_NaamLabel";
+            toernooien_NaamLabel.Size = new System.Drawing.Size(126, 17);
+            toernooien_NaamLabel.TabIndex = 6;
+            toernooien_NaamLabel.Text = "Toernooien Naam:";
+            // 
+            // nummerLabel
+            // 
+            nummerLabel.AutoSize = true;
+            nummerLabel.Location = new System.Drawing.Point(37, 149);
+            nummerLabel.Name = "nummerLabel";
+            nummerLabel.Size = new System.Drawing.Size(65, 17);
+            nummerLabel.TabIndex = 8;
+            nummerLabel.Text = "Nummer:";
+            // 
+            // velden_NaamLabel
+            // 
+            velden_NaamLabel.AutoSize = true;
+            velden_NaamLabel.Location = new System.Drawing.Point(37, 177);
+            velden_NaamLabel.Name = "velden_NaamLabel";
+            velden_NaamLabel.Size = new System.Drawing.Size(97, 17);
+            velden_NaamLabel.TabIndex = 10;
+            velden_NaamLabel.Text = "Velden Naam:";
+            // 
+            // eindstandLabel
+            // 
+            eindstandLabel.AutoSize = true;
+            eindstandLabel.Location = new System.Drawing.Point(37, 205);
+            eindstandLabel.Name = "eindstandLabel";
+            eindstandLabel.Size = new System.Drawing.Size(75, 17);
+            eindstandLabel.TabIndex = 12;
+            eindstandLabel.Text = "Eindstand:";
+            // 
+            // winnaarLabel
+            // 
+            winnaarLabel.AutoSize = true;
+            winnaarLabel.Location = new System.Drawing.Point(37, 233);
+            winnaarLabel.Name = "winnaarLabel";
+            winnaarLabel.Size = new System.Drawing.Size(65, 17);
+            winnaarLabel.TabIndex = 14;
+            winnaarLabel.Text = "Winnaar:";
+            // 
+            // verliezerLabel
+            // 
+            verliezerLabel.AutoSize = true;
+            verliezerLabel.Location = new System.Drawing.Point(37, 261);
+            verliezerLabel.Name = "verliezerLabel";
+            verliezerLabel.Size = new System.Drawing.Size(68, 17);
+            verliezerLabel.TabIndex = 16;
+            verliezerLabel.Text = "Verliezer:";
             // 
             // rack_itDataSet
             // 
@@ -135,158 +199,12 @@
             this.wedstrijdenBindingNavigator.TabIndex = 4;
             this.wedstrijdenBindingNavigator.Text = "bindingNavigator1";
             // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
             this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // afvalfaseLabel
-            // 
-            afvalfaseLabel.AutoSize = true;
-            afvalfaseLabel.Location = new System.Drawing.Point(37, 93);
-            afvalfaseLabel.Name = "afvalfaseLabel";
-            afvalfaseLabel.Size = new System.Drawing.Size(70, 17);
-            afvalfaseLabel.TabIndex = 4;
-            afvalfaseLabel.Text = "Afvalfase:";
-            // 
-            // afvalfaseTextBox
-            // 
-            this.afvalfaseTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wedstrijdenBindingSource, "Afvalfase", true));
-            this.afvalfaseTextBox.Location = new System.Drawing.Point(169, 90);
-            this.afvalfaseTextBox.Name = "afvalfaseTextBox";
-            this.afvalfaseTextBox.ReadOnly = true;
-            this.afvalfaseTextBox.Size = new System.Drawing.Size(100, 22);
-            this.afvalfaseTextBox.TabIndex = 5;
-            // 
-            // toernooien_NaamLabel
-            // 
-            toernooien_NaamLabel.AutoSize = true;
-            toernooien_NaamLabel.Location = new System.Drawing.Point(37, 121);
-            toernooien_NaamLabel.Name = "toernooien_NaamLabel";
-            toernooien_NaamLabel.Size = new System.Drawing.Size(126, 17);
-            toernooien_NaamLabel.TabIndex = 6;
-            toernooien_NaamLabel.Text = "Toernooien Naam:";
-            // 
-            // toernooien_NaamTextBox
-            // 
-            this.toernooien_NaamTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wedstrijdenBindingSource, "Toernooien_Naam", true));
-            this.toernooien_NaamTextBox.Location = new System.Drawing.Point(169, 118);
-            this.toernooien_NaamTextBox.Name = "toernooien_NaamTextBox";
-            this.toernooien_NaamTextBox.ReadOnly = true;
-            this.toernooien_NaamTextBox.Size = new System.Drawing.Size(100, 22);
-            this.toernooien_NaamTextBox.TabIndex = 7;
-            // 
-            // nummerLabel
-            // 
-            nummerLabel.AutoSize = true;
-            nummerLabel.Location = new System.Drawing.Point(37, 149);
-            nummerLabel.Name = "nummerLabel";
-            nummerLabel.Size = new System.Drawing.Size(65, 17);
-            nummerLabel.TabIndex = 8;
-            nummerLabel.Text = "Nummer:";
-            // 
-            // nummerTextBox
-            // 
-            this.nummerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wedstrijdenBindingSource, "Nummer", true));
-            this.nummerTextBox.Location = new System.Drawing.Point(169, 146);
-            this.nummerTextBox.Name = "nummerTextBox";
-            this.nummerTextBox.ReadOnly = true;
-            this.nummerTextBox.Size = new System.Drawing.Size(100, 22);
-            this.nummerTextBox.TabIndex = 9;
-            // 
-            // velden_NaamLabel
-            // 
-            velden_NaamLabel.AutoSize = true;
-            velden_NaamLabel.Location = new System.Drawing.Point(37, 177);
-            velden_NaamLabel.Name = "velden_NaamLabel";
-            velden_NaamLabel.Size = new System.Drawing.Size(97, 17);
-            velden_NaamLabel.TabIndex = 10;
-            velden_NaamLabel.Text = "Velden Naam:";
-            // 
-            // velden_NaamTextBox
-            // 
-            this.velden_NaamTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wedstrijdenBindingSource, "Velden_Naam", true));
-            this.velden_NaamTextBox.Location = new System.Drawing.Point(169, 174);
-            this.velden_NaamTextBox.Name = "velden_NaamTextBox";
-            this.velden_NaamTextBox.Size = new System.Drawing.Size(100, 22);
-            this.velden_NaamTextBox.TabIndex = 11;
-            // 
-            // eindstandLabel
-            // 
-            eindstandLabel.AutoSize = true;
-            eindstandLabel.Location = new System.Drawing.Point(37, 205);
-            eindstandLabel.Name = "eindstandLabel";
-            eindstandLabel.Size = new System.Drawing.Size(75, 17);
-            eindstandLabel.TabIndex = 12;
-            eindstandLabel.Text = "Eindstand:";
-            // 
-            // eindstandTextBox
-            // 
-            this.eindstandTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wedstrijdenBindingSource, "Eindstand", true));
-            this.eindstandTextBox.Location = new System.Drawing.Point(169, 202);
-            this.eindstandTextBox.Name = "eindstandTextBox";
-            this.eindstandTextBox.Size = new System.Drawing.Size(100, 22);
-            this.eindstandTextBox.TabIndex = 13;
-            // 
-            // winnaarLabel
-            // 
-            winnaarLabel.AutoSize = true;
-            winnaarLabel.Location = new System.Drawing.Point(37, 233);
-            winnaarLabel.Name = "winnaarLabel";
-            winnaarLabel.Size = new System.Drawing.Size(65, 17);
-            winnaarLabel.TabIndex = 14;
-            winnaarLabel.Text = "Winnaar:";
-            // 
-            // winnaarTextBox
-            // 
-            this.winnaarTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wedstrijdenBindingSource, "Winnaar", true));
-            this.winnaarTextBox.Location = new System.Drawing.Point(169, 230);
-            this.winnaarTextBox.Name = "winnaarTextBox";
-            this.winnaarTextBox.Size = new System.Drawing.Size(100, 22);
-            this.winnaarTextBox.TabIndex = 15;
-            // 
-            // verliezerLabel
-            // 
-            verliezerLabel.AutoSize = true;
-            verliezerLabel.Location = new System.Drawing.Point(37, 261);
-            verliezerLabel.Name = "verliezerLabel";
-            verliezerLabel.Size = new System.Drawing.Size(68, 17);
-            verliezerLabel.TabIndex = 16;
-            verliezerLabel.Text = "Verliezer:";
-            // 
-            // verliezerTextBox
-            // 
-            this.verliezerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wedstrijdenBindingSource, "Verliezer", true));
-            this.verliezerTextBox.Location = new System.Drawing.Point(169, 258);
-            this.verliezerTextBox.Name = "verliezerTextBox";
-            this.verliezerTextBox.Size = new System.Drawing.Size(100, 22);
-            this.verliezerTextBox.TabIndex = 17;
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -306,6 +224,25 @@
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -323,6 +260,71 @@
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            // 
+            // afvalfaseTextBox
+            // 
+            this.afvalfaseTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wedstrijdenBindingSource, "Afvalfase", true));
+            this.afvalfaseTextBox.Location = new System.Drawing.Point(169, 90);
+            this.afvalfaseTextBox.Name = "afvalfaseTextBox";
+            this.afvalfaseTextBox.ReadOnly = true;
+            this.afvalfaseTextBox.Size = new System.Drawing.Size(100, 22);
+            this.afvalfaseTextBox.TabIndex = 5;
+            // 
+            // toernooien_NaamTextBox
+            // 
+            this.toernooien_NaamTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wedstrijdenBindingSource, "Toernooien_Naam", true));
+            this.toernooien_NaamTextBox.Location = new System.Drawing.Point(169, 118);
+            this.toernooien_NaamTextBox.Name = "toernooien_NaamTextBox";
+            this.toernooien_NaamTextBox.ReadOnly = true;
+            this.toernooien_NaamTextBox.Size = new System.Drawing.Size(100, 22);
+            this.toernooien_NaamTextBox.TabIndex = 7;
+            // 
+            // nummerTextBox
+            // 
+            this.nummerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wedstrijdenBindingSource, "Nummer", true));
+            this.nummerTextBox.Location = new System.Drawing.Point(169, 146);
+            this.nummerTextBox.Name = "nummerTextBox";
+            this.nummerTextBox.ReadOnly = true;
+            this.nummerTextBox.Size = new System.Drawing.Size(100, 22);
+            this.nummerTextBox.TabIndex = 9;
+            // 
+            // velden_NaamTextBox
+            // 
+            this.velden_NaamTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wedstrijdenBindingSource, "Velden_Naam", true));
+            this.velden_NaamTextBox.Location = new System.Drawing.Point(169, 174);
+            this.velden_NaamTextBox.Name = "velden_NaamTextBox";
+            this.velden_NaamTextBox.ReadOnly = true;
+            this.velden_NaamTextBox.Size = new System.Drawing.Size(100, 22);
+            this.velden_NaamTextBox.TabIndex = 11;
+            // 
+            // eindstandTextBox
+            // 
+            this.eindstandTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wedstrijdenBindingSource, "Eindstand", true));
+            this.eindstandTextBox.Location = new System.Drawing.Point(169, 202);
+            this.eindstandTextBox.Name = "eindstandTextBox";
+            this.eindstandTextBox.Size = new System.Drawing.Size(100, 22);
+            this.eindstandTextBox.TabIndex = 13;
+            // 
+            // winnaarTextBox
+            // 
+            this.winnaarTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wedstrijdenBindingSource, "Winnaar", true));
+            this.winnaarTextBox.Location = new System.Drawing.Point(169, 230);
+            this.winnaarTextBox.Name = "winnaarTextBox";
+            this.winnaarTextBox.Size = new System.Drawing.Size(100, 22);
+            this.winnaarTextBox.TabIndex = 15;
+            // 
+            // verliezerTextBox
+            // 
+            this.verliezerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wedstrijdenBindingSource, "Verliezer", true));
+            this.verliezerTextBox.Location = new System.Drawing.Point(169, 258);
+            this.verliezerTextBox.Name = "verliezerTextBox";
+            this.verliezerTextBox.Size = new System.Drawing.Size(100, 22);
+            this.verliezerTextBox.TabIndex = 17;
             // 
             // FrmEditWedstrijden
             // 
