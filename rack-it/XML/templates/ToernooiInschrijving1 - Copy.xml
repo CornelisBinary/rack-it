@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gegevens>
+  <toernooien>
+    <toernooi naam="SchietMRaak" datum="2020-06-10" locatie="Sporthal">
+      <Inschrijvingen doelgroep="teams">
+        <inschrijving naam="Xml-team"></inschrijving>
+      </Inschrijvingen>
+      
+      <wedstrijden>
+          <wedstrijd afvalfase="4" nummer="1" veld="veld1">
+            <eindstand winnaar="piet" verliezer="henk" eindstand="1|0"></eindstand>
+          </wedstrijd>
+      </wedstrijden>
+      
+    </toernooi>
+  </toernooien>
+</gegevens>

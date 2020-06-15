@@ -29,5 +29,57 @@ namespace rack_it
             this.teamsTableAdapter.Fill(this.rack_itDataSet.teams);
 
         }
+
+        private void teamsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 1 && teamsDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString() != "");
+            {
+                int index = e.RowIndex;
+                FrmBewerkTeam frmBewerkTeam = new FrmBewerkTeam(index);
+
+                if (frmBewerkTeam.ShowDialog() == DialogResult.OK)
+                {
+                    this.teamsTableAdapter.Fill(rack_itDataSet.teams);
+                }
+                //MessageBox.Show(e.RowIndex.ToString() + " " + teamsDataGridView.Rows[e.RowIndex].Cells[0].Value);
+            }
+        }
+
+        private void btnNieuw_Click(object sender, EventArgs e)
+        {
+            FrmMaakTeam frmMaakTeam = new FrmMaakTeam();
+
+            if (frmMaakTeam.ShowDialog() == DialogResult.OK)
+            {
+                this.teamsTableAdapter.Fill(this.rack_itDataSet.teams);
+            }
+        }
+
+        private void btnZoeken_Click(object sender, EventArgs e)
+        {
+            string zoekwaarde = txbZoekwaarde.Text;
+
+            try
+            {
+                teamsDataGridView.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
+
+                foreach (DataGridViewRow row in teamsDataGridView.Rows)
+                {
+                    if (row.Cells[0].Value.ToString().Equals(zoekwaarde))
+                    {
+                        teamsDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+                        row.Selected = true;
+                        break;
+                    }
+
+                }
+
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show(exception.Message);
+            }
+        }
     }
 }

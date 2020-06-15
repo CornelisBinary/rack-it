@@ -35,10 +35,10 @@
             this.tableAdapterManager = new rack_it.rack_itDataSetTableAdapters.TableAdapterManager();
             this.teamsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClmTeams = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnNieuw = new System.Windows.Forms.Button();
+            this.btnZoeken = new System.Windows.Forms.Button();
+            this.txbZoekwaarde = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.rack_itDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamsDataGridView)).BeginInit();
@@ -61,8 +61,10 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.inschrijvingspelersTableAdapter = null;
+            this.tableAdapterManager.inschrijvingteamsTableAdapter = null;
             this.tableAdapterManager.locatiesTableAdapter = null;
-            this.tableAdapterManager.schoolTableAdapter = null;
+            this.tableAdapterManager.scholenTableAdapter = null;
             this.tableAdapterManager.spelersTableAdapter = null;
             this.tableAdapterManager.teamsTableAdapter = this.teamsTableAdapter;
             this.tableAdapterManager.toernooienTableAdapter = null;
@@ -72,12 +74,13 @@
             // 
             // teamsDataGridView
             // 
+            this.teamsDataGridView.AllowUserToAddRows = false;
+            this.teamsDataGridView.AllowUserToDeleteRows = false;
             this.teamsDataGridView.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.teamsDataGridView.AutoGenerateColumns = false;
             this.teamsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.teamsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
             this.btnClmTeams});
             this.teamsDataGridView.DataSource = this.teamsBindingSource;
             this.teamsDataGridView.Location = new System.Drawing.Point(80, 72);
@@ -85,6 +88,7 @@
             this.teamsDataGridView.RowTemplate.Height = 24;
             this.teamsDataGridView.Size = new System.Drawing.Size(640, 374);
             this.teamsDataGridView.TabIndex = 7;
+            this.teamsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.teamsDataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -95,46 +99,52 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Toernooien_Naam";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Toernooien_Naam";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
             // btnClmTeams
             // 
             this.btnClmTeams.HeaderText = "Bewerk";
             this.btnClmTeams.Name = "btnClmTeams";
             // 
-            // button7
+            // btnNieuw
             // 
-            this.button7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button7.Location = new System.Drawing.Point(186, 43);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 24);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnNieuw.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnNieuw.BackColor = System.Drawing.Color.LightBlue;
+            this.btnNieuw.Location = new System.Drawing.Point(620, 43);
+            this.btnNieuw.Name = "btnNieuw";
+            this.btnNieuw.Size = new System.Drawing.Size(100, 23);
+            this.btnNieuw.TabIndex = 12;
+            this.btnNieuw.Text = "+";
+            this.btnNieuw.UseVisualStyleBackColor = false;
+            this.btnNieuw.Click += new System.EventHandler(this.btnNieuw_Click);
             // 
-            // textBox1
+            // btnZoeken
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox1.Location = new System.Drawing.Point(80, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 10;
+            this.btnZoeken.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnZoeken.BackColor = System.Drawing.Color.LightBlue;
+            this.btnZoeken.Location = new System.Drawing.Point(186, 42);
+            this.btnZoeken.Name = "btnZoeken";
+            this.btnZoeken.Size = new System.Drawing.Size(75, 24);
+            this.btnZoeken.TabIndex = 14;
+            this.btnZoeken.Text = "Zoek";
+            this.btnZoeken.UseVisualStyleBackColor = false;
+            this.btnZoeken.Click += new System.EventHandler(this.btnZoeken_Click);
+            // 
+            // txbZoekwaarde
+            // 
+            this.txbZoekwaarde.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txbZoekwaarde.Location = new System.Drawing.Point(80, 43);
+            this.txbZoekwaarde.Name = "txbZoekwaarde";
+            this.txbZoekwaarde.Size = new System.Drawing.Size(100, 22);
+            this.txbZoekwaarde.TabIndex = 13;
             // 
             // FrmTeamsOverzicht
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(800, 478);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnZoeken);
+            this.Controls.Add(this.txbZoekwaarde);
+            this.Controls.Add(this.btnNieuw);
             this.Controls.Add(this.teamsDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmTeamsOverzicht";
@@ -155,9 +165,9 @@
         private rack_itDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView teamsDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewButtonColumn btnClmTeams;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnNieuw;
+        private System.Windows.Forms.Button btnZoeken;
+        private System.Windows.Forms.TextBox txbZoekwaarde;
     }
 }

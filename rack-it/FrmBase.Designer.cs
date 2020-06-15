@@ -33,11 +33,10 @@
             this.btnEinde = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnToernooien = new System.Windows.Forms.Button();
+            this.btnSpelers = new System.Windows.Forms.Button();
+            this.btnTeams = new System.Windows.Forms.Button();
+            this.btnScholen = new System.Windows.Forms.Button();
             this.btnHoofdscherm = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -79,94 +78,98 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.panel6.Controls.Add(this.button6);
-            this.panel6.Controls.Add(this.button5);
-            this.panel6.Controls.Add(this.button4);
-            this.panel6.Controls.Add(this.button3);
-            this.panel6.Controls.Add(this.button2);
+            this.panel6.Controls.Add(this.btnToernooien);
+            this.panel6.Controls.Add(this.btnSpelers);
+            this.panel6.Controls.Add(this.btnTeams);
+            this.panel6.Controls.Add(this.btnScholen);
             this.panel6.Controls.Add(this.btnHoofdscherm);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(109, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(714, 37);
+            this.panel6.Size = new System.Drawing.Size(838, 38);
             this.panel6.TabIndex = 5;
             // 
-            // button6
+            // btnToernooien
             // 
-            this.button6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button6.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.SystemColors.Control;
-            this.button6.Location = new System.Drawing.Point(576, 4);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(104, 28);
-            this.button6.TabIndex = 5;
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnToernooien.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnToernooien.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnToernooien.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnToernooien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToernooien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToernooien.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnToernooien.Location = new System.Drawing.Point(181, 2);
+            this.btnToernooien.Margin = new System.Windows.Forms.Padding(30, 1, 20, 1);
+            this.btnToernooien.Name = "btnToernooien";
+            this.btnToernooien.Size = new System.Drawing.Size(150, 34);
+            this.btnToernooien.TabIndex = 4;
+            this.btnToernooien.Text = "Toernooien";
+            this.btnToernooien.UseVisualStyleBackColor = false;
+            this.btnToernooien.Click += new System.EventHandler(this.btnToernooien_Click);
             // 
-            // button5
+            // btnSpelers
             // 
-            this.button5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button5.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.SystemColors.Control;
-            this.button5.Location = new System.Drawing.Point(468, 4);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(104, 28);
-            this.button5.TabIndex = 4;
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnSpelers.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSpelers.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSpelers.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnSpelers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSpelers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpelers.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSpelers.Location = new System.Drawing.Point(679, 2);
+            this.btnSpelers.Margin = new System.Windows.Forms.Padding(30, 1, 20, 1);
+            this.btnSpelers.Name = "btnSpelers";
+            this.btnSpelers.Size = new System.Drawing.Size(150, 34);
+            this.btnSpelers.TabIndex = 3;
+            this.btnSpelers.Text = "Spelers";
+            this.btnSpelers.UseVisualStyleBackColor = false;
+            this.btnSpelers.Click += new System.EventHandler(this.btnSpelers_Click);
             // 
-            // button4
+            // btnTeams
             // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button4.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.SystemColors.Control;
-            this.button4.Location = new System.Drawing.Point(360, 4);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(104, 28);
-            this.button4.TabIndex = 3;
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnTeams.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnTeams.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnTeams.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnTeams.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTeams.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnTeams.Location = new System.Drawing.Point(513, 2);
+            this.btnTeams.Margin = new System.Windows.Forms.Padding(30, 1, 20, 1);
+            this.btnTeams.Name = "btnTeams";
+            this.btnTeams.Size = new System.Drawing.Size(150, 34);
+            this.btnTeams.TabIndex = 2;
+            this.btnTeams.Text = "Teams";
+            this.btnTeams.UseVisualStyleBackColor = false;
+            this.btnTeams.Click += new System.EventHandler(this.btnTeams_Click);
             // 
-            // button3
+            // btnScholen
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button3.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.SystemColors.Control;
-            this.button3.Location = new System.Drawing.Point(252, 4);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 28);
-            this.button3.TabIndex = 2;
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button2.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(144, 4);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 28);
-            this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnScholen.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnScholen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnScholen.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnScholen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScholen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnScholen.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnScholen.Location = new System.Drawing.Point(347, 2);
+            this.btnScholen.Margin = new System.Windows.Forms.Padding(30, 1, 20, 1);
+            this.btnScholen.Name = "btnScholen";
+            this.btnScholen.Size = new System.Drawing.Size(150, 34);
+            this.btnScholen.TabIndex = 1;
+            this.btnScholen.Text = "Scholen";
+            this.btnScholen.UseVisualStyleBackColor = false;
+            this.btnScholen.Click += new System.EventHandler(this.btnScholen_Click);
             // 
             // btnHoofdscherm
             // 
             this.btnHoofdscherm.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnHoofdscherm.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnHoofdscherm.BackColor = System.Drawing.Color.DarkSlateGray;
             this.btnHoofdscherm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHoofdscherm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHoofdscherm.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnHoofdscherm.Location = new System.Drawing.Point(36, 4);
-            this.btnHoofdscherm.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHoofdscherm.Location = new System.Drawing.Point(15, 2);
+            this.btnHoofdscherm.Margin = new System.Windows.Forms.Padding(30, 1, 20, 1);
             this.btnHoofdscherm.Name = "btnHoofdscherm";
-            this.btnHoofdscherm.Size = new System.Drawing.Size(104, 28);
+            this.btnHoofdscherm.Size = new System.Drawing.Size(150, 34);
             this.btnHoofdscherm.TabIndex = 0;
             this.btnHoofdscherm.Text = "Hoofdscherm";
             this.btnHoofdscherm.UseVisualStyleBackColor = false;
@@ -176,7 +179,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(823, 478);
+            this.ClientSize = new System.Drawing.Size(947, 478);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -186,6 +189,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Rack-It";
             this.TransparencyKey = System.Drawing.Color.DarkGray;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmBase_Load);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -197,13 +201,12 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnHoofdscherm;
         private System.Windows.Forms.Button btnEinde;
+        private System.Windows.Forms.Button btnSpelers;
+        private System.Windows.Forms.Button btnTeams;
+        private System.Windows.Forms.Button btnScholen;
+        private System.Windows.Forms.Button btnHoofdscherm;
+        private System.Windows.Forms.Button btnToernooien;
     }
 }
 

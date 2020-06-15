@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gegevens>
+  <toernooien>
+    <toernooi naam="Vleugel|Primals" datum="2020-06-10" locatie="Sporthal">
+      <Inschrijvingen doelgroep="teams">
+        <inschrijving naam="Valken">
+        </inschrijving>
+      </Inschrijvingen>
+    </toernooi>
+  </toernooien>
+</gegevens>

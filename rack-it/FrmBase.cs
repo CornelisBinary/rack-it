@@ -15,6 +15,8 @@ namespace rack_it
         public FrmBase()
         {
             InitializeComponent();
+
+            this.Bounds = Screen.GetBounds(this);
         }
 
         private void FrmBase_Load(object sender, EventArgs e)
@@ -52,6 +54,72 @@ namespace rack_it
             this.Close();
         }
 
+        private void btnToernooien_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
 
+            FrmToernooienOverzicht frmToernooienOverzicht = new FrmToernooienOverzicht(Toernooi.Alle);
+
+            frmToernooienOverzicht.MdiParent = this;
+
+            frmToernooienOverzicht.StartPosition = FormStartPosition.CenterScreen;
+            frmToernooienOverzicht.Dock = DockStyle.Fill;
+
+            frmToernooienOverzicht.Show();
+        }
+
+        private void btnScholen_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+
+            FrmScholenOverzicht frmScholenOverzicht = new FrmScholenOverzicht();
+
+            frmScholenOverzicht.MdiParent = this;
+
+            frmScholenOverzicht.StartPosition = FormStartPosition.CenterScreen;
+            frmScholenOverzicht.Dock = DockStyle.Fill;
+
+            frmScholenOverzicht.Show();
+        }
+
+        private void btnTeams_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+
+            FrmTeamsOverzicht frmTeamsOverzicht = new FrmTeamsOverzicht();
+
+            frmTeamsOverzicht.MdiParent = this;
+
+            frmTeamsOverzicht.StartPosition = FormStartPosition.CenterScreen;
+            frmTeamsOverzicht.Dock = DockStyle.Fill;
+
+            frmTeamsOverzicht.Show();
+        }
+
+        private void btnSpelers_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+
+            FrmSpelersOverzicht frmSpelersOverzicht = new FrmSpelersOverzicht();
+
+            frmSpelersOverzicht.MdiParent = this;
+
+            frmSpelersOverzicht.StartPosition = FormStartPosition.CenterScreen;
+            frmSpelersOverzicht.Dock = DockStyle.Fill;
+
+            frmSpelersOverzicht.Show();
+        }
     }
 }

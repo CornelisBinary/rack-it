@@ -12,7 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\home\source\published\rack-it\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,9 +23,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -66,17 +67,99 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="_rack_itDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_rack_itDataSet.xsd</DependentUpon>
+    </Compile>
+    <None Include="XML\templates\ToernooiInschrijvingen.xml" />
+    <None Include="XML\templates\GegevensImport.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <Compile Include="codeStash\CodeFile1.cs" />
     <Compile Include="FrmBase.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmBase.Designer.cs">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBewerkSchool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBewerkSchool.Designer.cs">
+      <DependentUpon>FrmBewerkSchool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBewerkSpeler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBewerkSpeler.Designer.cs">
+      <DependentUpon>FrmBewerkSpeler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBewerkTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBewerkTeam.Designer.cs">
+      <DependentUpon>FrmBewerkTeam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCreateBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCreateBase.Designer.cs">
+      <DependentUpon>FrmCreateBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEditBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditBase.Designer.cs">
+      <DependentUpon>FrmEditBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEditWedstrijden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditWedstrijden.Designer.cs">
+      <DependentUpon>FrmEditWedstrijden.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHoofdscherm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmHoofdscherm.Designer.cs">
       <DependentUpon>FrmHoofdscherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImporteerModuleXML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImporteerModuleXML.Designer.cs">
+      <DependentUpon>FrmImporteerModuleXML.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVoegToeBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVoegToeBase.Designer.cs">
+      <DependentUpon>FrmVoegToeBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMaakSchool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMaakSchool.Designer.cs">
+      <DependentUpon>FrmMaakSchool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMaakSpeler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMaakSpeler.Designer.cs">
+      <DependentUpon>FrmMaakSpeler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMaakTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMaakTeam.Designer.cs">
+      <DependentUpon>FrmMaakTeam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMaakToernooi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMaakToernooi.Designer.cs">
+      <DependentUpon>FrmMaakToernooi.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmScholenOverzicht.cs">
       <SubType>Form</SubType>
@@ -96,24 +179,78 @@
     <Compile Include="FrmTeamsOverzicht.Designer.cs">
       <DependentUpon>FrmTeamsOverzicht.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmToernooien.cs">
+    <Compile Include="FrmToernooienOverzicht.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmToernooien.Designer.cs">
-      <DependentUpon>FrmToernooien.cs</DependentUpon>
+    <Compile Include="FrmToernooienOverzicht.Designer.cs">
+      <DependentUpon>FrmToernooienOverzicht.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmToernooienWeergave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmToernooienWeergave.Designer.cs">
+      <DependentUpon>FrmToernooienWeergave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_H_Spelers_AanmeldenToernooi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_H_Spelers_AanmeldenToernooi.Designer.cs">
+      <DependentUpon>Frm_H_Spelers_AanmeldenToernooi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_H_Teams_AanmeldenToernooi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_H_Teams_AanmeldenToernooi.Designer.cs">
+      <DependentUpon>Frm_H_Teams_AanmeldenToernooi.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="_rack_itDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
+    <Compile Include="Afvalschema.cs" />
+    <Compile Include="XML.cs" />
+    <Compile Include="_rack_itDataSet.cs">
       <DependentUpon>_rack_itDataSet.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmBewerkSchool.resx">
+      <DependentUpon>FrmBewerkSchool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBewerkSpeler.resx">
+      <DependentUpon>FrmBewerkSpeler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBewerkTeam.resx">
+      <DependentUpon>FrmBewerkTeam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCreateBase.resx">
+      <DependentUpon>FrmCreateBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditBase.resx">
+      <DependentUpon>FrmEditBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditWedstrijden.resx">
+      <DependentUpon>FrmEditWedstrijden.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmHoofdscherm.resx">
       <DependentUpon>FrmHoofdscherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImporteerModuleXML.resx">
+      <DependentUpon>FrmImporteerModuleXML.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVoegToeBase.resx">
+      <DependentUpon>FrmVoegToeBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMaakSchool.resx">
+      <DependentUpon>FrmMaakSchool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMaakSpeler.resx">
+      <DependentUpon>FrmMaakSpeler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMaakTeam.resx">
+      <DependentUpon>FrmMaakTeam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMaakToernooi.resx">
+      <DependentUpon>FrmMaakToernooi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmScholenOverzicht.resx">
       <DependentUpon>FrmScholenOverzicht.cs</DependentUpon>
@@ -124,8 +261,17 @@
     <EmbeddedResource Include="FrmTeamsOverzicht.resx">
       <DependentUpon>FrmTeamsOverzicht.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmToernooien.resx">
-      <DependentUpon>FrmToernooien.cs</DependentUpon>
+    <EmbeddedResource Include="FrmToernooienOverzicht.resx">
+      <DependentUpon>FrmToernooienOverzicht.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmToernooienWeergave.resx">
+      <DependentUpon>FrmToernooienWeergave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_H_Spelers_AanmeldenToernooi.resx">
+      <DependentUpon>Frm_H_Spelers_AanmeldenToernooi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_H_Teams_AanmeldenToernooi.resx">
+      <DependentUpon>Frm_H_Teams_AanmeldenToernooi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -151,8 +297,8 @@
     </None>
     <None Include="_rack_itDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_rack_itDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>_rack_itDataSet.Designer.cs</LastGenOutput>
     </None>
     <None Include="_rack_itDataSet.xss">
       <DependentUpon>_rack_itDataSet.xsd</DependentUpon>
@@ -175,6 +321,14 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="XML\import\ToernooiInschrijving1.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="XML\import\GegevensImport1.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
