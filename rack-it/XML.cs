@@ -72,7 +72,7 @@ namespace rack_it
                             break;
                        case "scholen":
                             _scholen(itemNode);
-                            break;
+                            break; 
                         case "locaties":
                             _locaties(itemNode);
                             break;
@@ -88,8 +88,8 @@ namespace rack_it
                     throw new Exception("Fouten in het bestand! controleer het bestand op fouten: " + exception.Message) { };
                 }
 
-                // bestand opslaan in de import folder.
-                xmlDoc.Save("..\\..\\XML\\import\\" + FileName.Split('\\').Last());
+                // bestand opslaan in de import folder. werkt niet op productie omgeving...
+                //xmlDoc.Save("..\\..\\XML\\import\\" + FileName.Split('\\').Last());
             }
         }
 

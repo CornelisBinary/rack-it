@@ -29,4 +29,3 @@ C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csproj.Core
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csproj.CopyComplete
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.exe
 C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.pdb
-C:\Users\home\source\repos\rack-it\rack-it\rack-it\obj\Debug\rack-it.csprojAssemblyReference.cache

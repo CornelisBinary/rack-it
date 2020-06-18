@@ -72,6 +72,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_rack_itDataSet.xsd</DependentUpon>
     </Compile>
+    <None Include="MysqlDatabase\DatabaseModel.mwb" />
+    <None Include="MysqlDatabase\DatabaseModel.mwb.bak" />
     <None Include="XML\templates\ToernooiInschrijvingen.xml" />
     <None Include="XML\templates\GegevensImport.xml">
       <SubType>Designer</SubType>
